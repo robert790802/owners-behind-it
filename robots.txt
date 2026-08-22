@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /pocket
+Disallow: /scan
+
+Sitemap: https://ownersbehindit.com/sitemap.xml
