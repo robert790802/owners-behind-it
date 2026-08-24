@@ -3,4 +3,20 @@ Allow: /
 Disallow: /pocket
 Disallow: /scan
 
+# AI assistants and agents
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://ownersbehindit.com/sitemap.xml
