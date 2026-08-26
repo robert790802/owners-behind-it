@@ -628,19 +628,21 @@
   .hero-step:hover{border-bottom-color:var(--gold-light)}
 
   .stepdown{
+    align-items:start;
     border:1px solid rgba(201,161,74,.36);
+    display:grid;
+    gap:clamp(2.5rem,4vw,4rem);
+    grid-template-columns:minmax(0,1.2fr) minmax(280px,.65fr);
     margin-top:clamp(1.6rem,2.6vw,2.4rem);
-    max-width:640px;
-    padding:clamp(2rem,3vw,2.8rem) clamp(1.35rem,2.4vw,2.2rem);
+    padding:clamp(1.6rem,2.6vw,2.4rem);
     position:relative;
-    text-align:center;
   }
+
+  .stepdown-action{justify-self:end;max-width:320px;text-align:center;width:100%}
 
   .stepdown::before{background:var(--gold);content:"";height:3px;left:-1px;position:absolute;top:-1px;width:110px}
 
-  .stepdown-eyebrow{display:inline-flex;justify-content:center;margin-bottom:1rem}
-
-  .stepdown-eyebrow::before{display:none}
+  .stepdown-eyebrow{margin-bottom:1rem}
 
   .stepdown-title{
     color:var(--cream);
@@ -651,15 +653,13 @@
     margin-bottom:.85rem;
   }
 
-  .stepdown-lead{color:rgba(245,239,225,.72);font-size:.98rem;line-height:1.6;margin:0 auto;max-width:430px}
+  .stepdown-lead{color:rgba(245,239,225,.72);font-size:.98rem;line-height:1.6}
 
   .prompts{
     background:rgba(201,161,74,.07);
     border-left:3px solid var(--gold);
-    margin:1.8rem auto;
-    max-width:440px;
+    margin:1.5rem 0 0;
     padding:1rem 1.15rem;
-    text-align:left;
   }
 
   .prompts p{color:rgba(245,239,225,.9);font-size:.92rem;line-height:1.65}
@@ -724,8 +724,7 @@
     display:block;
     font-family:var(--body);
     font-size:.95rem;
-    margin:0 auto .75rem;
-    max-width:400px;
+    margin:0 0 .75rem;
     padding:.8rem .95rem;
     width:100%;
   }
@@ -768,7 +767,7 @@
 
   .stepdown-msg a{border-bottom:1px solid rgba(225,197,127,.5);color:var(--gold-light)}
 
-  .fineprint{color:var(--lavender-dim);font-size:.75rem;line-height:1.6;margin-top:1.6rem}
+  .fineprint{color:var(--lavender-dim);font-size:.75rem;grid-column:1/-1;line-height:1.6;margin-top:.4rem}
 
   .site-footer{background:var(--navy);border-top:1px solid rgba(245,239,225,.08);color:var(--cream);padding:2rem 0}
   .footer-row{align-items:center;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
@@ -824,7 +823,7 @@
 
   @media (max-width:900px){
     .hero{min-height:auto}
-    .hero-grid,.interview-head,.recognition-head,.story-grid,.invite-panel{grid-template-columns:1fr}
+    .hero-grid,.interview-head,.recognition-head,.story-grid,.invite-panel,.stepdown{grid-template-columns:1fr}
     .interview>.shell{grid-template-columns:1fr;gap:3rem}
     .interview-collage{height:auto;justify-self:start;max-width:380px}
     .wide-shot{height:auto}
@@ -843,6 +842,8 @@
     .about-portrait::after{display:none}
     .invite-panel{min-height:0}
     .invite-action{justify-self:start}
+
+    .stepdown-action{justify-self:start;max-width:none}
   }
 
   @media (max-width:700px){
@@ -1325,6 +1326,7 @@
       </div>
 
       <div class="stepdown" id="tell-me">
+        <div class="stepdown-copy">
         <span class="eyebrow light stepdown-eyebrow">No forms. No scheduling. No obligation.</span>
         <h2 class="stepdown-title">Tell me your story</h2>
         <p class="stepdown-lead">You don&rsquo;t have to type it and you don&rsquo;t have to book anything. Press the button and talk to me for two minutes like I&rsquo;m sitting across from you. I&rsquo;ll listen to the whole thing and come back to you myself.</p>
@@ -1335,7 +1337,9 @@
           <p>What do people keep saying to you after the work is done?</p>
           <p>What do you wish somebody would finally ask you about?</p>
         </div>
+        </div>
 
+        <div class="stepdown-action">
         <div class="stage on" id="sd-idle">
           <button class="mic-btn" id="sd-record" type="button" aria-label="Start recording">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1374,6 +1378,8 @@
         </div>
 
         <p class="stepdown-msg" id="sd-msg" role="status" aria-live="polite"></p>
+        </div>
+
         <p class="fineprint">Your recording comes to me and no one else. It is never posted, shared, or used anywhere.</p>
       </div>
 
