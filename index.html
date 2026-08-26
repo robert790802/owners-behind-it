@@ -213,7 +213,7 @@
     font-weight:500;
     line-height:1.28;
   }
-  .hero-actions{align-items:center;display:flex;gap:1.4rem;margin-top:1.8rem}
+  .hero-actions{align-items:center;display:flex;flex-wrap:wrap;gap:1.1rem 1.4rem;margin-top:1.8rem}
 
   /* the conversation before the build */
   .interview{
@@ -616,6 +616,162 @@
   .contact a{border-bottom:1px solid rgba(201,161,74,.45);color:var(--gold-light)}
   .invite-local{color:var(--gold-light)!important;font-size:.78rem;font-weight:600;letter-spacing:.08em;margin:0 0 1rem;text-transform:uppercase}
 
+  /* step down from the calendar: voice recorder, see #tell-me */
+  .hero-step{
+    border-bottom:1px solid rgba(225,197,127,.45);
+    align-self:flex-start;
+    color:var(--gold-light);
+    flex-basis:100%;
+    font-size:.86rem;
+    font-weight:500;
+    padding-bottom:.2rem;
+  }
+
+  .hero-step:hover{border-bottom-color:var(--gold-light)}
+
+  .stepdown{
+    border:1px solid rgba(201,161,74,.36);
+    margin-top:clamp(1.6rem,2.6vw,2.4rem);
+    max-width:640px;
+    padding:clamp(2rem,3vw,2.8rem) clamp(1.35rem,2.4vw,2.2rem);
+    position:relative;
+    text-align:center;
+  }
+
+  .stepdown::before{background:var(--gold);content:"";height:3px;left:-1px;position:absolute;top:-1px;width:110px}
+
+  .stepdown-eyebrow{display:inline-flex;justify-content:center;margin-bottom:1rem}
+
+  .stepdown-eyebrow::before{display:none}
+
+  .stepdown-title{
+    color:var(--cream);
+    font-family:var(--question);
+    font-size:clamp(1.9rem,3vw,2.5rem);
+    font-weight:600;
+    line-height:1.15;
+    margin-bottom:.85rem;
+  }
+
+  .stepdown-lead{color:rgba(245,239,225,.72);font-size:.98rem;line-height:1.6;margin:0 auto;max-width:430px}
+
+  .prompts{
+    background:rgba(201,161,74,.07);
+    border-left:3px solid var(--gold);
+    margin:1.8rem auto;
+    max-width:440px;
+    padding:1rem 1.15rem;
+    text-align:left;
+  }
+
+  .prompts p{color:rgba(245,239,225,.9);font-size:.92rem;line-height:1.65}
+
+  .prompts p + p{margin-top:.45rem}
+
+  .prompts .plabel{
+    color:var(--gold-light);
+    font-size:.68rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    margin-bottom:.6rem;
+    text-transform:uppercase;
+  }
+
+  .stepdown .stage{display:none}
+
+  .stepdown .stage.on{display:block}
+
+  .mic-btn{
+    align-items:center;
+    background:radial-gradient(circle at 35% 30%,rgba(225,197,127,.28),rgba(201,161,74,.10));
+    border:2px solid var(--gold);
+    border-radius:50%;
+    color:var(--gold-light);
+    cursor:pointer;
+    display:inline-flex;
+    height:104px;
+    justify-content:center;
+    transition:transform .15s ease,background .2s ease;
+    width:104px;
+  }
+
+  .mic-btn:hover{transform:scale(1.04)}
+
+  .mic-btn:focus-visible{outline:3px solid var(--gold-light);outline-offset:4px}
+
+  .mic-btn svg{height:44px;width:44px}
+
+  .mic-btn.rec{background:rgba(201,161,74,.22)}
+
+  .mic-btn:disabled{cursor:default;opacity:.45;transform:none}
+
+  .mic-label{color:var(--lavender);font-size:.9rem;line-height:1.5;margin-top:.85rem}
+
+  .timer{
+    color:var(--gold-light);
+    font-family:var(--question);
+    font-size:1.9rem;
+    font-weight:600;
+    letter-spacing:.05em;
+    margin-top:.4rem;
+  }
+
+  .stepdown audio{border-radius:4px;margin:1rem 0 1.1rem;width:100%}
+
+  .field{
+    background:rgba(245,239,225,.06);
+    border:1px solid rgba(168,160,180,.4);
+    border-radius:3px;
+    color:var(--cream);
+    display:block;
+    font-family:var(--body);
+    font-size:.95rem;
+    margin:0 auto .75rem;
+    max-width:400px;
+    padding:.8rem .95rem;
+    width:100%;
+  }
+
+  .field::placeholder{color:var(--lavender-dim)}
+
+  .field:focus{border-color:var(--gold);outline:2px solid var(--gold)}
+
+  .stepdown-actions{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-top:.4rem}
+
+  .btn-gold,.btn-ghost{
+    border-radius:2px;
+    cursor:pointer;
+    font-family:var(--body);
+    font-size:.88rem;
+    font-weight:600;
+    letter-spacing:.02em;
+    min-height:52px;
+    padding:.85rem 1.5rem;
+    transition:background .2s ease,transform .2s ease;
+  }
+
+  .btn-gold{background:var(--gold);border:1px solid var(--gold);color:var(--navy)}
+
+  .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+
+  .btn-ghost{background:transparent;border:1px solid rgba(168,160,180,.5);color:var(--lavender)}
+
+  .btn-ghost:hover{color:var(--cream)}
+
+  .btn-gold:focus-visible,.btn-ghost:focus-visible{outline:3px solid var(--gold-light);outline-offset:3px}
+
+  .btn-gold:disabled,.btn-ghost:disabled{cursor:default;opacity:.5;transform:none}
+
+  .sent-mark{color:var(--gold);font-family:var(--question);font-size:3.2rem;line-height:1;margin-bottom:.3rem}
+
+  .stepdown-sent{color:var(--cream);font-family:var(--question);font-size:1.7rem;font-weight:600;margin-bottom:.7rem}
+
+  .stepdown-msg{color:var(--gold-light);font-size:.88rem;line-height:1.5;margin-top:.9rem;min-height:1.2rem}
+
+  .stepdown-msg a{border-bottom:1px solid rgba(225,197,127,.5);color:var(--gold-light)}
+
+  .fineprint{color:var(--lavender-dim);font-size:.75rem;line-height:1.6;margin-top:1.6rem}
+
   .site-footer{background:var(--navy);border-top:1px solid rgba(245,239,225,.08);color:var(--cream);padding:2rem 0}
   .footer-row{align-items:center;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
   .site-footer small{color:var(--lavender-dim);font-size:.75rem}
@@ -706,6 +862,10 @@
     .nav-links a.nav-phone{display:inline}
     .hero{padding-top:8.8rem}
     .hero-actions{align-items:flex-start;flex-direction:column}
+
+    .stepdown{padding:1.75rem 1.25rem}
+
+    .stepdown-actions>*{flex:1 1 100%}
     .recognition-grid,.method-grid{grid-template-columns:1fr}
     .recognition-card,.recognition-card:first-child,.recognition-card:last-child{
       border-left:0;
@@ -934,6 +1094,23 @@
   </div>
 </header>
 
+<!--
+  Netlify Forms registration for the voice recorder in #tell-me.
+  Static and hidden so Netlify's build-time parser finds it. Submissions land in
+  Netlify > Forms > tell-your-story. The audio arrives as a link in the notification
+  email, not as an attachment.
+-->
+<form name="tell-your-story" method="post" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" hidden>
+  <input type="hidden" name="form-name" value="tell-your-story">
+  <input type="text" name="name">
+  <input type="text" name="contact">
+  <input type="text" name="duration">
+  <input type="text" name="source">
+  <input type="text" name="page">
+  <input type="file" name="audio">
+  <input name="bot-field">
+</form>
+
 <main id="top">
   <section class="hero">
     <div class="shell hero-grid">
@@ -947,6 +1124,7 @@
         <p>What do people only discover about your business after they choose you?</p>
         <div class="hero-actions">
           <a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
+          <a class="hero-step" href="#tell-me">Not ready for an hour? Talk to me for two minutes instead.</a>
         </div>
       </div>
     </div>
@@ -1157,6 +1335,60 @@
         </div>
 
       </div>
+
+      <div class="stepdown" id="tell-me">
+        <span class="eyebrow light stepdown-eyebrow">No forms. No scheduling. No obligation.</span>
+        <h2 class="stepdown-title">Tell me your story</h2>
+        <p class="stepdown-lead">You don&rsquo;t have to type it and you don&rsquo;t have to book anything. Press the button and talk to me for two minutes like I&rsquo;m sitting across from you. I&rsquo;ll listen to the whole thing and come back to you myself.</p>
+
+        <div class="prompts">
+          <p class="plabel">If it helps, tell me things like</p>
+          <p>What does your business do, and how long have you been at it?</p>
+          <p>What do people keep saying to you after the work is done?</p>
+          <p>What do you wish somebody would finally ask you about?</p>
+        </div>
+
+        <div class="stage on" id="sd-idle">
+          <button class="mic-btn" id="sd-record" type="button" aria-label="Start recording">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="2.5" width="6" height="12" rx="3"></rect>
+              <path d="M5 11a7 7 0 0 0 14 0"></path>
+              <line x1="12" y1="18" x2="12" y2="21.5"></line>
+              <line x1="8.5" y1="21.5" x2="15.5" y2="21.5"></line>
+            </svg>
+          </button>
+          <p class="mic-label">Tap to start talking</p>
+        </div>
+
+        <div class="stage" id="sd-rec">
+          <button class="mic-btn rec" id="sd-stop" type="button" aria-label="Stop recording">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"></rect></svg>
+          </button>
+          <p class="mic-label">I&rsquo;m listening. Tap the square when you&rsquo;re done.</p>
+          <p class="timer" id="sd-timer">0:00</p>
+        </div>
+
+        <div class="stage" id="sd-review">
+          <p class="mic-label">Here it is. Listen back if you want, then send it, or record it again.</p>
+          <audio id="sd-playback" controls></audio>
+          <input class="field" type="text" id="sd-name" placeholder="Your first name" autocomplete="given-name">
+          <input class="field" type="text" id="sd-contact" placeholder="Best phone or email to reach you" autocomplete="tel">
+          <div class="stepdown-actions">
+            <button class="btn-ghost" id="sd-redo" type="button">Record again</button>
+            <button class="btn-gold" id="sd-send" type="button">Send it to Robert</button>
+          </div>
+        </div>
+
+        <div class="stage" id="sd-done">
+          <p class="sent-mark" aria-hidden="true">&#10003;</p>
+          <h3 class="stepdown-sent">Got it. I&rsquo;ll listen today.</h3>
+          <p class="stepdown-lead">Thanks for telling me about it. I&rsquo;ll hear the whole thing, start to finish, and get back to you myself.</p>
+        </div>
+
+        <p class="stepdown-msg" id="sd-msg" role="status" aria-live="polite"></p>
+        <p class="fineprint">Your recording comes to me and no one else. It is never posted, shared, or used anywhere.</p>
+      </div>
+
     </div>
   </section>
 
@@ -1170,5 +1402,158 @@
   </div>
 </footer>
 
+<script>
+/* ------------------------------------------------------------------
+   Step down from the calendar: voice recorder.
+   Ported from therobertszigeti.com/voice.html.
+   Netlify Forms only. Nothing here depends on GoHighLevel.
+   ------------------------------------------------------------------ */
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var root = $('tell-me');
+  if (!root) return;
+
+  var MAX_SECONDS = 180;               /* 3 minutes. ~2MB per file. */
+  var SOURCE      = 'ownersbehindit.com homepage';
+  var CALENDLY    = 'https://calendly.com/robertszigeti/owners-behind-it';
+
+  var recorder = null, chunks = [], stream = null, blob = null;
+  var startAt = 0, tick = null, durSec = 0;
+
+  function show(id){
+    ['sd-idle','sd-rec','sd-review','sd-done'].forEach(function(x){
+      $(x).classList.toggle('on', x === id);
+    });
+  }
+  function fmt(s){ var m = Math.floor(s/60), r = s%60; return m + ':' + (r<10 ? '0'+r : r); }
+  function say(html){ $('sd-msg').innerHTML = html; }
+
+  function pickMime(){
+    var types = ['audio/webm;codecs=opus','audio/webm','audio/mp4'];
+    for (var i=0;i<types.length;i++){
+      if (window.MediaRecorder && MediaRecorder.isTypeSupported(types[i])) return types[i];
+    }
+    return '';
+  }
+
+  /* No recording available: never leave a dead button. Hand them the other two doors. */
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder){
+    $('sd-record').disabled = true;
+    $('sd-idle').querySelector('.mic-label').textContent = 'This browser cannot record audio.';
+    say('No problem. <a href="' + CALENDLY + '" target="_blank" rel="noopener">Book a sit-down</a> or email <a href="mailto:robert@ownersbehindit.com">robert@ownersbehindit.com</a> instead.');
+    return;
+  }
+
+  $('sd-record').addEventListener('click', function(){
+    say('');
+    navigator.mediaDevices.getUserMedia({ audio:true }).then(function(s){
+      stream = s; chunks = [];
+      var mime = pickMime();
+      try {
+        recorder = mime ? new MediaRecorder(s, { mimeType:mime, audioBitsPerSecond:96000 })
+                        : new MediaRecorder(s);
+      } catch(e){ recorder = new MediaRecorder(s); }
+
+      recorder.ondataavailable = function(e){ if (e.data && e.data.size) chunks.push(e.data); };
+      recorder.onstop = function(){
+        blob = new Blob(chunks, { type: recorder.mimeType || 'audio/webm' });
+        $('sd-playback').src = URL.createObjectURL(blob);
+        if (stream) stream.getTracks().forEach(function(t){ t.stop(); });
+        show('sd-review');
+      };
+      recorder.start();
+      startAt = Date.now();
+      show('sd-rec');
+      tick = setInterval(function(){
+        durSec = Math.floor((Date.now() - startAt)/1000);
+        $('sd-timer').textContent = fmt(durSec);
+        if (durSec >= MAX_SECONDS) stopRec();
+      }, 250);
+    }).catch(function(){
+      say('I could not get to the microphone. Check the browser permission and try again.');
+    });
+  });
+
+  function stopRec(){
+    if (tick){ clearInterval(tick); tick = null; }
+    if (recorder && recorder.state !== 'inactive') recorder.stop();
+  }
+  $('sd-stop').addEventListener('click', stopRec);
+
+  $('sd-redo').addEventListener('click', function(){
+    blob = null; durSec = 0;
+    $('sd-playback').removeAttribute('src');
+    say('');
+    show('sd-idle');
+  });
+
+  $('sd-send').addEventListener('click', function(){
+    var name    = ($('sd-name').value || '').trim();
+    var contact = ($('sd-contact').value || '').trim();
+
+    if (!contact){ say('Add a phone or email so I can get back to you.'); return; }
+    if (!blob){ say('Something went wrong with the recording. Please record it again.'); return; }
+
+    $('sd-send').disabled = true;
+    $('sd-redo').disabled = true;
+    say('Sending...');
+
+    var ext  = (recorder && recorder.mimeType && recorder.mimeType.indexOf('mp4') > -1) ? 'mp4' : 'webm';
+    var file = new File([blob], 'story-' + Date.now() + '.' + ext, { type: blob.type });
+
+    /* ----------------------------------------------------------------
+       GOHIGHLEVEL WEBHOOK GOES HERE, LATER.
+
+       When Amber delivers the RS Global inbound webhook URL, add a
+       fire-and-forget POST at this point, before the Netlify submit
+       below. It carries the contact fields only. The audio always
+       travels through Netlify Forms and never through the webhook.
+
+         var payload = {
+           form_type:  'tell_your_story',
+           source:     SOURCE,
+           first_name: name.split(' ')[0] || '',
+           last_name:  name.split(' ').slice(1).join(' '),
+           phone:      contact.replace(/[^\d+]/g, ''),
+           contact:    contact,
+           summary:    'Length about ' + fmt(durSec) +
+                       '. Listen: Netlify dashboard > Forms > tell-your-story'
+         };
+         var body = Object.keys(payload).map(function(k){
+           return encodeURIComponent(k) + '=' + encodeURIComponent(payload[k] == null ? '' : payload[k]);
+         }).join('&');
+         fetch('PASTE_WEBHOOK_URL_HERE', {
+           method:'POST', mode:'no-cors',
+           headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+           body: body
+         }).catch(function(){});
+
+       Wrap it in try/catch and never await it. If GoHighLevel is down,
+       the recording must still reach Netlify.
+       ---------------------------------------------------------------- */
+
+    var fd = new FormData();
+    fd.append('form-name', 'tell-your-story');
+    fd.append('name',     name);
+    fd.append('contact',  contact);
+    fd.append('duration', fmt(durSec));
+    fd.append('source',   SOURCE);
+    fd.append('page',     SOURCE);
+    fd.append('audio',    file);
+
+    fetch('/', { method:'POST', body: fd })
+      .then(function(res){
+        if (!res.ok) throw new Error('bad status');
+        say('');
+        show('sd-done');
+      })
+      .catch(function(){
+        say('That did not go through. Check your connection and tap Send again.');
+        $('sd-send').disabled = false;
+        $('sd-redo').disabled = false;
+      });
+  });
+})();
+</script>
 </body>
 </html>
