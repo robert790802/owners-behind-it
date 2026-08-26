@@ -1,0 +1,4 @@
+# Never commit the preview. It exists so Robert can open the real page
+# in Safari before anything is written into index.html. If it ever gets
+# committed, Netlify deploys it as a live page at /preview.
+preview.html
