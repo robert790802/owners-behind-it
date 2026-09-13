@@ -209,6 +209,30 @@
     .close .cols > article + article{border-top-color:rgba(245,239,225,.18)}
     .close{text-align:center}
   }
+
+
+  /* one footer, every page */
+  .site-footer{
+    background:#0a1628;
+    border-top:1px solid rgba(245,239,225,.08);
+    color:#f4eddf;
+    font-size:16px;
+    padding:2.2rem 0;
+  }
+  .site-footer .shell{text-align:center}
+  .footer-row{
+    align-items:center;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:.4rem;
+    justify-content:center;
+    text-align:center;
+  }
+  .site-footer small{color:#746d80;font-size:.78rem;line-height:1.6}
+  .site-footer a{border-bottom:0;color:#c9a14a;text-decoration:none}
+  .site-footer a:hover{text-decoration:underline}
+  .footer-offer{text-align:center}
 </style>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png">
@@ -330,8 +354,10 @@
 </section>
 
 <footer class="site-footer">
-  <div class="shell footer-row">
-    <small>RS Global Enterprises &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; <a href="mailto:robert@ownersbehindit.com">robert@ownersbehindit.com</a></small>
+  <div class="shell">
+    <div class="footer-row">
+      <small>RS Global Enterprises &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; <a href="mailto:robert@ownersbehindit.com">robert@ownersbehindit.com</a></small>
+    </div>
   </div>
 </footer>
 

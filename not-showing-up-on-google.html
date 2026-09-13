@@ -183,6 +183,37 @@
     .answer{padding:24px 22px 26px}
     .answer p{font-size:17.5px}
   }
+
+  .footer-offer{color:var(--lavender-dim,#746d80);font-size:.75rem;line-height:1.6;margin:0 0 .85rem}
+  .footer-offer a{color:var(--gold,#c9a14a);text-decoration:none;border-bottom:1px solid rgba(201,161,74,.4)}
+  .footer-offer a:hover{border-bottom-color:var(--gold,#c9a14a)}
+
+  @media (max-width:700px){
+    .nav-links a:not(:last-child){display:none}
+  }
+
+  /* one footer, every page */
+  .site-footer{
+    background:#0a1628;
+    border-top:1px solid rgba(245,239,225,.08);
+    color:#f4eddf;
+    font-size:16px;
+    padding:2.2rem 0;
+  }
+  .site-footer .shell{text-align:center}
+  .footer-row{
+    align-items:center;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:.4rem;
+    justify-content:center;
+    text-align:center;
+  }
+  .site-footer small{color:#746d80;font-size:.78rem;line-height:1.6}
+  .site-footer a{border-bottom:0;color:#c9a14a;text-decoration:none}
+  .site-footer a:hover{text-decoration:underline}
+  .footer-offer{text-align:center}
 </style>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png">
@@ -203,6 +234,8 @@
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="/#approach">My approach</a>
+      <a href="/#story">A real result</a>
+      <a href="/#about">About me</a>
       <a href="/tools.html">Tools</a>
       <a href="/#invite">Let's talk</a>
     </nav>
@@ -316,8 +349,11 @@
 </section>
 
 <footer class="site-footer">
-  <div class="shell footer-row">
-    <small>RS Global Enterprises &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; <a href="mailto:robert@ownersbehindit.com">robert@ownersbehindit.com</a></small>
+  <div class="shell">
+    <p class="footer-offer"><a href="/owner-session">The Owner Session</a> &nbsp;&middot;&nbsp; Ninety minutes about the business you built. $350</p>
+    <div class="footer-row">
+      <small>RS Global Enterprises &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; <a href="mailto:robert@ownersbehindit.com">robert@ownersbehindit.com</a></small>
+    </div>
   </div>
 </footer>
 

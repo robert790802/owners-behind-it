@@ -2,3 +2,5 @@
 # in Safari before anything is written into index.html. If it ever gets
 # committed, Netlify deploys it as a live page at /preview.
 preview.html
+preview-*.html
+preview-start.html

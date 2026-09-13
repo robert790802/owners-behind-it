@@ -886,6 +886,30 @@
     .footer-row{align-items:flex-start;flex-direction:column}
   }
 .invite-next{border-top:1px solid rgba(245,239,225,.15);margin-top:1.6rem;padding-top:1.4rem;text-align:center}.invite-next .in-eyebrow{color:var(--gold-light);font-size:.7rem;font-weight:600;letter-spacing:.12em;line-height:1.5;margin:0 0 .6rem;text-transform:uppercase}.invite-next .in-name{color:var(--cream);font-size:1.02rem;font-weight:600;margin:0 0 .35rem}.invite-next .in-desc{color:var(--lavender);font-size:.82rem;line-height:1.55;margin:0 0 .75rem}.invite-next a{border-bottom:1px solid rgba(201,161,74,.45);color:var(--gold-light);font-size:.82rem;font-weight:600}.invite-next a:hover{border-bottom-color:var(--gold-light)}
+
+
+  /* one footer, every page */
+  .site-footer{
+    background:#0a1628;
+    border-top:1px solid rgba(245,239,225,.08);
+    color:#f4eddf;
+    font-size:16px;
+    padding:2.2rem 0;
+  }
+  .site-footer .shell{text-align:center}
+  .footer-row{
+    align-items:center;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:.4rem;
+    justify-content:center;
+    text-align:center;
+  }
+  .site-footer small{color:#746d80;font-size:.78rem;line-height:1.6}
+  .site-footer a{border-bottom:0;color:#c9a14a;text-decoration:none}
+  .site-footer a:hover{text-decoration:underline}
+  .footer-offer{text-align:center}
 </style>
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png">
@@ -1392,8 +1416,10 @@
 </main>
 
 <footer class="site-footer">
-  <div class="shell footer-row">
-    <small>RS Global Enterprises &nbsp;&middot;&nbsp; 2026</small>
+  <div class="shell">
+    <div class="footer-row">
+      <small>RS Global Enterprises &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; <a href="mailto:robert@ownersbehindit.com">robert@ownersbehindit.com</a></small>
+    </div>
   </div>
 </footer>
 
