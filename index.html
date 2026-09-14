@@ -965,6 +965,26 @@
     line-height:1.3;
     margin:0;
   }
+  .runs-more{margin:clamp(1.5rem,3vh,2.1rem) 0 0;text-align:center}
+  .runs-more .text-link{
+    align-items:center;
+    border-bottom:1px solid rgba(201,161,74,.6);
+    color:var(--navy);
+    display:inline-flex;
+    font-size:1.05rem;
+    font-weight:600;
+    gap:.55rem;
+    padding:.95rem .25rem .4rem;
+    transition:border-color .2s ease;
+  }
+  .runs-more .text-link::after{
+    color:var(--gold-ink);
+    content:"\2192";
+    font-size:1.15rem;
+    transition:transform .2s ease;
+  }
+  .runs-more .text-link:hover{border-bottom-color:var(--gold)}
+  .runs-more .text-link:hover::after{transform:translateX(4px)}
   @media (max-width:860px){
     .runs-grid{grid-template-columns:1fr;row-gap:0}
     .runs-card{border-left:0;padding:1.35rem 0}
@@ -1390,6 +1410,8 @@
         <article class="runs-card"><span class="number">03</span><p>The numbers you can only run at your desk.</p></article>
         <article class="runs-card"><span class="number">04</span><p>The paperwork that has been a mess for ten years.</p></article>
       </div>
+
+      <p class="runs-more"><a class="text-link" href="/tools.html">Beyond the site</a></p>
     </div>
   </section>
 
