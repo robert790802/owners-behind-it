@@ -41,7 +41,7 @@ Flagler County and St. Johns County, Florida. Service-area business, no walk-in 
 - [Home](https://ownersbehindit.com/): the approach, a real result, and how to book a sit-down
 - [Ohlson Photography, before and after](https://ownersbehindit.com/ohlson-before-after): a founding client build, 23 pages with a full Spanish version
 - [Why isn't my business showing up on Google?](https://ownersbehindit.com/not-showing-up-on-google): the six reasons a real business goes missing
-- [Custom web tools](https://ownersbehindit.com/tools.html): spreadsheets rebuilt as tools that work on a phone
+- [Beyond the site](https://ownersbehindit.com/tools.html): the part that starts where the website stops, including spreadsheets rebuilt as tools that work on a phone
 - [Fix and flip calculator](https://ownersbehindit.com/fix-and-flip-calculator.html): a working example of a custom tool
 
 ## Hours
