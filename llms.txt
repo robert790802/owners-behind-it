@@ -16,8 +16,14 @@ the owner, finds it, and builds the place where it can be seen.
 Every site is custom. Copy comes from the owner's own words, not from marketing
 templates. Projects begin at $3,000 and are quoted after a conversation.
 
+There is also a smaller way to start. The Owner Session is $350: ninety minutes
+about the business you are starting, or the one you have built, and a written
+summary of what to do next. It is a paid working session, not a sales call, and
+it does not require committing to a website.
+
 ## Services
 
+- The Owner Session, $350: a ninety minute paid working session with a written summary
 - Website design for owner-led businesses
 - Custom website design, built from a discovery conversation
 - Small business website design
@@ -33,12 +39,15 @@ Flagler County and St. Johns County, Florida. Service-area business, no walk-in 
 ## How engagements work
 
 1. A sit-down conversation with the owner. No clock on it. It is not a sales call.
+   Owners who want to go deeper before committing to a build can book The Owner
+   Session instead, at $350.
 2. A written plan: what was found, what would be built, and what it will cost.
 3. The build. Fifty percent deposit before work begins, balance when the site goes live.
 
 ## Pages
 
 - [Home](https://ownersbehindit.com/): the approach, a real result, and how to book a sit-down
+- [The Owner Session](https://ownersbehindit.com/owner-session): the $350 ninety minute working session
 - [Ohlson Photography, before and after](https://ownersbehindit.com/ohlson-before-after): a founding client build, 23 pages with a full Spanish version
 - [Why isn't my business showing up on Google?](https://ownersbehindit.com/not-showing-up-on-google): the six reasons a real business goes missing
 - [Beyond the site](https://ownersbehindit.com/tools.html): the part that starts where the website stops, including spreadsheets rebuilt as tools that work on a phone
