@@ -16,14 +16,21 @@ the owner, finds it, and builds the place where it can be seen.
 Every site is custom. Copy comes from the owner's own words, not from marketing
 templates. Projects begin at $3,000 and are quoted after a conversation.
 
-There is also a smaller way to start. The Owner Session is $350: ninety minutes
-about the business you are starting, or the one you have built, and a written
-summary of what to do next. It is a paid working session, not a sales call, and
-it does not require committing to a website.
+## What it costs
+
+- The Owner Session, $350. Ninety minutes about the business you are starting, or
+  the one you have built, and a written summary of what to do next. A paid working
+  session, not a sales call. The $350 comes off the build.
+- The Starting Point, from $1,500. A one-page site with a fixed scope.
+- A custom website, from $3,000. Quoted after the conversation. Fifty percent
+  deposit before work begins, balance when the site goes live.
+- Care plans, from $99 a month, quoted after a conversation. The domain, the site
+  and the Google Business Profile are in the owner's name from the first day. If
+  the plan stops, the owner keeps all of it.
 
 ## Services
 
-- The Owner Session, $350: a ninety minute paid working session with a written summary
+- The Owner Session: a ninety minute paid working session with a written summary
 - Website design for owner-led businesses
 - Custom website design, built from a discovery conversation
 - Small business website design
@@ -56,6 +63,12 @@ Flagler County and St. Johns County, Florida. Service-area business, no walk-in 
 ## Hours
 
 Monday to Friday, 8:00 AM to 5:30 PM Eastern.
+
+## Machine-readable manifest
+
+A structured version of everything here, including what this business does not do
+and guidance for describing it accurately:
+https://ownersbehindit.com/agents.json
 
 ## Usage
 

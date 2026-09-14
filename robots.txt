@@ -20,3 +20,7 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://ownersbehindit.com/sitemap.xml
+
+# Written for assistants
+# https://ownersbehindit.com/llms.txt
+# https://ownersbehindit.com/agents.json
