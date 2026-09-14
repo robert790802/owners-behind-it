@@ -265,7 +265,7 @@
     display:grid;
     gap:clamp(2rem,6vw,6rem);
     grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);
-    margin-bottom:clamp(2.25rem,4vh,3rem);
+    margin-bottom:clamp(1.6rem,3vh,2.2rem);
   }
   .recognition-head .lead{color:var(--lavender-dim)}
   .recognition-grid{display:grid;grid-template-columns:repeat(3,1fr)}
@@ -545,8 +545,10 @@
   @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 
   @media (max-width:900px){
-    .hero{min-height:auto}
-    .hero-grid,.interview-head,.recognition-head,.story-grid,.invite-panel{grid-template-columns:1fr}
+    .hero,.tools-hero{min-height:auto}
+    .hero-grid,.tools-hero-grid,.interview-head,.recognition-head,.story-grid,.invite-panel{grid-template-columns:1fr}
+    .tools-hero-grid{gap:2.6rem}
+    .hero-side{border-left:0;border-top:1px solid rgba(201,161,74,.44);margin-bottom:0;padding:1.6rem 0 0}
     .interview>.shell{grid-template-columns:1fr;gap:3rem}
     .interview-collage{height:auto;justify-self:start;max-width:300px}
     .wide-shot{height:auto}
@@ -608,9 +610,48 @@
       radial-gradient(circle at 84% 18%,rgba(201,161,74,.15),transparent 27rem),
       linear-gradient(145deg,var(--navy),var(--navy-2) 67%,#132440);
     color:var(--cream);
-    padding:clamp(11rem,20vh,14rem) 0 clamp(4rem,8vh,6rem);
-    position:relative;
+    align-items:center;
+    display:flex;
+    min-height:88svh;
     overflow:hidden;
+    padding:clamp(8.5rem,15vh,11rem) 0 clamp(4rem,8vh,6rem);
+    position:relative;
+  }
+  .tools-hero-grid{
+    align-items:end;
+    display:grid;
+    gap:clamp(3rem,7vw,7rem);
+    grid-template-columns:minmax(0,1.55fr) minmax(280px,.65fr);
+    position:relative;
+    z-index:1;
+  }
+  .hero-side{border-left:1px solid rgba(201,161,74,.44);margin-bottom:.7rem;padding-left:1.5rem}
+  .hero-side .label{
+    color:var(--gold-light);
+    display:block;
+    font-size:.68rem;
+    font-weight:600;
+    letter-spacing:.18em;
+    margin-bottom:1rem;
+    text-transform:uppercase;
+  }
+  .hero-side p{
+    color:var(--cream);
+    font-family:var(--question);
+    font-size:clamp(1.2rem,1.55vw,1.42rem);
+    font-weight:500;
+    line-height:1.4;
+    margin:0;
+  }
+  .hero-actions{align-items:center;display:flex;flex-wrap:wrap;gap:1.1rem 1.4rem;margin-top:1.8rem}
+  .hero-step{
+    align-self:flex-start;
+    border-bottom:1px solid rgba(225,197,127,.45);
+    color:var(--gold-light);
+    flex-basis:100%;
+    font-size:.86rem;
+    font-weight:500;
+    padding-bottom:.2rem;
   }
   .tools-hero::after{
     border:1px solid rgba(201,161,74,.17);
@@ -623,25 +664,91 @@
     width:31rem;
   }
   .tools-hero .shell{position:relative;z-index:1}
-  .tools-hero h1{color:var(--cream);max-width:14ch}
+  .tools-hero h1{color:var(--cream);font-size:clamp(2.5rem,4.4vw,4rem);max-width:16ch}
   .tools-hero .hero-positioning{
     color:rgba(245,239,225,.72);
     font-size:1.02rem;
     line-height:1.65;
-    margin-top:1.8rem;
-    max-width:56ch;
+    margin-top:1.6rem;
+    max-width:52ch;
   }
-  .tools-body{background:var(--paper);padding:clamp(4.5rem,9vh,7rem) 0}
+
+  /* the voice recorder, its own section */
+  .runs-voice{background:var(--paper);padding:clamp(4.5rem,9vh,7rem) 0}
+  .voice-top{
+    margin:0 auto clamp(2.25rem,4vh,3rem);
+    max-width:42ch;
+    text-align:center;
+  }
+  .voice-top .eyebrow{justify-content:center}
+  .voice-top h2{font-size:clamp(1.8rem,2.4vw,2.3rem);margin:.9rem 0 0;text-wrap:balance}
+  .voice-row{
+    display:grid;
+    gap:clamp(1.2rem,2.2vw,1.9rem);
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+  .phone-shot{margin:0}
+  .phone-shot img{
+    border:1px solid var(--line);
+    border-radius:14px;
+    display:block;
+    height:auto;
+    width:100%;
+  }
+  .phone-shot figcaption{
+    color:var(--lavender-dim);
+    text-align:center;
+    font-size:.66rem;
+    font-weight:600;
+    letter-spacing:.15em;
+    margin-top:.9rem;
+    text-transform:uppercase;
+  }
+  .voice-close{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    margin-top:clamp(2.6rem,4.5vh,3.6rem);
+  }
+  .voice-close > p{margin:0;padding:0 clamp(1.2rem,3vw,2.2rem)}
+  .voice-close > p:first-child{padding-left:0}
+  .voice-close > p:last-child{border-left:1px solid var(--line);padding-right:0}
+  .voice-close .lead{color:var(--lavender-dim);font-size:1.02rem;line-height:1.68}
+  @media (max-width:1100px){
+    .voice-row{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px;margin-inline:auto}
+  }
+  @media (max-width:560px){
+    .voice-row{grid-template-columns:1fr;gap:2.4rem;max-width:340px}
+  }
+  @media (max-width:860px){
+    .voice-close{grid-template-columns:1fr}
+    .voice-close > p{padding:0}
+    .voice-close > p:last-child{border-left:0;border-top:1px solid var(--line);margin-top:1.4rem;padding-top:1.4rem}
+  }
+  .tools-body{background:var(--cream);padding:clamp(3.6rem,7vh,5.4rem) 0}
+  .body-head{
+    align-items:end;
+    display:grid;
+    gap:clamp(2rem,6vw,6rem);
+    grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);
+    margin-bottom:clamp(2.4rem,4vh,3.2rem);
+  }
+  .body-head > div > p{font-size:1.08rem;margin:0}
+  .body-head .starts-from{margin-top:1.15rem}
   .tools-body .prose{max-width:62ch}
   .tools-body .prose p{font-size:1.08rem}
-  .tools-body .section-question{margin-top:2.8rem;margin-bottom:0}
+  .tools-body .section-question{margin:0}
+  .tools-body .starts-from{
+    color:var(--lavender-dim);
+    font-size:1.02rem;
+    line-height:1.68;
+  }
 
   .media-row{
     align-items:start;
     display:grid;
     gap:clamp(2rem,4vw,3.2rem);
     grid-template-columns:5.7fr 1fr;
-    margin-top:3rem;
+    margin-top:0;
   }
   .demo{margin:0}
   .demo>img,.app-shot>img{
@@ -839,6 +946,132 @@
   .site-footer a{border-bottom:0;color:#c9a14a;text-decoration:none}
   .site-footer a:hover{text-decoration:underline}
   .footer-offer{text-align:center}
+
+  /* how it runs: the story and the struggles */
+  .runs-story{background:var(--paper);padding:clamp(4rem,8vh,6rem) 0}
+  .runs-struggles{background:var(--cream);padding:clamp(3.2rem,6vh,4.6rem) 0}
+  .recognition-head{
+    align-items:end;
+    display:grid;
+    gap:clamp(2rem,6vw,6rem);
+    grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);
+    margin-bottom:clamp(1.6rem,3vh,2.2rem);
+  }
+  .recognition-head h2{font-size:clamp(1.8rem,2.4vw,2.3rem);margin:0;text-wrap:balance}
+  .recognition-head .lead{
+    color:var(--lavender-dim);
+    font-family:var(--body);
+    font-size:clamp(1rem,1.15vw,1.08rem);
+    line-height:1.62;
+    margin:0;
+    max-width:46ch;
+  }
+  .conversation-card .exchange{padding-left:3.2rem}
+  .conversation-card .exchange p{
+    font-family:var(--question);
+    font-size:clamp(1.4rem,2vw,1.8rem);
+    font-weight:500;
+    line-height:1.32;
+    margin:0;
+  }
+  .conversation-card .cc-quote{
+    color:var(--navy);
+    font-family:var(--question);
+    font-size:clamp(1.5rem,2.2vw,1.95rem);
+    font-weight:500;
+    line-height:1.3;
+    margin:0;
+    padding-left:3.2rem;
+  }
+  .conversation-card .cc-attr{
+    color:var(--lavender-dim);
+    font-size:.66rem;
+    font-weight:600;
+    letter-spacing:.15em;
+    margin:1.1rem 0 0;
+    padding-left:3.2rem;
+    text-transform:uppercase;
+  }
+  .runs-after{
+    color:var(--lavender-dim);
+    font-size:1.02rem;
+    line-height:1.68;
+    margin:clamp(2rem,3.5vh,2.6rem) 0 0;
+    max-width:62ch;
+  }
+  .struggle-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));row-gap:clamp(1.3rem,2.2vh,1.9rem)}
+  .struggle-card{
+    border-left:1px solid var(--line);
+    padding:1rem clamp(1.2rem,3vw,2.2rem);
+  }
+  .struggle-card:nth-child(odd){border-left:0;padding-left:0}
+  .struggle-card:nth-child(even){padding-right:0}
+  .struggle-card .number{
+    color:var(--gold-ink);
+    display:block;
+    font-family:var(--body);
+    font-size:1.1rem;
+    margin-bottom:.75rem;
+  }
+  .struggle-card h3{font-size:1.25rem;margin:0 0 .65rem;text-wrap:balance}
+  .struggle-card p{color:#5f5966;font-size:1rem;line-height:1.65;margin:0}
+  @media (max-width:860px){
+    .recognition-head{grid-template-columns:1fr}
+    .struggle-grid{grid-template-columns:1fr;row-gap:0}
+    .struggle-card{border-left:0;padding:1.8rem 0}
+    .struggle-card:nth-child(even){padding-right:0}
+    .struggle-card + .struggle-card{border-top:1px solid var(--line)}
+    .conversation-card .cc-quote,.conversation-card .cc-attr,.conversation-card .exchange{padding-left:0}
+    .conversation-card::before{display:none}
+  }
+
+  /* how it runs, second pass */
+  .hero-more{margin-top:2rem}
+  .tools-hero .hero-more .text-link{color:var(--gold-light);border-bottom-color:rgba(201,161,74,.5)}
+
+  .story-split{
+    align-items:start;
+    display:grid;
+    gap:clamp(2rem,4vw,3.5rem);
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  }
+  .story-words > *:first-child{margin-top:0}
+  .story-words h2{font-size:clamp(1.8rem,2.4vw,2.3rem);margin:0 0 1.3rem;text-wrap:balance}
+  .story-words .lead{
+    color:var(--lavender-dim);
+    font-family:var(--body);
+    font-size:1.02rem;
+    line-height:1.68;
+    margin:0 0 1.1rem;
+    max-width:46ch;
+  }
+  .story-words .lead:last-child{margin-bottom:0}
+
+  .tool-grid{
+    display:grid;
+    gap:clamp(1.4rem,2.4vw,2rem);
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    margin-top:2.6rem;
+  }
+  .tool-grid .tool-card{margin:0;max-width:none;padding:clamp(1.5rem,2.4vw,1.9rem)}
+  .tool-grid .tool-card h2{font-size:clamp(1.35rem,1.8vw,1.65rem);margin-top:.7rem}
+  .tool-grid .tool-card p{font-size:.95rem;margin-top:.8rem}
+  .tool-grid .tool-card .go{margin-top:1.2rem}
+  .tool-grid .tool-card h2{font-size:clamp(1.35rem,1.9vw,1.7rem)}
+  .tool-grid .tool-card p{font-size:.95rem;max-width:none}
+  .tool-grid .tool-card .go{margin-top:1.3rem}
+  @media (max-width:860px){
+    .story-split{grid-template-columns:1fr}
+    .tool-grid{grid-template-columns:1fr}
+  }
+
+  /* the second page hero collapses last, after everything above it */
+  @media (max-width:900px){
+    .tools-hero{display:block;min-height:auto}
+    .tools-hero-grid{grid-template-columns:1fr;gap:2.6rem}
+    .body-head{grid-template-columns:1fr;gap:1.5rem}
+    .hero-side{border-left:0;border-top:1px solid rgba(201,161,74,.44);margin-bottom:0;padding:1.6rem 0 0}
+  }
 </style>
 
 
@@ -882,24 +1115,98 @@
       <a href="/#approach">My approach</a>
       <a href="/#story">A real result</a>
       <a href="/#about">About me</a>
-      <a href="/tools.html" aria-current="page">Tools</a>
+      <a href="/tools.html" aria-current="page">Beyond the site</a>
       <a href="/#invite">Let's talk</a>
     </nav>
   </div>
 </header>
 
 <section class="tools-hero" id="top">
+  <div class="shell tools-hero-grid">
+    <div>
+      <span class="eyebrow light">Beyond the site</span>
+      <h1>What part of your business only works when you are there?</h1>
+      <p class="hero-positioning">Most owners have one. A calculation, a form, a step that lives in one person&rsquo;s head. I turn it into something the whole crew can use, on any phone, anywhere.</p>
+      <p class="hero-more"><a class="text-link" href="#struggles">Find the workflow worth fixing</a></p>
+    </div>
+    <div class="hero-side">
+      <span class="label">Start with what already works</span>
+      <p>We are not replacing your business. We find one thing you repeat every week that costs you time or waits on you.</p>
+      <div class="hero-actions">
+        <a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
+        <a class="hero-step" href="/#tell-me">Not ready for an hour? Talk to me for two minutes instead.</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="runs-struggles" id="struggles">
   <div class="shell">
-    <span class="eyebrow light">Tools</span>
-    <h1>The spreadsheet you open every week.</h1>
-    <p class="hero-positioning">Most owners have one. They built it themselves, they know exactly where every number goes, and it works. It just only works on the one computer it lives on.</p>
+    <div class="recognition-head">
+      <div>
+        <span class="eyebrow">The ones I hear most</span>
+        <h2>What falls through the cracks when the week gets busy?</h2>
+      </div>
+      <p class="lead">None of these are a website problem. All of them cost an owner the same thing, which is the part of the week they never get back.</p>
+    </div>
+
+    <div class="struggle-grid">
+        <article class="struggle-card">
+          <span class="number">01</span>
+          <h3>The estimate you sent that went quiet.</h3>
+          <p>You priced it, you sent it, and then nothing. Chasing it feels like begging, so it sits there. Most of those were never a no. They were just never followed up.</p>
+        </article>
+        <article class="struggle-card">
+          <span class="number">02</span>
+          <h3>The call that came in while you were under a sink.</h3>
+          <p>By the time you wipe your hands and call back, they have already booked the next guy. The work was yours. The phone just rang at the wrong minute.</p>
+        </article>
+        <article class="struggle-card">
+          <span class="number">03</span>
+          <h3>The question your office asks you three times a week.</h3>
+          <p>Always the same question, always to you, because the answer has never lived anywhere except in your head. It is not that nobody can learn it. Nobody can look it up.</p>
+        </article>
+        <article class="struggle-card">
+          <span class="number">04</span>
+          <h3>The job you will not know made money until it is over.</h3>
+          <p>Labor, materials, the change nobody wrote down, the extra day. You find out whether it was worth doing weeks after you could have done anything about it.</p>
+        </article>
+      </div>
+  </div>
+</section>
+
+<section class="runs-story">
+  <div class="shell">
+    <div class="story-split">
+      <div class="story-words">
+        <span class="eyebrow">What I keep seeing</span>
+        <h2>He pulled out his phone to show me the deal.</h2>
+        <p class="lead">A contractor running forty jobs at once. The numbers were right. He just could not see them.</p>
+        <p class="lead">He was pinching and scrolling to get from the purchase price to the profit, on a sheet built for a desktop screen, sitting in a coffee shop. Nothing about his math was wrong. He had just never had it anywhere he could use it.</p>
+      </div>
+      <div class="conversation-card">
+        <div class="exchange">
+          <span class="who">Him</span>
+          <p>We all like a good Excel spreadsheet.</p>
+        </div>
+        <div class="exchange">
+          <span class="who">Me</span>
+          <p>It is a good spreadsheet. It just never leaves the desk.</p>
+        </div>
+        <p class="cc-attr">A contractor, over coffee, September 2026</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="tools-body">
   <div class="shell">
-    <div class="prose">
-      <p>This one is mine. I flip houses. I used to walk a property, then I had to go back home to my home office to run the numbers. Now I run them as I walk out of the house.</p>
+    <div class="body-head">
+      <div>
+        <span class="eyebrow">What came out of it</span>
+        <p>This one is mine. I flip houses. I used to walk a property, then I had to go back home to my home office to run the numbers. Now I run them as I walk out of the house.</p>
+        <p class="starts-from">It does not have to be a spreadsheet. It can be the form you retype every time, the price you work out in your head, the checklist that lives on paper in the truck, or the same three questions you answer over the phone every week. If you already do it, it can be built.</p>
+      </div>
       <p class="section-question">The calculator is not the point. What matters is that it started as a spreadsheet.</p>
     </div>
 
@@ -923,12 +1230,52 @@
       </figure>
     </div>
 
+    <div class="tool-grid">
     <a class="tool-card" href="/fix-and-flip-calculator.html">
       <span class="label">Built for myself</span>
       <h2>Fix &amp; Flip Calculator</h2>
       <p>Purchase, rehab, holding and sale costs, financing, and a straight answer on whether the deal works. Same math that was in the spreadsheet, on any phone, no sign-up.</p>
       <span class="go">Open the tool</span>
     </a>
+
+    <a class="tool-card" href="https://therobertszigeti.com/coliving-wealth-visualizer.html">
+      <span class="label">Built for myself</span>
+      <h2>Co-Living Wealth Visualizer</h2>
+      <p>What a house actually returns when it is rented by the room instead of whole, side by side, so the decision is a picture rather than an argument.</p>
+      <span class="go">Open the tool</span>
+    </a>
+    </div>
+  </div>
+</section>
+
+<section class="runs-voice" id="voice">
+  <div class="shell">
+    <div class="voice-top">
+      <span class="eyebrow">Built for this site</span>
+      <h2>It is your business card, and they can talk to it.</h2>
+    </div>
+    <div class="voice-row">
+      <figure class="phone-shot">
+        <img src="/images/tool-scan.jpg" alt="The scan page on a phone: a QR code, open it here, and text it to them instead." width="720" height="1488" loading="lazy">
+        <figcaption>They scan it, or you text it</figcaption>
+      </figure>
+      <figure class="phone-shot">
+        <img src="/images/tool-a.jpg" alt="A pocket business card open on a phone, showing the owner&rsquo;s photo and what he does." width="720" height="1488" loading="lazy">
+        <figcaption>Your face, your words</figcaption>
+      </figure>
+      <figure class="phone-shot">
+        <img src="/images/tool-b.jpg" alt="The same card lower down: call, book a sit-down, text, and save my contact." width="720" height="1488" loading="lazy">
+        <figcaption>Call, book, text, save</figcaption>
+      </figure>
+      <figure class="phone-shot">
+        <img src="/images/tool-c.jpg" alt="The record button on the site the card points at, with three questions to answer out loud." width="720" height="1488" loading="lazy">
+        <figcaption>Or they just talk</figcaption>
+      </figure>
+    </div>
+    <div class="voice-close">
+      <p class="runs-after">You hold up your phone and they scan it, or you text it to them. It opens on their phone: your face, your name, what you do, and every way to reach you one tap away. Saving your number takes them one more tap, so you are in their contacts before they put the phone down.</p>
+      <p class="lead">The voicemail that never got returned. The busy line. The call you watched come in and could not take. None of those come back on their own. This one does: they leave it on your card instead, and it lands in your email and your CRM by itself, typed out, with their name and number on it and a read on how urgent it sounded.</p>
+    </div>
   </div>
 </section>
 
