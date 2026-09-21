@@ -338,6 +338,33 @@
   .method-card p{color:rgba(245,239,225,.7);font-size:1rem;line-height:1.65}
 
   /* proof story */
+
+  /* her site, small, under the story */
+  .story-crops{grid-column:1 / -1;margin:2.2rem auto 0;max-width:660px;width:100%}
+  .crop-row{display:grid;gap:1.4rem;grid-template-columns:1fr 1fr}
+  .crop{margin:0;text-align:center}
+  .crop img{
+    aspect-ratio:16/10;
+    border:4px solid var(--cream);
+    box-shadow:0 12px 28px rgba(10,22,40,.12);
+    display:block;
+    height:auto;
+    object-fit:cover;
+    object-position:top center;
+    width:100%;
+  }
+  .crop figcaption{
+    color:var(--gold-ink);
+    font-size:.62rem;
+    font-weight:600;
+    letter-spacing:.16em;
+    margin-top:.6rem;
+    text-transform:uppercase;
+  }
+  .story-crops .story-more{margin-top:1.4rem;padding-top:0;text-align:center}
+  @media (max-width:640px){
+    .crop-row{grid-template-columns:1fr;gap:1.6rem}
+  }
   .story{background:var(--paper);overflow:hidden;padding:clamp(3rem,5vh,3.75rem) 0}
   .story-grid{align-items:stretch;column-gap:clamp(3rem,5vw,4.5rem);display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,1fr);row-gap:0}
   .story-question-top{grid-column:1 / -1;max-width:860px}
@@ -1399,8 +1426,20 @@
           <p>Her reviews kept calling her affordable. Seventeen years of work, and that was the compliment she was getting.</p>
           <cite>What I found before we ever talked</cite>
         </blockquote>
-        <p class="story-more"><a class="text-link" href="/ohlson-before-after.html">See her old site next to the new one</a></p>
       </aside>
+      <div class="story-crops">
+        <div class="crop-row">
+          <figure class="crop">
+            <img src="/images/ohlson-home-old.webp" width="820" height="512" loading="lazy" decoding="async" alt="The top of Paola's old homepage">
+            <figcaption>Her old homepage</figcaption>
+          </figure>
+          <figure class="crop">
+            <img src="/images/ohlson-home-new.webp" width="820" height="512" loading="lazy" decoding="async" alt="The top of the homepage I built for her">
+            <figcaption>The one I built</figcaption>
+          </figure>
+        </div>
+        <p class="story-more"><a class="text-link" href="/ohlson-before-after">See her old site next to the new one</a></p>
+      </div>
     </div>
 
   </section>
