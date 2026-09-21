@@ -101,6 +101,13 @@
   .close-quote{color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:23px;font-style:italic;line-height:1.5;margin:0}
   .close-attr{color:var(--sage);font-size:11.5px;font-weight:500;letter-spacing:.16em;margin:14px 0 0;text-transform:uppercase}
   .close-cta{color:var(--ink-soft);font-size:15px;margin:0}
+  /* the same sit-down button the homepage uses */
+  .button{align-items:center;background:#c9a14a;border:1px solid #c9a14a;border-radius:2px;color:#0a1628;display:inline-flex;font-size:.88rem;font-weight:600;gap:.7rem;justify-content:center;letter-spacing:.02em;min-height:52px;padding:.85rem 1.5rem;text-decoration:none;transition:background .2s ease,transform .2s ease}
+  .button::after{content:"\2192";font-size:1.1rem}
+  .button:hover{background:#e1c57f;transform:translateY(-2px)}
+  .button:focus-visible{outline:3px solid #e1c57f;outline-offset:4px}
+  .close-attr ~ .close-button{margin-top:30px}
+  .close-cta.close-under{margin-top:14px}
   .close-quote ~ .close-cta, .close-attr ~ .close-cta{margin-top:28px}
   .close-cta a{color:var(--gold);border-bottom:1px solid rgba(179,146,87,.45);text-decoration:none}
   .close-cta a:hover{border-bottom-color:var(--gold)}
@@ -370,7 +377,8 @@
       <p class="close-quote">&ldquo;He took the time to ask important questions, listen to core values, and use that in a way that made visitors connect at a different level. I have heard great comments about the look, functionality, and started to see results already.&rdquo;</p>
       <p class="close-attr">Paola Ohlson &middot; Ohlson Photography</p>
       <!-- Her repricing sentence, asked for Tuesday 22 Sept, joins or replaces the quote above. -->
-      <p class="close-cta"><a href="https://calendly.com/robertszigeti/owners-behind-it">Book a sit-down</a> &nbsp;&middot;&nbsp; Every build here starts with an hour at a table. No cost, no clock.</p>
+      <a class="button close-button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
+      <p class="close-cta close-under">Every build here starts with an hour at a table. No cost, no clock.</p>
     </div>
   </section>
 
