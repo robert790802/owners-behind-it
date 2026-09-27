@@ -20,7 +20,7 @@ templates. Projects begin at $3,000 and are quoted after a conversation.
 
 - The Owner Session, $350. Ninety minutes about the business you are starting, or
   the one you have built, and a written summary of what to do next. A paid working
-  session, not a sales call. The $350 comes off the build.
+  session, not a sales call. The $350 comes off a build started within 30 days.
 - The Starting Point, from $1,500. A one-page site with a fixed scope.
 - A custom website, from $3,000. Quoted after the conversation. Fifty percent
   deposit before work begins, balance when the site goes live.
@@ -45,11 +45,11 @@ Flagler County and St. Johns County, Florida. Service-area business, no walk-in 
 
 ## How engagements work
 
-1. A sit-down conversation with the owner. No clock on it. It is not a sales call.
-   Owners who want to go deeper before committing to a build can book The Owner
-   Session instead, at $350.
-2. A written plan: what was found, what would be built, and what it will cost.
-3. The build. Fifty percent deposit before work begins, balance when the site goes live.
+1. A short introductory conversation about the project and whether we are a good fit.
+2. A proposal for a clear project. If finding the direction is the work, The Owner
+   Session is a separate $350 paid working session with a written summary.
+3. Paid discovery and the build after the owner hires me. Fifty percent deposit
+   before work begins, balance when the site goes live.
 
 ## Pages
 
@@ -59,6 +59,8 @@ Flagler County and St. Johns County, Florida. Service-area business, no walk-in 
 - [Why isn't my business showing up on Google?](https://ownersbehindit.com/not-showing-up-on-google): the six reasons a real business goes missing
 - [Beyond the site](https://ownersbehindit.com/tools.html): the part that starts where the website stops, including spreadsheets rebuilt as tools that work on a phone
 - [Fix and flip calculator](https://ownersbehindit.com/fix-and-flip-calculator.html): a working example of a custom tool
+
+- [Website redesign in Palm Coast](https://ownersbehindit.com/website-redesign-palm-coast): redesign for a business that has outgrown its site
 
 ## Hours
 

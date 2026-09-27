@@ -30,7 +30,6 @@ EXEMPT = {
 }
 # Pages kept out of the sitemap on purpose. Their canonical will not match it.
 NOT_IN_SITEMAP = {
-    'pocket.html': 'Disallowed in robots.txt. Handed out by QR, not for search.',
     'scan.html':   'Disallowed in robots.txt. It is the page that shows the QR.',
 }
 SKIP = {'check-heads.py'}
