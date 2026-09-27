@@ -19,7 +19,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
     // Preview visits should not enter production analytics.
     if (['ownersbehindit.com', 'www.ownersbehindit.com'].includes(location.hostname)) {
@@ -62,91 +62,129 @@
   }
   </script>
   <style>
-    :root{--navy:#0a1628;--navy-soft:#0f1e36;--cream:#f5efe1;--paper:#fbf8f1;--gold:#c9a14a;--gold-light:#d4b15c;--ink:#302d38;--slate:#6c6577;--line:rgba(10,22,40,.16)}
+  :root{
+    --navy:#0a1628;
+    --navy-2:#0f1e36;
+    --gold:#c9a14a;
+    --gold-light:#e1c57f;
+    --gold-ink:#8f6e29;
+    --cream:#f4eddf;
+    --paper:#fbf8f1;
+    --lavender:#a8a0b4;
+    --lavender-dim:#746d80;
+    --ink:#302d38;
+    --line:rgba(10,22,40,.13);
+    --display:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+    --question:"Cormorant Garamond",Georgia,serif;
+    --body:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+    --page:1180px;
+  }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;scroll-padding-top:24px}
-    body{margin:0;background:var(--cream);color:var(--ink);font:400 16px/1.7 'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+    body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.7 var(--body);-webkit-font-smoothing:antialiased}
     ::selection{background:var(--gold);color:var(--navy)}
-    a{color:inherit;text-underline-offset:5px;text-decoration-thickness:1px}
-    a:hover{text-decoration-color:var(--gold)}
-    a:focus-visible,summary:focus-visible{outline:3px solid #916b20;outline-offset:5px}
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:none}
+    a:focus-visible,summary:focus-visible{outline:3px solid var(--gold-ink);outline-offset:5px}
     img{display:block;max-width:100%;height:auto}
     p{margin:0 0 1.15rem}p:last-child{margin-bottom:0}
-    h1,h2,h3{color:var(--navy);margin:0;font-weight:600}
-    h1,h2{font-family:'Cormorant Garamond',Georgia,serif;text-wrap:balance}
-    h1{font-size:clamp(2.65rem,4.65vw,4.65rem);line-height:1.07;letter-spacing:-.025em}
-    h1 em{font-weight:400}
-    h2{font-size:clamp(2.1rem,3.25vw,3.25rem);line-height:1.13;letter-spacing:-.015em;margin-bottom:1.3rem}
-    h3{font-size:1.04rem;line-height:1.45;margin-bottom:.7rem}
-    .shell{max-width:1180px;padding-inline:clamp(22px,4vw,48px);margin-inline:auto}
+    h1,h2,h3{color:var(--navy);margin:0;font-family:var(--display);font-weight:500;letter-spacing:-.045em;line-height:1.12}
+    h1{font-size:clamp(34px,6vw,50px);line-height:1.12;max-width:none;text-wrap:balance}
+    h1 em{font-style:normal;font-weight:inherit}
+    h2{font-size:clamp(1.8rem,2.5vw,2.45rem);margin-bottom:1.3rem}
+    h3{font-size:1.55rem;margin-bottom:1rem}
+    .shell{max-width:var(--page);padding-inline:clamp(1.35rem,4vw,3rem);margin-inline:auto;width:100%}
     .site-header .shell{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:88px;border-bottom:1px solid var(--line)}
     .site-logo{width:72px;height:72px}
     .nav-links{display:flex;align-items:center;gap:2rem}
-    .nav-links a{font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--navy)}
-    .nav-links a:last-child{color:#80601f}
+    .nav-links a{font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(10,22,40,.72)}
+    .nav-links a:last-child{color:#a9863a}
     .skip{position:absolute;left:16px;top:-100px;z-index:20;background:var(--navy);color:var(--cream);padding:12px 20px}
     .skip:focus{top:12px}
-    section{padding-block:clamp(60px,7vw,100px)}
-    .hero{padding-block:clamp(48px,6vw,82px)}
-    .hero-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:start}
-    .hero-copy{text-align:center;max-width:800px;margin-inline:auto}.hero-copy>p{margin-inline:auto;margin-top:1.6rem;max-width:65ch;color:var(--slate);font-size:1rem}
-    .hero .local-note{font-size:.82rem;margin-top:1.1rem;color:var(--slate)}
-    .button{display:inline-flex;align-items:center;justify-content:center;gap:14px;background:var(--gold);border:1px solid var(--gold);color:var(--navy);padding:15px 25px;min-height:52px;font-size:.9rem;font-weight:600;text-decoration:none;transition:background .18s ease}
+    section{padding-block:clamp(3rem,5vh,3.75rem)}
+    .hero{padding-block:clamp(48px,6vw,82px);background:var(--navy);color:var(--cream)}
+    .hero h1{color:var(--cream)}
+    .hero .hero-copy>p,.hero figcaption{color:var(--lavender)}
+    .hero figcaption a{color:var(--gold-light)}
+    .hero a:focus-visible{outline-color:var(--gold-light)}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 56px;align-items:center}.hero-grid>h1{grid-column:1/-1}
+    .hero-copy{text-align:left;width:100%;margin:0}.hero-copy>p{margin-top:0;color:var(--lavender-dim);font-size:1rem}
+    .hero .hero-copy>.local-note{font-size:.82rem;margin-top:1.1rem;color:var(--gold-light)}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:14px;background:var(--gold);border:1px solid var(--gold);border-radius:2px;color:var(--navy);padding:.85rem 1.5rem;min-height:52px;font-size:.88rem;letter-spacing:.02em;font-weight:600;text-decoration:none;transition:background .18s ease}
     .button:hover{background:var(--gold-light);border-color:var(--gold-light)}
     .button svg{width:19px;height:19px;flex-shrink:0}
-    .intro-link{display:inline-block;min-height:44px;padding-block:10px;font-size:1rem;font-weight:600}.hero .button{margin-top:.55rem}
+    .button::after{content:"\2192";font-size:1.1rem}.hero .button{margin-top:.55rem}
     figure{margin:0}
-    .hero-figure{width:100%;max-width:820px;margin-inline:auto}.hero-image{width:100%;height:auto;border:1px solid var(--line)}
-    figcaption{font-size:.78rem;line-height:1.6;color:var(--slate);margin-top:12px}
+    .hero-figure{width:100%;margin:0}.hero-image{width:100%;height:auto;border:1px solid var(--line)}
+    figcaption{font-size:.78rem;line-height:1.6;color:var(--lavender-dim);margin-top:12px}
     figcaption a{font-weight:500}
     .paper{background:var(--paper)}
-    .section-intro{max-width:680px;margin-bottom:36px}
-    .section-intro>p{color:var(--slate)}
-    .situations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;border-top:1px solid var(--line);padding-top:28px}
-    .situations p{font-size:1rem;color:var(--slate)}
+    .section-intro{max-width:none;margin-bottom:clamp(2.25rem,4vh,3rem);display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);gap:clamp(2rem,6vw,6rem);align-items:end}.section-intro h2{margin-bottom:0}.section-intro>p{margin:0}
+    .section-intro>p{color:var(--lavender-dim)}
+    .situations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}.situations article{padding:1.25rem clamp(1.2rem,3vw,2.2rem);border-left:1px solid var(--line)}.situations article:first-child{border-left:0;padding-left:0}.situations article:last-child{padding-right:0}
+    .situations p{font-size:1rem;color:var(--lavender-dim)}
     .proof{background:var(--navy);color:var(--cream)}
     .proof h2{color:var(--cream)}
-    .proof .section-intro>p{color:#c8c4bf}
+    .proof .section-intro>p{color:var(--lavender)}
     .comparison{display:grid;grid-template-columns:1fr 1fr;gap:0}.comparison figure:first-child{padding-right:28px}.comparison figure+figure{padding-left:28px;border-left:1px solid rgba(201,161,74,.4)}
     .comparison .label{display:block;font-size:.8rem;font-weight:600;color:var(--gold-light);margin-bottom:12px}
     .comparison img{width:100%;height:auto;background:var(--paper)}
-    .comparison figcaption{color:#c8c4bf;font-size:.85rem;max-width:52ch;margin-top:18px}
+    .comparison figcaption{color:var(--lavender);font-size:.85rem;max-width:52ch;margin-top:18px}
     .proof-link{display:inline-block;margin-top:30px;color:var(--gold-light);font-weight:500}
     .proof a:focus-visible,.close a:focus-visible{outline-color:var(--gold-light)}
-    .split{display:grid;grid-template-columns:1fr;gap:32px;max-width:760px;margin-inline:auto}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
     .choices article+article{border-top:1px solid var(--line);margin-top:28px;padding-top:28px}
-    .choices p{color:var(--slate)}
-    .steps{list-style:none;counter-reset:steps;margin:32px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:32px 56px}
-    .steps li{counter-increment:steps;border-top:1px solid var(--line);padding-top:22px;display:grid;grid-template-columns:28px 1fr;gap:16px}
-    .steps li::before{content:counter(steps,decimal-leading-zero);font-size:.75rem;font-weight:600;color:#80601f;padding-top:4px}
-    .steps p{font-size:1rem;color:var(--slate)}
-    .offer-note{max-width:760px;margin:28px auto 0;color:var(--slate)}.investment{max-width:760px;margin-inline:auto}.keep-list{list-style:none;margin:0;padding:0}
+    .split p a,figcaption a,.offer-note a{color:var(--navy);font-weight:600}
+    .choices p{color:var(--lavender-dim)}
+    .steps{list-style:none;counter-reset:steps;margin:32px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:32px 0}
+    .steps li{counter-increment:steps;padding:1.25rem clamp(1.2rem,3vw,2.2rem);border-left:1px solid var(--line)}.steps li:nth-child(odd){border-left:0;padding-left:0}.steps li:nth-child(even){padding-right:0}
+    .steps li::before{content:counter(steps,decimal-leading-zero);display:block;font-size:1.1rem;font-weight:400;color:var(--gold-ink);margin-bottom:1.25rem}
+    .steps p{font-size:1rem;color:var(--lavender-dim)}
+    .offer-note{margin:28px 0 0;color:var(--lavender-dim)}.investment{width:100%;margin-inline:0}.keep-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
     .keep-list li{border-top:1px solid var(--line);padding:18px 0}
     .keep-list strong{color:var(--navy);display:block;margin-bottom:5px}
-    .keep-list p{font-size:1rem;color:var(--slate)}
+    .keep-list p{font-size:1rem;color:var(--lavender-dim)}
     .investment{border-top:1px solid var(--line);margin-top:52px;padding-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
-    .investment p{color:var(--slate)}
-    .investment h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem}
-    .faqs{max-width:820px;margin-inline:auto}
+    .investment p{color:var(--lavender-dim)}
+    .investment h3{font-family:var(--display);font-size:1.55rem}
+    .faqs{width:100%;margin:0}
     details{border-top:1px solid var(--line)}
     details:last-child{border-bottom:1px solid var(--line)}
     summary{padding:22px 34px 22px 0;cursor:pointer;position:relative;font-weight:500;color:var(--navy);list-style:none;line-height:1.5}
     summary::-webkit-details-marker{display:none}
     summary::after{content:'';position:absolute;right:7px;top:29px;width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg)}
     details[open] summary::after{transform:rotate(225deg);top:33px}
-    details>p{padding:0 32px 24px 0;color:var(--slate);font-size:1rem;margin:0}
-    .close{background:var(--navy-soft);color:var(--cream);text-align:center}
-    .close .shell{max-width:800px}
+    details>p{padding:0 32px 24px 0;color:var(--lavender-dim);font-size:1rem;margin:0}
+    .close{background:var(--navy-2);color:var(--cream);text-align:left}
+    .close .shell{display:grid;grid-template-columns:1fr 1fr;gap:20px 56px;align-items:start}.close h2{grid-row:1/4}.close .button{justify-self:start}.close .email{grid-column:2}
     .close h2{color:var(--cream)}
-    .close p{color:#c8c4bf;max-width:58ch;margin-inline:auto}
+    .close p{color:var(--lavender);margin:0}
     .close .button{margin-top:15px}
     .close .email{margin-top:22px;font-size:.88rem;overflow-wrap:anywhere}
     .close .email a{color:var(--gold-light)}
-    .site-footer{padding:2.2rem 0;background:var(--navy);text-align:center;color:#c8c4bf;font-size:1rem}.footer-row{display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem}.site-footer small{font-size:.78rem;line-height:1.6}
-    .site-footer a{color:var(--gold-light)}
-    .site-footer p{margin:0;overflow-wrap:anywhere}
-    @media(max-width:800px){.nav-links a:not(:last-child){display:none}.site-header .shell{min-height:76px}.site-logo{width:60px;height:60px}.hero-grid{grid-template-columns:1fr;gap:32px}.hero-copy{max-width:640px}.hero-figure{max-width:640px}.situations{grid-template-columns:1fr;gap:22px}.situations article+article{border-top:1px solid var(--line);padding-top:22px}.split{grid-template-columns:1fr}.steps{gap:28px}.investment{grid-template-columns:1fr;gap:12px}}
-    @media(max-width:560px){body{font-size:16px}.hero-copy{text-align:center;max-width:800px;margin-inline:auto}.hero-copy>p{margin-inline:auto;font-size:1rem}.comparison,.steps{grid-template-columns:1fr}.comparison{gap:32px}.comparison figure:first-child{padding-right:0}.comparison figure+figure{padding-left:0;border-left:0;border-top:1px solid rgba(201,161,74,.4);padding-top:28px}.nav-links a{font-size:.75rem;min-height:44px;display:flex;align-items:center}.button{width:100%}.proof-link{font-size:.94rem}.steps{margin-top:26px}section{padding-block:56px}}
+  .site-footer{
+    background:#0a1628;
+    border-top:1px solid rgba(245,239,225,.08);
+    color:#f4eddf;
+    font-size:16px;
+    padding:2.2rem 0;
+  }
+  .site-footer .shell{text-align:center}
+  .footer-row{
+    align-items:center;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:.4rem;
+    justify-content:center;
+    text-align:center;
+  }
+  .site-footer small{color:#746d80;font-size:.78rem;line-height:1.6}
+  .site-footer a{border-bottom:0;color:#c9a14a;text-decoration:none}
+  .site-footer a:hover{color:var(--gold-light)}
+    .site-footer small{overflow-wrap:anywhere}
+    @media(max-width:800px){.keep-list{grid-template-columns:1fr;gap:0}.section-intro{grid-template-columns:1fr;gap:1rem}.situations article{border-left:0;padding:0}.steps{column-gap:0}.nav-links a:not(:last-child){display:none}.site-header .shell{min-height:76px}.site-logo{width:60px;height:60px}.hero-grid{grid-template-columns:1fr;gap:32px}.hero-copy,.hero-figure{width:100%}.situations{grid-template-columns:1fr;gap:22px}.situations article+article{border-top:1px solid var(--line);padding-top:22px}.split{grid-template-columns:1fr;gap:32px}.close .shell{grid-template-columns:1fr;gap:20px}.close h2{grid-row:auto}.close .email{grid-column:auto}.steps{row-gap:28px}.investment{grid-template-columns:1fr;gap:12px}}
+    @media(max-width:560px){.steps li,.steps li:nth-child(even),.steps li:nth-child(odd){border-left:0;border-top:1px solid var(--line);padding:1.25rem 0 0}body{font-size:16px}.hero-copy>p{font-size:1rem}.comparison,.steps{grid-template-columns:1fr}.comparison{gap:32px}.comparison figure:first-child{padding-right:0}.comparison figure+figure{padding-left:0;border-left:0;border-top:1px solid rgba(201,161,74,.4);padding-top:28px}.nav-links a{font-size:.75rem;min-height:44px;display:flex;align-items:center}.button{width:100%}.proof-link{font-size:.94rem}.steps{margin-top:26px}section{padding-block:3rem}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
   </style>
 </head>
@@ -169,10 +207,11 @@
   <main id="main">
     <section class="hero" aria-labelledby="page-title">
       <div class="shell hero-grid">
+        <h1 id="page-title">Website redesign in Palm Coast for a business that has <em>outgrown its site.</em></h1>
         <div class="hero-copy">
-          <h1 id="page-title">Website redesign in Palm Coast for a business that has <em>outgrown its site.</em></h1>
+
           <p>Your work has improved. Your reputation has grown. But it’s hard to see your own business when you’re in it every day. I’m Robert T. Szigeti. You don’t need to know what your website should say before we meet. Let’s start with a short conversation about your project and whether we’re a good fit.</p>
-          <a class="intro-link" href="#lets-talk">Book a sit-down</a>
+          <a class="button" href="#lets-talk">Book a sit-down</a>
           <p class="local-note">Palm Coast &amp; Flagler County</p>
         </div>
         <figure class="hero-figure">
@@ -206,7 +245,7 @@
 
     <section aria-labelledby="repair-title">
       <div class="shell split">
-        <div><h2 id="repair-title">Before we decide what to build, we talk.</h2><p>The initial sit-down is a chance to tell me about your project and ask how I work. If the project is clear, I can prepare a proposal. If figuring out what you need is the work, <a href="/owner-session">The Owner Session</a> gives us time to explore it and put the direction in writing. Deeper discovery is also part of a website project once you hire me.</p><p>If the problem is discovery, start with <a href="/not-showing-up-on-google">why your business may not be showing up on Google</a>. A new design alone does not solve every visibility problem.</p></div>
+        <div><h2 id="repair-title">Before we decide what to build, we talk.</h2><p>The initial sit-down is a chance to tell me about your project and ask how I work. If the project is clear, I can prepare a proposal. If you need help figuring out the direction first, I offer a separate 90-minute paid conversation about your business, with a written summary of what to do next. I call it <a href="/owner-session">The Owner Session</a>. Deeper discovery is also part of a website project once you hire me.</p><p>If the problem is discovery, start with <a href="/not-showing-up-on-google">why your business may not be showing up on Google</a>. A new design alone does not solve every visibility problem.</p></div>
         <div class="choices">
           <article><h3>Sometimes, a focused improvement is enough.</h3><p>The structure may still work. Clearer service descriptions, stronger examples or a simpler inquiry path could be the right starting point. I’ll tell you when a full rebuild seems unnecessary.</p></article>
           <article><h3>Sometimes, the business needs a different foundation.</h3><p>If the structure, content and experience all belong to an earlier version of the business, we plan a custom rebuild around what your customers need to understand today.</p></article>
@@ -228,19 +267,21 @@
 
     <section aria-labelledby="keep-title">
       <div class="shell">
-        <div class="split">
-          <div><h2 id="keep-title">A fresh start shouldn’t throw away what you’ve built.</h2><p>Your domain, content and customer relationships matter. We discuss what stays, what changes and what needs moving before replacing the old site.</p></div>
+        <div class="section-intro">
+          <h2 id="keep-title">A fresh start shouldn’t throw away what you’ve built.</h2><p>Your domain, content and customer relationships matter. We discuss what stays, what changes and what needs moving before replacing the old site.</p>
+        </div>
           <ul class="keep-list">
             <li><strong>Your domain and ownership</strong><p>The site is built for your business to own. Keeping your existing domain is usually possible; we check access and hosting arrangements first.</p></li>
             <li><strong>Your useful pages and old links</strong><p>We identify content worth keeping and plan where changed addresses should lead, so a redesign does not casually discard years of work.</p></li>
             <li><strong>Your search foundations</strong><p>The pages explain what you do and where you work, with the behind-the-scenes information search engines need to read them. We also keep the counters that show visits and actions. No redesign comes with a guaranteed Google position.</p></li>
           </ul>
-        </div>
         <div class="investment">
           <div><h3>Custom websites from $3,000.</h3><p>The quote depends on the pages, content, migration and functionality involved. We agree on the scope before the work begins.</p></div>
           <div><h3>Care after launch, from $99/month.</h3><p>Ongoing care is a separate plan. We agree on what needs looking after once the site is live.</p></div>
         </div>
-        <p class="offer-note">Need a smaller starting point? A one-page website starts at $1,500. <a href="/owner-session">The Owner Session</a> is $350 for 90 minutes and a written summary, credited toward a build within 30 days.</p>
+        <p class="offer-note">Need a smaller website? A one-page website starts at $1,500.</p>
+        <p class="offer-note">Not sure what your business needs yet? We can spend 90 minutes talking through your business, what makes your work yours, and what to do next. Within three days, you get a written summary you can keep and use, whether or not we build a website together. That’s <a href="/owner-session">The Owner Session</a>, a separate $350 working session. The fee is credited toward a build within 30 days.</p>
+        <p class="offer-note"><a class="button" href="https://calendly.com/robertszigeti/the-owner-session" target="_blank" rel="noopener">Book The Owner Session</a></p>
       </div>
     </section>
 
@@ -277,7 +318,7 @@
     const link = event.target.closest('a');
     if (!link || typeof window.gtag !== 'function') return;
     const href = link.getAttribute('href') || '';
-    if (href.startsWith('https://calendly.com/robertszigeti/owners-behind-it')) {
+    if (href.startsWith('https://calendly.com/robertszigeti/owners-behind-it') || href.startsWith('https://calendly.com/robertszigeti/the-owner-session')) {
       gtag('event', 'booking_click', {page_path: '/website-redesign-palm-coast', link_url: href});
     } else if (href.startsWith('mailto:')) {
       gtag('event', 'email_click', {page_path: '/website-redesign-palm-coast'});
