@@ -19,7 +19,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     // Preview visits should not enter production analytics.
     if (['ownersbehindit.com', 'www.ownersbehindit.com'].includes(location.hostname)) {
@@ -74,94 +74,946 @@
     --lavender-dim:#746d80;
     --ink:#302d38;
     --line:rgba(10,22,40,.13);
-    --display:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+    --display:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,sans-serif;
     --question:"Cormorant Garamond",Georgia,serif;
-    --body:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+    --body:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,sans-serif;
     --page:1180px;
   }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:24px}
-    body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.7 var(--body);-webkit-font-smoothing:antialiased}
-    ::selection{background:var(--gold);color:var(--navy)}
-    a{color:inherit;text-decoration:none}
-    a:hover{text-decoration:none}
-    a:focus-visible,summary:focus-visible{outline:3px solid var(--gold-ink);outline-offset:5px}
-    img{display:block;max-width:100%;height:auto}
-    p{margin:0 0 1.15rem}p:last-child{margin-bottom:0}
-    h1,h2,h3{color:var(--navy);margin:0;font-family:var(--display);font-weight:500;letter-spacing:-.045em;line-height:1.12}
-    h1{font-size:clamp(34px,6vw,50px);line-height:1.12;max-width:none;text-wrap:balance}
-    h1 em{font-style:normal;font-weight:inherit}
-    h2{font-size:clamp(1.8rem,2.5vw,2.45rem);margin-bottom:1.3rem}
-    h3{font-size:1.55rem;margin-bottom:1rem}
-    .shell{max-width:var(--page);padding-inline:clamp(1.35rem,4vw,3rem);margin-inline:auto;width:100%}
-    .site-header .shell{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:88px;border-bottom:1px solid var(--line)}
-    .site-logo{width:72px;height:72px}
-    .nav-links{display:flex;align-items:center;gap:2rem}
-    .nav-links a{font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(10,22,40,.72)}
-    .nav-links a:last-child{color:#a9863a}
-    .skip{position:absolute;left:16px;top:-100px;z-index:20;background:var(--navy);color:var(--cream);padding:12px 20px}
-    .skip:focus{top:12px}
-    section{padding-block:clamp(3rem,5vh,3.75rem)}
-    .hero{padding-block:clamp(48px,6vw,82px);background:var(--navy);color:var(--cream)}
-    .hero h1{color:var(--cream)}
-    .hero .hero-copy>p,.hero figcaption{color:var(--lavender)}
-    .hero figcaption a{color:var(--gold-light)}
-    .hero a:focus-visible{outline-color:var(--gold-light)}
-    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 56px;align-items:center}.hero-grid>h1{grid-column:1/-1}
-    .hero-copy{text-align:left;width:100%;margin:0}.hero-copy>p{margin-top:0;color:var(--lavender-dim);font-size:1rem}
-    .hero .hero-copy>.local-note{font-size:.82rem;margin-top:1.1rem;color:var(--gold-light)}
-    .button{display:inline-flex;align-items:center;justify-content:center;gap:14px;background:var(--gold);border:1px solid var(--gold);border-radius:2px;color:var(--navy);padding:.85rem 1.5rem;min-height:52px;font-size:.88rem;letter-spacing:.02em;font-weight:600;text-decoration:none;transition:background .18s ease}
-    .button:hover{background:var(--gold-light);border-color:var(--gold-light)}
-    .button svg{width:19px;height:19px;flex-shrink:0}
-    .button::after{content:"\2192";font-size:1.1rem}.hero .button{margin-top:.55rem}
-    figure{margin:0}
-    .hero-figure{width:100%;margin:0}.hero-image{width:100%;height:auto;border:1px solid var(--line)}
-    figcaption{font-size:.78rem;line-height:1.6;color:var(--lavender-dim);margin-top:12px}
-    figcaption a{font-weight:500}
-    .paper{background:var(--paper)}
-    .section-intro{max-width:none;margin-bottom:clamp(2.25rem,4vh,3rem);display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);gap:clamp(2rem,6vw,6rem);align-items:end}.section-intro h2{margin-bottom:0}.section-intro>p{margin:0}
-    .section-intro>p{color:var(--lavender-dim)}
-    .situations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}.situations article{padding:1.25rem clamp(1.2rem,3vw,2.2rem);border-left:1px solid var(--line)}.situations article:first-child{border-left:0;padding-left:0}.situations article:last-child{padding-right:0}
-    .situations p{font-size:1rem;color:var(--lavender-dim)}
-    .proof{background:var(--navy);color:var(--cream)}
-    .proof h2{color:var(--cream)}
-    .proof .section-intro>p{color:var(--lavender)}
-    .comparison{display:grid;grid-template-columns:1fr 1fr;gap:0}.comparison figure:first-child{padding-right:28px}.comparison figure+figure{padding-left:28px;border-left:1px solid rgba(201,161,74,.4)}
-    .comparison .label{display:block;font-size:.8rem;font-weight:600;color:var(--gold-light);margin-bottom:12px}
-    .comparison img{width:100%;height:auto;background:var(--paper)}
-    .comparison figcaption{color:var(--lavender);font-size:.85rem;max-width:52ch;margin-top:18px}
-    .proof-link{display:inline-block;margin-top:30px;color:var(--gold-light);font-weight:500}
-    .proof a:focus-visible,.close a:focus-visible{outline-color:var(--gold-light)}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-    .choices article+article{border-top:1px solid var(--line);margin-top:28px;padding-top:28px}
-    .split p a,figcaption a,.offer-note a{color:var(--navy);font-weight:600}
-    .choices p{color:var(--lavender-dim)}
-    .steps{list-style:none;counter-reset:steps;margin:32px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:32px 0}
-    .steps li{counter-increment:steps;padding:1.25rem clamp(1.2rem,3vw,2.2rem);border-left:1px solid var(--line)}.steps li:nth-child(odd){border-left:0;padding-left:0}.steps li:nth-child(even){padding-right:0}
-    .steps li::before{content:counter(steps,decimal-leading-zero);display:block;font-size:1.1rem;font-weight:400;color:var(--gold-ink);margin-bottom:1.25rem}
-    .steps p{font-size:1rem;color:var(--lavender-dim)}
-    .offer-note{margin:28px 0 0;color:var(--lavender-dim)}.investment{width:100%;margin-inline:0}.keep-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-    .keep-list li{border-top:1px solid var(--line);padding:18px 0}
-    .keep-list strong{color:var(--navy);display:block;margin-bottom:5px}
-    .keep-list p{font-size:1rem;color:var(--lavender-dim)}
-    .investment{border-top:1px solid var(--line);margin-top:52px;padding-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
-    .investment p{color:var(--lavender-dim)}
-    .investment h3{font-family:var(--display);font-size:1.55rem}
-    .faqs{width:100%;margin:0}
-    details{border-top:1px solid var(--line)}
-    details:last-child{border-bottom:1px solid var(--line)}
-    summary{padding:22px 34px 22px 0;cursor:pointer;position:relative;font-weight:500;color:var(--navy);list-style:none;line-height:1.5}
-    summary::-webkit-details-marker{display:none}
-    summary::after{content:'';position:absolute;right:7px;top:29px;width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg)}
-    details[open] summary::after{transform:rotate(225deg);top:33px}
-    details>p{padding:0 32px 24px 0;color:var(--lavender-dim);font-size:1rem;margin:0}
-    .close{background:var(--navy-2);color:var(--cream);text-align:left}
-    .close .shell{display:grid;grid-template-columns:1fr 1fr;gap:20px 56px;align-items:start}.close h2{grid-row:1/4}.close .button{justify-self:start}.close .email{grid-column:2}
-    .close h2{color:var(--cream)}
-    .close p{color:var(--lavender);margin:0}
-    .close .button{margin-top:15px}
-    .close .email{margin-top:22px;font-size:.88rem;overflow-wrap:anywhere}
-    .close .email a{color:var(--gold-light)}
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+  p+p{margin-top:1.1rem}
+  h1,h2,h3{
+    color:var(--navy);
+    font-family:var(--display);
+    font-weight:500;
+    letter-spacing:-.02em;
+    line-height:1.12;
+  }
+  h1{font-size:clamp(3.15rem,6.6vw,6.1rem)}
+  h2{font-size:clamp(1.8rem,2.5vw,2.45rem)}
+  h3{font-size:clamp(1.55rem,2.5vw,2rem)}
+
+  .shell{
+    margin-inline:auto;
+    max-width:var(--page);
+    padding-inline:clamp(1.35rem,4vw,3rem);
+    width:100%;
+  }
+  .eyebrow{
+    align-items:center;
+    color:var(--gold-ink);
+    display:flex;
+    font-size:.68rem;
+    font-weight:600;
+    gap:.8rem;
+    letter-spacing:.2em;
+    margin-bottom:1.35rem;
+    text-transform:uppercase;
+  }
+  .eyebrow::before{background:currentColor;content:"";height:1px;width:2rem}
+  .eyebrow.light{color:var(--gold-light)}
+  .section-question{
+    border-left:3px solid var(--gold);
+    color:var(--navy);
+    font-family:var(--question);
+    font-size:clamp(1.78rem,2.6vw,2.25rem);
+    font-style:normal;
+    font-weight:700;
+    line-height:1.24;
+    margin-bottom:1.9rem;
+    max-width:900px;
+    padding:.15rem 0 .2rem 1.3rem;
+  }
+  .section-question.light{color:var(--cream)}
+  .lead{
+    font-family:var(--body);
+    font-size:clamp(1rem,1.15vw,1.08rem);
+    line-height:1.62;
+  }
+  .button{
+    align-items:center;
+    background:var(--gold);
+    border:1px solid var(--gold);
+    border-radius:2px;
+    color:var(--navy);
+    display:inline-flex;
+    font-size:.88rem;
+    font-weight:600;
+    gap:.7rem;
+    justify-content:center;
+    letter-spacing:.02em;
+    min-height:52px;
+    padding:.85rem 1.5rem;
+    transition:background .2s ease,transform .2s ease;
+  }
+  .button::after{content:"\2192";font-size:1.1rem}
+  .button:hover{background:var(--gold-light);transform:translateY(-2px)}
+  .button:focus-visible,.text-link:focus-visible,.nav-links a:focus-visible{outline:3px solid var(--gold-light);outline-offset:4px}
+  .text-link{
+    border-bottom:1px solid rgba(245,239,225,.38);
+    color:var(--cream);
+    font-size:.9rem;
+    font-weight:500;
+    padding-bottom:.18rem;
+  }
+  .story-more .text-link{
+    border-bottom:1px solid rgba(201,161,74,.6);
+    color:var(--navy);
+    font-weight:600;
+  }
+  .story-more .text-link:hover{border-bottom-color:var(--gold)}
+
+  /* navigation */
+  .site-header{background:var(--cream);left:0;position:absolute;right:0;top:0;z-index:10}
+  .nav{
+    align-items:center;
+    border-bottom:1px solid rgba(10,22,40,.10);
+    display:flex;
+    justify-content:space-between;
+    min-height:88px;
+  }
+  .signature-mark{-webkit-mask-image:url("/images/signature-mask.webp");mask-image:url("/images/signature-mask.webp");-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:left center;mask-position:left center;-webkit-mask-size:contain;mask-size:contain;background-color:var(--cream);display:block;height:35px;width:125px;}
+  .signature-link{display:block;line-height:0}
+  .logo-link{display:block;line-height:0}
+  .site-logo{display:block;height:clamp(56px,6.5vw,72px);width:auto}
+  .nav-links{align-items:center;display:flex;gap:2rem}
+  .nav-links a{
+    color:rgba(10,22,40,.72);
+    font-size:.74rem;
+    font-weight:600;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+  .nav-links a:last-child{color:#a9863a}
+.site-header .signature-mark{background-color:var(--navy)}
+
+  /* hero */
+  .hero{
+    background:
+      radial-gradient(circle at 84% 18%,rgba(201,161,74,.15),transparent 27rem),
+      linear-gradient(145deg,var(--navy),var(--navy-2) 67%,#132440);
+    color:var(--cream);
+    overflow:hidden;
+    padding:clamp(7.5rem,13vh,9.5rem) 0 clamp(3.5rem,6vh,5rem);
+    position:relative;
+  }
+  .hero::after{
+    border:1px solid rgba(201,161,74,.17);
+    border-radius:50%;
+    content:"";
+    height:31rem;
+    position:absolute;
+    right:-12rem;
+    top:8rem;
+    width:31rem;
+  }
+  .hero-grid{
+    align-items:end;
+    display:grid;
+    gap:clamp(3rem,7vw,7rem);
+    grid-template-columns:minmax(0,1.55fr) minmax(280px,.65fr);
+    position:relative;
+    z-index:1;
+  }
+  .hero h1{color:var(--cream);max-width:850px}
+  .hero-positioning{
+    color:rgba(245,239,225,.72);
+    font-size:1.02rem;
+    line-height:1.65;
+    margin-top:1.6rem;
+    max-width:720px;
+  }
+  .hero h1 span{color:var(--lavender-dim);display:block;font-weight:400}
+  .hero h1 em{color:var(--cream);font-style:normal;position:relative}
+  .hero h1 em::after{
+    background:linear-gradient(90deg,var(--gold),var(--gold-light));
+    bottom:-.08em;
+    content:"";
+    height:3px;
+    left:0;
+    position:absolute;
+    transform-origin:left;
+    width:100%;
+  }
+  .hero-side{border-left:1px solid rgba(201,161,74,.44);margin-bottom:.7rem;padding-left:1.5rem}
+  .hero-side .label{
+    color:var(--gold-light);
+    display:block;
+    font-size:.64rem;
+    font-weight:600;
+    letter-spacing:.18em;
+    margin-bottom:1rem;
+    text-transform:uppercase;
+  }
+  .hero-side p{
+    color:var(--cream);
+    font-family:var(--question);
+    font-size:clamp(1.45rem,2vw,1.7rem);
+    font-weight:500;
+    line-height:1.3;
+  }
+  .hero-actions{align-items:center;display:flex;flex-wrap:wrap;gap:1.1rem 1.4rem;margin-top:1.8rem}
+
+  /* the conversation before the build */
+  .interview{
+    background:var(--paper);
+    overflow:hidden;
+    padding:clamp(3rem,5vh,3.75rem) 0;
+  }
+  .interview>.shell{
+    align-items:start;
+    display:grid;
+    gap:clamp(3rem,5vw,5rem);
+    grid-template-columns:minmax(0,1fr) minmax(400px,1fr);
+  }
+  .interview-head{
+    display:block;
+    margin-bottom:0;
+  }
+  .story-quote{margin:1.4rem 0 1.6rem;max-width:52ch}
+  .interview-quote{
+    border-left:2px solid rgba(201,161,74,.55);
+    margin:1.8rem 0 0;
+    max-width:46ch;
+    padding-left:1.3rem;
+  }
+  .interview-quote p{
+    color:var(--navy);
+    font-family:var(--question);
+    font-size:clamp(1.12rem,1.5vw,1.34rem);
+    font-style:italic;
+    line-height:1.4;
+  }
+  .interview-quote cite{
+    color:var(--lavender-dim);
+    display:block;
+    font-size:.62rem;
+    font-style:normal;
+    font-weight:600;
+    letter-spacing:.15em;
+    margin-top:.8rem;
+    text-transform:uppercase;
+  }
+  .interview-quote p + p{margin-top:.9rem}
+  .interview-head .lead{
+    color:var(--lavender-dim);
+    margin-top:1.5rem;
+    max-width:46ch;
+  }
+  .interview-collage{
+    align-items:start;
+    display:grid;
+    grid-template-columns:1fr;
+    height:auto;
+    justify-self:center;
+    margin:0;
+    max-width:380px;
+    width:100%;
+  }
+  .wide-shot{height:auto;margin:0;position:relative}
+  .wide-shot img{
+    aspect-ratio:2/3;
+    display:block;
+    height:auto;
+    object-fit:cover;
+    object-position:center 54%;
+    width:100%;
+  }
+  .wide-shot::after{
+    border:1px solid rgba(201,161,74,.55);
+    content:"";
+    inset:.8rem;
+    pointer-events:none;
+    position:absolute;
+    z-index:1;
+  }
+  /* recognition */
+  .recognition{background:var(--cream);padding:clamp(3rem,5vh,3.75rem) 0}
+  .recognition-head{
+    align-items:end;
+    display:grid;
+    gap:clamp(2rem,6vw,6rem);
+    grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);
+    margin-bottom:clamp(2.25rem,4vh,3rem);
+  }
+  .recognition-head .lead{color:var(--lavender-dim)}
+  .recognition-grid{display:grid;grid-template-columns:repeat(2,1fr);row-gap:clamp(2rem,3.5vh,3rem)}
+  .recognition-card:nth-child(3){border-left:0;padding-left:0}
+  .recognition-card:nth-child(2){padding-right:0}
+  
+  .recognition-card{
+    border-left:1px solid var(--line);
+    padding:1.25rem clamp(1.2rem,3vw,2.2rem) 1.25rem;
+  }
+  .recognition-card:first-child{border-left:0;padding-left:0}
+  .recognition-card:last-child{padding-right:0}
+  .recognition-card .number{
+    color:var(--gold-ink);
+    display:block;
+    font-family:var(--body);
+    font-size:1.1rem;
+    margin-bottom:1.25rem;
+  }
+  .recognition-card h3{font-size:1.55rem;margin-bottom:1rem}
+  .recognition-card p{color:#5f5966;font-size:1rem;line-height:1.65}
+  .recognition-card .text-link{color:var(--navy);border-bottom:0}
+  /* method */
+  .method{background:var(--navy);color:var(--cream);padding:clamp(3rem,5vh,3.75rem) 0}
+  .method-head{align-items:end;display:flex;gap:3rem;justify-content:space-between;margin-bottom:clamp(2.25rem,4vh,3rem)}
+  .method h2{color:var(--cream);max-width:760px}
+  .method-intro{color:rgba(245,239,225,.68);max-width:350px}
+  .method-grid{border-top:1px solid rgba(245,239,225,.15);display:grid;grid-template-columns:repeat(3,1fr)}
+  .method-card{border-left:1px solid rgba(245,239,225,.15);padding:1.7rem clamp(1.3rem,3vw,2.4rem) .35rem}
+  .method-more{margin-top:2.2rem}
+  .method-card:first-child{border-left:0;padding-left:0}
+  .method-card:last-child{padding-right:0}
+  .method-card .number{color:var(--gold-light);font-family:var(--body);font-size:2.15rem;font-weight:500}
+  .method-card h3{color:var(--cream);margin:1rem 0 .8rem}
+  .method-card p{color:rgba(245,239,225,.7);font-size:1rem;line-height:1.65}
+
+  /* proof story */
+
+  /* her site, small, under the story */
+  .story-crops{grid-column:1 / -1;margin:2.2rem auto 0;max-width:660px;width:100%}
+  .crop-row{display:grid;gap:1.4rem;grid-template-columns:1fr 1fr}
+  .crop{margin:0;text-align:center}
+  .crop img{
+    aspect-ratio:16/10;
+    border:4px solid var(--cream);
+    box-shadow:0 12px 28px rgba(10,22,40,.12);
+    display:block;
+    height:auto;
+    object-fit:cover;
+    object-position:top center;
+    width:100%;
+  }
+  .crop figcaption{
+    color:var(--gold-ink);
+    font-size:.62rem;
+    font-weight:600;
+    letter-spacing:.16em;
+    margin-top:.6rem;
+    text-transform:uppercase;
+  }
+  .story-crops .story-more{margin-top:1.4rem;padding-top:0;text-align:center}
+  @media (max-width:640px){
+    .crop-row{grid-template-columns:1fr;gap:1.6rem}
+  }
+  .story{background:var(--paper);overflow:hidden;padding:clamp(3rem,5vh,3.75rem) 0}
+  .story-grid{align-items:stretch;column-gap:clamp(3rem,5vw,4.5rem);display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,1fr);row-gap:0}
+  .story-question-top{grid-column:1 / -1;max-width:860px}
+  .story-copy{display:flex;flex-direction:column}
+  .story-copy h2{font-size:clamp(1.8rem,2.45vw,2.35rem);margin-bottom:1rem}
+  .story-copy p{color:#5f5966}
+  .story-question-top{color:var(--navy)}
+  .story-mid{
+    align-items:start;
+    display:grid;
+    gap:1.35rem;
+    grid-template-columns:210px 1fr;
+    margin-bottom:1.25rem;
+    margin-top:1rem;
+  }
+  .paola-thumb{margin:0;text-align:center}
+  .paola-thumb img{
+    aspect-ratio:4/5;
+    border:4px solid var(--cream);
+    box-shadow:0 12px 28px rgba(10,22,40,.12);
+    display:block;
+    object-fit:cover;
+    object-position:center 42%;
+    width:210px;
+  }
+  .paola-thumb figcaption{
+    color:var(--gold-ink);
+    font-size:.62rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    margin-top:.5rem;
+    text-transform:uppercase;
+  }
+  .result{
+    align-items:start;
+    border-left:3px solid var(--gold);
+    display:grid;
+    gap:1.2rem;
+    grid-template-columns:auto 1fr;
+    margin-top:auto;
+    padding:.4rem 0 .4rem 1.3rem;
+  }
+  .result strong{color:var(--navy);font-family:var(--body);font-size:2.5rem;font-weight:500;line-height:1}
+  .result span{color:var(--lavender-dim);font-size:.9rem;line-height:1.5}
+  .story-mid p{margin:0}
+  .conversation-card{
+    background:var(--cream);
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 24px 70px rgba(10,22,40,.09);
+    margin-top:calc(.7rem * 1.2 + 1.35rem + .62rem);
+    padding:clamp(2rem,3.5vw,3rem);
+    position:relative;
+  }
+  .conversation-card::before{
+    color:rgba(201,161,74,.27);
+    content:"\201C";
+    font-family:var(--display);
+    font-size:8rem;
+    left:1.6rem;
+    line-height:1;
+    position:absolute;
+    top:.9rem;
+  }
+  .exchange{position:relative}
+  .exchange+.exchange{border-top:1px solid var(--line);margin-top:1.5rem;padding-top:1.5rem}
+  .exchange .who{
+    color:var(--gold-ink);
+    display:block;
+    font-size:.68rem;
+    font-weight:600;
+    letter-spacing:.18em;
+    margin-bottom:.8rem;
+    text-transform:uppercase;
+  }
+  .exchange p{color:var(--navy);font-family:var(--body);font-size:clamp(1.05rem,1.45vw,1.22rem);font-style:normal;line-height:1.55}
+    .story-more{margin-top:auto;padding-top:1.6rem}
+  .story-insight{
+    border-top:1px solid var(--line);
+    color:var(--navy);
+    font-family:var(--body);
+    line-height:1.45;
+    margin-top:1.75rem;
+    padding-top:1.25rem;
+  }
+  .story-insight p{font-size:clamp(1.05rem,1.45vw,1.22rem);line-height:1.55}
+  .story-insight cite{
+    color:var(--gold-ink);
+    display:block;
+    font-size:.68rem;
+    font-style:normal;
+    font-weight:600;
+    letter-spacing:.18em;
+    margin-top:.85rem;
+    text-transform:uppercase;
+  }
+
+  /* about */
+  .about{background:var(--cream);padding:clamp(3rem,5vh,3.75rem) 0}
+  .about-grid{
+    align-items:start;
+    display:grid;
+    gap:clamp(1rem,1.8vw,1.7rem);
+    grid-template-areas:
+      "question question"
+      "heading heading"
+      "portrait story"
+      "closing closing";
+    grid-template-columns:minmax(230px,295px) minmax(0,1fr);
+  }
+  .about-grid>.section-question{grid-area:question;margin-bottom:0}
+  .about-portrait{
+    align-self:start;
+    background:var(--navy);
+    box-shadow:0 24px 60px rgba(10,22,40,.12);
+    grid-area:portrait;
+    margin:0;
+    max-width:295px;
+    padding:.6rem;
+    position:relative;
+  }
+  .about-portrait::after{
+    border:1px solid rgba(201,161,74,.5);
+    content:"";
+    inset:1.5rem -1rem -1rem 1.5rem;
+    pointer-events:none;
+    position:absolute;
+    z-index:0;
+  }
+  .about-portrait img{
+    aspect-ratio:1/1;
+    display:block;
+    object-fit:cover;
+    object-position:center 18%;
+    position:relative;
+    width:100%;
+    z-index:1;
+  }
+  .about-portrait figcaption{
+    color:var(--cream);
+    font-family:var(--body);
+    font-size:1rem;
+    line-height:1.25;
+    padding:.75rem .25rem .25rem;
+    position:relative;
+    z-index:1;
+  }
+  .about-portrait .portrait-signature{margin:0 0 .45rem}
+  .about-portrait figcaption span{
+    color:var(--gold-light);
+    display:block;
+    font-family:var(--body);
+    font-size:.62rem;
+    font-weight:600;
+    letter-spacing:.16em;
+    margin-top:.35rem;
+    text-transform:uppercase;
+  }
+  .about-heading{align-self:end;grid-area:heading}
+  .about h2{font-size:clamp(1.8rem,2.4vw,2.3rem);margin:0;max-width:26ch}
+  .about-story{
+    align-self:start;
+    background:rgba(255,255,255,.28);
+    border:1px solid var(--line);
+    padding:clamp(1.2rem,1.8vw,1.8rem);
+  }
+  .about-story p{
+    font-size:1rem;
+    line-height:1.6;
+  }
+  .about-story .roles{font-size:.62rem;letter-spacing:.15em;line-height:1.4}
+  @media (min-width:901px){
+    .about-story{column-gap:clamp(1.6rem,2.6vw,2.6rem);columns:2}
+    .about-story p{break-inside:avoid}
+  }
+  .about-closing{grid-area:closing;margin-top:clamp(1rem,2vh,1.6rem)}
+  .about-closing p{color:#5f5966;font-size:1rem;line-height:1.6}
+  .about-closing p:first-child{margin-top:0}
+  .about-closing .other-site{
+    border-top:1px solid var(--line);
+    margin-top:1.4rem;
+    padding-top:1.2rem;
+  }
+  .about-closing .other-site a{
+    border-bottom:1px solid rgba(201,161,74,.55);
+    color:var(--navy);
+    font-weight:500;
+    text-decoration:none;
+  }
+  .about-closing .other-site a:hover{border-bottom-color:var(--gold)}
+  .about-closing .roles{font-size:.62rem;letter-spacing:.15em;line-height:1.4}
+  .about-story{grid-area:story}
+  .about-story p{color:#5f5966}
+  .about-story .other-site{
+    border-top:1px solid var(--line);
+    font-size:1rem;
+    margin-top:1.4rem;
+    padding-top:1.2rem;
+  }
+  .about-story .other-site a{
+    border-bottom:1px solid rgba(201,161,74,.55);
+    color:var(--navy);
+    font-weight:500;
+    text-decoration:none;
+  }
+  .about-story .other-site a:hover{border-bottom-color:var(--gold)}
+  .about-story p:first-child{margin-top:0}
+    .about-facts{
+    display:grid;
+    gap:0;
+    grid-area:facts;
+    grid-template-columns:1fr;
+    margin-top:1.4rem;
+  }
+    .fact{border-top:1px solid var(--line);padding:1.05rem 0}
+  .fact:first-child{border-top:0;padding-top:0}
+  .fact:last-child{padding-bottom:0}
+  .fact .label{color:var(--gold-ink);font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+  .fact p{color:var(--navy);font-family:var(--body);font-size:1rem;line-height:1.55;margin-top:.45rem}
+  .roles{color:var(--lavender-dim);font-size:.62rem;font-weight:600;letter-spacing:.15em;margin-top:1.2rem;text-transform:uppercase}
+
+  /* invitation */
+  .invite{background:var(--navy-2);color:var(--cream);padding:clamp(2.4rem,4.5vh,3.4rem) 0}
+    .aftercare{
+    background:var(--navy);
+    color:var(--cream);
+    padding:clamp(2.6rem,5vh,3.75rem) 0;
+  }
+  .aftercare h2{
+    color:var(--cream);
+    margin:1.1rem 0 0;
+    max-width:20ch;
+  }
+  .aftercare-body{
+    border-top:1px solid rgba(245,239,225,.16);
+    margin-top:2.2rem;
+    padding-top:2rem;
+  }
+  .care-lede{
+    color:rgba(245,239,225,.8);
+    font-size:1.06rem;
+    line-height:1.62;
+    max-width:66ch;
+  }
+  .care-grid{
+    display:grid;
+    gap:1.4rem clamp(1.8rem,3.4vw,3rem);
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    margin-top:2.2rem;
+    max-width:900px;
+  }
+  .care-item{border-top:1px solid rgba(245,239,225,.16);padding-top:1rem}
+  .care-h{
+    color:var(--gold-light);
+    display:block;
+    font-size:.68rem;
+    font-weight:600;
+    letter-spacing:.16em;
+    margin-bottom:.6rem;
+    text-transform:uppercase;
+  }
+  .care-item p{color:rgba(245,239,225,.8);font-size:1rem;line-height:1.6}
+  .care-own{
+    border-left:2px solid rgba(201,161,74,.6);
+    color:var(--cream);
+    font-size:1.06rem;
+    line-height:1.6;
+    margin-top:2.2rem;
+    max-width:64ch;
+    padding-left:1.3rem;
+  }
+  @media (max-width:640px){.care-grid{grid-template-columns:1fr;gap:1.3rem}}
+  .care .care-own{
+    border-left:2px solid rgba(201,161,74,.55);
+    margin-top:1.3rem;
+    padding-left:1.1rem;
+  }
+  .invite-panel{
+    align-items:start;
+    border:1px solid rgba(201,161,74,.36);
+    display:grid;
+    gap:clamp(2.5rem,4vw,4rem);
+    grid-template-columns:minmax(0,1.2fr) minmax(280px,.65fr);
+    padding:clamp(1.6rem,2.6vw,2.4rem);
+    position:relative;
+  }
+  .invite-panel::before{background:var(--gold);content:"";height:3px;left:-1px;position:absolute;top:-1px;width:110px}
+  .invite h2{color:var(--cream);font-size:clamp(1.8rem,2.4vw,2.3rem);margin-bottom:.9rem}
+  .invite .section-question{font-size:clamp(1.68rem,2.2vw,2.05rem);margin-bottom:1.7rem}
+  .invite-copy p{color:rgba(245,239,225,.72)}
+  .invite-action{justify-self:end;max-width:320px;width:100%}
+  .invite-action .button{width:100%}
+  .promise{color:var(--cream);font-family:var(--body);font-size:1.1rem;font-style:normal;line-height:1.55;margin-bottom:1.5rem}
+  .contact{color:var(--lavender);font-size:.82rem;margin-top:1rem;text-align:center}
+  .contact a{border-bottom:1px solid rgba(201,161,74,.45);color:var(--gold-light)}
+  .invite-local{color:var(--gold-light)!important;font-size:.78rem;font-weight:600;letter-spacing:.08em;margin:0 0 1rem;text-transform:uppercase}
+
+  .tm-name{color:var(--gold-light);font-family:var(--question);font-size:1.55rem;font-weight:500;letter-spacing:.02em;line-height:1.2;margin:0 0 .75rem}
+  .tm-name sup{font-size:.42em;letter-spacing:0;margin-left:.1em;vertical-align:super}
+
+  /* step down from the calendar: voice recorder, see #tell-me */
+  .hero-step{
+    border-bottom:1px solid rgba(225,197,127,.45);
+    align-self:flex-start;
+    color:var(--gold-light);
+    flex-basis:100%;
+    font-size:.86rem;
+    font-weight:500;
+    padding-bottom:.2rem;
+  }
+
+  .hero-step:hover{border-bottom-color:var(--gold-light)}
+
+  .stepdown{
+    align-items:start;
+    border:1px solid rgba(201,161,74,.36);
+    display:grid;
+    gap:clamp(2.5rem,4vw,4rem);
+    grid-template-columns:minmax(0,1.2fr) minmax(280px,.65fr);
+    margin-top:clamp(1.6rem,2.6vw,2.4rem);
+    padding:clamp(1.6rem,2.6vw,2.4rem);
+    position:relative;
+  }
+
+  .stepdown-action{justify-self:end;max-width:320px;text-align:center;width:100%}
+
+  .stepdown::before{background:var(--gold);content:"";height:3px;left:-1px;position:absolute;top:-1px;width:110px}
+
+  .stepdown-eyebrow{margin-bottom:1rem}
+
+  .stepdown-title{
+    color:var(--cream);
+    font-family:var(--question);
+    font-size:clamp(1.9rem,3vw,2.5rem);
+    font-weight:600;
+    line-height:1.15;
+    margin-bottom:.85rem;
+  }
+
+  .stepdown-lead{color:rgba(245,239,225,.72);font-size:.98rem;line-height:1.6}
+
+  .prompts{
+    background:rgba(201,161,74,.07);
+    border-left:3px solid var(--gold);
+    margin:1.5rem 0 0;
+    padding:1rem 1.15rem;
+  }
+
+  .prompts p{color:rgba(245,239,225,.9);font-size:.92rem;line-height:1.65}
+
+  .prompts p + p{margin-top:.45rem}
+
+  .prompts .plabel{
+    color:var(--gold-light);
+    font-size:.68rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    margin-bottom:.6rem;
+    text-transform:uppercase;
+  }
+
+  .stepdown .stage{display:none}
+
+  .stepdown .stage.on{display:block}
+
+  .mic-btn{
+    align-items:center;
+    background:radial-gradient(circle at 35% 30%,rgba(225,197,127,.28),rgba(201,161,74,.10));
+    border:0;
+    border-radius:50%;
+    color:var(--gold-light);
+    cursor:pointer;
+    display:inline-flex;
+    height:104px;
+    justify-content:center;
+    position:relative;
+    transition:transform .15s ease,background .2s ease;
+    width:104px;
+  }
+
+  /* brushed gold arc, open at the lower right, matching the OB mark */
+  .mic-btn::before{
+    background:conic-gradient(from 160deg,
+      rgba(138,101,38,0) 0deg,
+      #8a6526 16deg,
+      #c9a14a 80deg,
+      #e3c47c 160deg,
+      #c9a14a 240deg,
+      #8a6526 274deg,
+      rgba(138,101,38,0) 292deg,
+      rgba(138,101,38,0) 360deg);
+    border-radius:50%;
+    content:"";
+    inset:-3px;
+    -webkit-mask:radial-gradient(farthest-side,rgba(0,0,0,0) calc(100% - 4px),#000 calc(100% - 3.5px));
+    mask:radial-gradient(farthest-side,rgba(0,0,0,0) calc(100% - 4px),#000 calc(100% - 3.5px));
+    pointer-events:none;
+    position:absolute;
+  }
+
+  /* gold dust falling from the open end of the arc */
+  .mic-btn::after{
+    background:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 112 112'%3E%3Ccircle cx='91.5' cy='107.7' r='0.56' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='89.3' cy='82.3' r='1.21' fill='%23c9a14a' opacity='0.73'/%3E%3Ccircle cx='89.3' cy='78.4' r='1.60' fill='%23c9a14a' opacity='0.71'/%3E%3Ccircle cx='88.6' cy='78.1' r='1.54' fill='%23c9a14a' opacity='0.82'/%3E%3Ccircle cx='118.6' cy='78.3' r='0.55' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='85.8' cy='80.8' r='1.48' fill='%23c9a14a' opacity='0.74'/%3E%3Ccircle cx='100.5' cy='86.7' r='0.83' fill='%23c9a14a' opacity='0.32'/%3E%3Ccircle cx='89.4' cy='80.9' r='1.46' fill='%23c9a14a' opacity='0.90'/%3E%3Ccircle cx='93.4' cy='80.1' r='1.32' fill='%23c9a14a' opacity='0.56'/%3E%3Ccircle cx='88.8' cy='78.2' r='1.64' fill='%23c9a14a' opacity='0.64'/%3E%3Ccircle cx='92.6' cy='90.0' r='1.34' fill='%23c9a14a' opacity='0.37'/%3E%3Ccircle cx='97.1' cy='83.0' r='1.33' fill='%23c9a14a' opacity='0.77'/%3E%3Ccircle cx='98.2' cy='100.4' r='0.71' fill='%23c9a14a' opacity='0.30'/%3E%3Ccircle cx='93.4' cy='83.0' r='1.23' fill='%23c9a14a' opacity='0.52'/%3E%3Ccircle cx='106.4' cy='100.5' r='0.48' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='102.3' cy='97.2' r='0.90' fill='%23c9a14a' opacity='0.22'/%3E%3Ccircle cx='88.2' cy='86.3' r='1.22' fill='%23c9a14a' opacity='0.72'/%3E%3Ccircle cx='109.0' cy='80.5' r='0.65' fill='%23c9a14a' opacity='0.20'/%3E%3Ccircle cx='106.6' cy='79.4' r='0.86' fill='%23c9a14a' opacity='0.25'/%3E%3Ccircle cx='99.3' cy='82.2' r='1.31' fill='%23c9a14a' opacity='0.37'/%3E%3Ccircle cx='98.8' cy='80.2' r='1.04' fill='%23c9a14a' opacity='0.55'/%3E%3Ccircle cx='86.0' cy='82.0' r='1.18' fill='%23c9a14a' opacity='0.94'/%3E%3Ccircle cx='89.0' cy='79.1' r='1.09' fill='%23c9a14a' opacity='0.81'/%3E%3Ccircle cx='94.2' cy='83.3' r='1.19' fill='%23c9a14a' opacity='0.56'/%3E%3Ccircle cx='90.7' cy='84.6' r='1.31' fill='%23c9a14a' opacity='0.78'/%3E%3Ccircle cx='102.1' cy='77.0' r='0.86' fill='%23c9a14a' opacity='0.35'/%3E%3Ccircle cx='90.1' cy='81.8' r='1.51' fill='%23c9a14a' opacity='0.66'/%3E%3Ccircle cx='95.6' cy='89.1' r='0.86' fill='%23c9a14a' opacity='0.41'/%3E%3Ccircle cx='88.6' cy='83.6' r='1.09' fill='%23c9a14a' opacity='0.72'/%3E%3Ccircle cx='93.9' cy='84.5' r='1.39' fill='%23c9a14a' opacity='0.50'/%3E%3Ccircle cx='114.5' cy='91.8' r='0.46' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='112.2' cy='84.7' r='0.68' fill='%23c9a14a' opacity='0.22'/%3E%3Ccircle cx='90.4' cy='83.1' r='1.62' fill='%23c9a14a' opacity='0.84'/%3E%3Ccircle cx='91.8' cy='80.7' r='1.14' fill='%23c9a14a' opacity='0.83'/%3E%3Ccircle cx='93.8' cy='83.1' r='1.22' fill='%23c9a14a' opacity='0.59'/%3E%3Ccircle cx='92.7' cy='79.0' r='1.51' fill='%23c9a14a' opacity='0.55'/%3E%3Ccircle cx='96.9' cy='78.5' r='1.17' fill='%23c9a14a' opacity='0.55'/%3E%3Ccircle cx='101.7' cy='80.7' r='0.88' fill='%23c9a14a' opacity='0.49'/%3E%3Ccircle cx='109.6' cy='97.3' r='0.57' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='90.8' cy='82.6' r='1.25' fill='%23c9a14a' opacity='0.51'/%3E%3Ccircle cx='92.8' cy='82.2' r='1.28' fill='%23c9a14a' opacity='0.58'/%3E%3Ccircle cx='88.9' cy='84.3' r='1.31' fill='%23c9a14a' opacity='0.57'/%3E%3Ccircle cx='104.2' cy='66.3' r='0.71' fill='%23c9a14a' opacity='0.23'/%3E%3Ccircle cx='114.8' cy='88.5' r='0.57' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='111.1' cy='83.6' r='0.67' fill='%23c9a14a' opacity='0.25'/%3E%3Ccircle cx='102.9' cy='86.8' r='0.76' fill='%23c9a14a' opacity='0.25'/%3E%3Ccircle cx='95.2' cy='89.0' r='0.83' fill='%23c9a14a' opacity='0.34'/%3E%3Ccircle cx='97.0' cy='85.4' r='1.05' fill='%23c9a14a' opacity='0.60'/%3E%3Ccircle cx='105.2' cy='81.4' r='1.03' fill='%23c9a14a' opacity='0.26'/%3E%3Ccircle cx='88.2' cy='82.8' r='1.51' fill='%23c9a14a' opacity='0.60'/%3E%3Ccircle cx='96.4' cy='103.9' r='0.43' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='114.9' cy='81.4' r='0.66' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='88.0' cy='82.9' r='1.56' fill='%23c9a14a' opacity='0.96'/%3E%3Ccircle cx='95.4' cy='90.5' r='1.02' fill='%23c9a14a' opacity='0.54'/%3E%3Ccircle cx='98.2' cy='89.0' r='0.77' fill='%23c9a14a' opacity='0.48'/%3E%3Ccircle cx='89.6' cy='80.2' r='1.49' fill='%23c9a14a' opacity='0.58'/%3E%3Ccircle cx='95.3' cy='108.0' r='0.52' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='103.7' cy='80.8' r='0.91' fill='%23c9a14a' opacity='0.44'/%3E%3Ccircle cx='93.2' cy='87.8' r='1.03' fill='%23c9a14a' opacity='0.58'/%3E%3Ccircle cx='100.8' cy='83.4' r='1.16' fill='%23c9a14a' opacity='0.51'/%3E%3Ccircle cx='90.3' cy='83.0' r='1.35' fill='%23c9a14a' opacity='0.75'/%3E%3Ccircle cx='105.4' cy='87.7' r='0.79' fill='%23c9a14a' opacity='0.29'/%3E%3Ccircle cx='102.9' cy='90.5' r='0.85' fill='%23c9a14a' opacity='0.31'/%3E%3Ccircle cx='115.1' cy='81.2' r='0.56' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='90.5' cy='89.8' r='1.06' fill='%23c9a14a' opacity='0.66'/%3E%3Ccircle cx='95.3' cy='86.8' r='1.03' fill='%23c9a14a' opacity='0.42'/%3E%3Ccircle cx='91.5' cy='91.7' r='1.07' fill='%23c9a14a' opacity='0.49'/%3E%3Ccircle cx='105.8' cy='84.4' r='1.00' fill='%23c9a14a' opacity='0.25'/%3E%3Ccircle cx='105.8' cy='74.7' r='0.82' fill='%23c9a14a' opacity='0.31'/%3E%3Ccircle cx='102.0' cy='93.7' r='0.73' fill='%23c9a14a' opacity='0.29'/%3E%3Ccircle cx='85.8' cy='84.6' r='1.57' fill='%23c9a14a' opacity='0.82'/%3E%3Ccircle cx='88.2' cy='77.7' r='1.50' fill='%23c9a14a' opacity='0.96'/%3E%3Ccircle cx='112.1' cy='75.4' r='0.56' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='106.0' cy='97.9' r='0.57' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='91.5' cy='81.6' r='1.02' fill='%23c9a14a' opacity='0.44'/%3E%3Ccircle cx='91.3' cy='83.7' r='1.27' fill='%23c9a14a' opacity='0.60'/%3E%3Ccircle cx='107.2' cy='96.0' r='0.47' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='92.1' cy='80.3' r='1.61' fill='%23c9a14a' opacity='0.61'/%3E%3Ccircle cx='86.8' cy='79.9' r='1.74' fill='%23c9a14a' opacity='0.84'/%3E%3Ccircle cx='90.2' cy='108.9' r='0.55' fill='%23c9a14a' opacity='0.10'/%3E%3Ccircle cx='107.0' cy='80.6' r='0.67' fill='%23c9a14a' opacity='0.30'/%3E%3Ccircle cx='92.4' cy='79.3' r='1.02' fill='%23c9a14a' opacity='0.52'/%3E%3Ccircle cx='90.0' cy='79.3' r='1.53' fill='%23c9a14a' opacity='0.68'/%3E%3Ccircle cx='97.2' cy='85.3' r='1.18' fill='%23c9a14a' opacity='0.51'/%3E%3Ccircle cx='103.9' cy='92.2' r='0.70' fill='%23c9a14a' opacity='0.21'/%3E%3C/svg%3E") center/contain no-repeat;
+    content:"";
+    inset:-14px;
+    pointer-events:none;
+    position:absolute;
+  }
+
+  .mic-btn:hover{transform:scale(1.04)}
+
+  .mic-btn:focus-visible{outline:3px solid var(--gold-light);outline-offset:4px}
+
+  .mic-btn svg{height:44px;width:44px}
+
+  .mic-btn.rec{background:rgba(201,161,74,.22)}
+
+  .mic-btn:disabled{cursor:default;opacity:.45;transform:none}
+
+  .mic-label{color:var(--lavender);font-size:.9rem;line-height:1.5;margin-top:.85rem}
+
+  .timer{
+    color:var(--gold-light);
+    font-family:var(--question);
+    font-size:1.9rem;
+    font-weight:600;
+    letter-spacing:.05em;
+    margin-top:.4rem;
+  }
+
+  .stepdown audio{border-radius:4px;margin:1rem 0 1.1rem;width:100%}
+
+  .field{
+    background:rgba(245,239,225,.06);
+    border:1px solid rgba(168,160,180,.4);
+    border-radius:3px;
+    color:var(--cream);
+    display:block;
+    font-family:var(--body);
+    font-size:.95rem;
+    margin:0 0 .75rem;
+    padding:.8rem .95rem;
+    width:100%;
+  }
+
+  .field::placeholder{color:var(--lavender-dim)}
+
+  .field:focus{border-color:var(--gold);outline:2px solid var(--gold)}
+
+  .stepdown-actions{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-top:.4rem}
+
+  .btn-gold,.btn-ghost{
+    border-radius:2px;
+    cursor:pointer;
+    font-family:var(--body);
+    font-size:.88rem;
+    font-weight:600;
+    letter-spacing:.02em;
+    min-height:52px;
+    padding:.85rem 1.5rem;
+    transition:background .2s ease,transform .2s ease;
+  }
+
+  .btn-gold{background:var(--gold);border:1px solid var(--gold);color:var(--navy)}
+
+  .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+
+  .btn-ghost{background:transparent;border:1px solid rgba(168,160,180,.5);color:var(--lavender)}
+
+  .btn-ghost:hover{color:var(--cream)}
+
+  .btn-gold:focus-visible,.btn-ghost:focus-visible{outline:3px solid var(--gold-light);outline-offset:3px}
+
+  .btn-gold:disabled,.btn-ghost:disabled{cursor:default;opacity:.5;transform:none}
+
+  .sent-mark{color:var(--gold);font-family:var(--question);font-size:3.2rem;line-height:1;margin-bottom:.3rem}
+
+  .stepdown-sent{color:var(--cream);font-family:var(--question);font-size:1.7rem;font-weight:600;margin-bottom:.7rem}
+
+  .stepdown-msg{color:var(--gold-light);font-size:.88rem;line-height:1.5;margin-top:.9rem;min-height:1.2rem}
+
+  .stepdown-msg a{border-bottom:1px solid rgba(225,197,127,.5);color:var(--gold-light)}
+
+  .fineprint{color:var(--lavender-dim);font-size:.75rem;grid-column:1/-1;line-height:1.6;margin-top:.4rem}
+
+  .site-footer{background:var(--navy);border-top:1px solid rgba(245,239,225,.08);color:var(--cream);padding:2rem 0}
+  .footer-row{align-items:center;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+  .site-footer small{color:var(--lavender-dim);font-size:.75rem}
+
+  /* one consistent desktop-height panel for every main section */
+  @media (min-width:901px){
+    .interview,.recognition,.method,.story,.invite{
+      align-items:center;
+      display:flex;
+    }
+    .interview-collage{align-self:stretch}
+    .interview-collage .wide-shot{height:100%}
+    .interview-collage .wide-shot img{
+      aspect-ratio:auto;
+      height:100%;
+    }
+    .about-portrait{justify-self:start}
+  }
+
+  @media (min-width:901px) and (max-height:850px){
+    body{font-size:16px}
+    h2{font-size:clamp(1.78rem,2.4vw,2.3rem)}
+    .section-question{font-size:1.72rem;margin-bottom:1.25rem}
+    .eyebrow{margin-bottom:.9rem}
+    .interview,.recognition,.method,.story,.about,.invite{padding:3rem 0}
+    .interview-head .lead{margin-top:1.25rem}
+    .interview-collage{max-width:380px}
+    .recognition-head,.method-head{margin-bottom:1.8rem}
+    .method-card{padding-top:1.25rem}
+    .story-copy h2{font-size:2.1rem;margin-bottom:.85rem}
+    .story-mid{grid-template-columns:180px 1fr;margin:.75rem 0 1rem}
+    .paola-thumb img{width:180px}
+    .conversation-card{margin-top:calc(.7rem * 1.2 + .9rem + .55rem);padding:2rem 2.35rem}
+    .exchange+.exchange{margin-top:1.1rem;padding-top:1.1rem}
+    .story-insight{margin-top:1.2rem;padding-top:1rem}
+    .about-portrait{max-width:272px}
+    .about h2{font-size:2rem;margin-bottom:.85rem}
+    .fact{padding-block:.85rem}
+  }
+
+  @media (prefers-reduced-motion:no-preference){
+    .hero .eyebrow{animation:rise .7s ease .05s both}
+    .hero h1 span{animation:rise .85s ease .2s both}
+    .hero h1 em{animation:rise .9s ease .45s both;display:inline-block}
+    .hero h1 em::after{animation:draw .8s cubic-bezier(.2,.7,.2,1) .95s both}
+    .hero-side{animation:rise .9s ease .75s both}
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+  @media (max-width:900px){
+    .hero{min-height:auto}
+    .hero-grid,.interview-head,.recognition-head,.story-grid,.invite-panel,.stepdown{grid-template-columns:1fr}
+    .interview>.shell{grid-template-columns:1fr;gap:3rem}
+    .interview-collage{height:auto;justify-self:start;max-width:380px}
+    .wide-shot{height:auto}
+    .wide-shot img{aspect-ratio:3/4;height:auto}
+    .hero-grid{align-items:start}
+    .hero-side{max-width:520px}
+    .method-head{align-items:start;flex-direction:column}
+    .about-grid{
+      grid-template-areas:
+        "question question"
+        "heading heading"
+        "portrait story"
+        "closing closing";
+      grid-template-columns:minmax(190px,240px) minmax(0,1fr);
+    }
+    .about-portrait{max-width:240px}
+    .about-portrait::after{display:none}
+    .invite-panel{min-height:0}
+    .invite-action{justify-self:start}
+
+    .stepdown-action{justify-self:start;max-width:none}
+  }
+
+  @media (max-width:700px){
+    body{font-size:16px}
+    .nav{min-height:74px}
+    .nav-links a:not(:last-child){display:none}
+    .hero{padding-top:8.8rem}
+    .hero-actions{align-items:flex-start;flex-direction:column}
+
+    .stepdown{padding:1.75rem 1.25rem}
+
+    .stepdown-actions>*{flex:1 1 100%}
+    .recognition-grid,.method-grid{grid-template-columns:1fr}
+    .recognition-card,.recognition-card:first-child,.recognition-card:last-child{
+      border-left:0;
+      border-top:1px solid var(--line);
+      min-height:0;
+      padding:1.8rem 0;
+    }
+    .recognition-card .number{margin-bottom:1rem}
+    .method-grid{border-top:1px solid rgba(245,239,225,.15)}
+    .method-card,.method-card:first-child,.method-card:last-child{
+      border-left:0;
+      border-bottom:1px solid rgba(245,239,225,.15);
+      padding:2rem 0;
+    }
+    .method-card h3{margin:.7rem 0}
+    .about-facts{grid-template-columns:1fr;gap:0}
+    .fact{border-left:0;border-top:1px solid var(--line);padding:1.3rem 0}
+    .fact:first-child{border-top:0;padding-top:0}
+    .fact:last-child{padding-bottom:0}
+    .about-grid{
+      grid-template-areas:"question" "heading" "portrait" "story" "closing";
+      grid-template-columns:1fr;
+    }
+    .about-portrait{max-width:180px}
+    .story-mid{gap:1rem;grid-template-columns:186px 1fr}
+    .paola-thumb img{width:186px}
+    .invite-panel{padding:2rem 1.35rem}
+    .footer-row{align-items:flex-start;flex-direction:column}
+  }
+.invite-next{border-top:1px solid rgba(245,239,225,.15);margin-top:1.6rem;padding-top:1.4rem;text-align:center}.invite-next .in-eyebrow{color:var(--gold-light);font-size:.7rem;font-weight:600;letter-spacing:.12em;line-height:1.5;margin:0 0 .6rem;text-transform:uppercase}.invite-next .in-name{color:var(--cream);font-size:1.02rem;font-weight:600;margin:0 0 .35rem}.invite-next .in-desc{color:var(--lavender);font-size:.82rem;line-height:1.55;margin:0 0 .75rem}.invite-next a{border-bottom:1px solid rgba(201,161,74,.45);color:var(--gold-light);font-size:.82rem;font-weight:600}.invite-next a:hover{border-bottom-color:var(--gold-light)}
+
+
+  /* one footer, every page */
   .site-footer{
     background:#0a1628;
     border-top:1px solid rgba(245,239,225,.08);
@@ -181,149 +1033,553 @@
   }
   .site-footer small{color:#746d80;font-size:.78rem;line-height:1.6}
   .site-footer a{border-bottom:0;color:#c9a14a;text-decoration:none}
-  .site-footer a:hover{color:var(--gold-light)}
-    .site-footer small{overflow-wrap:anywhere}
-    @media(max-width:800px){.keep-list{grid-template-columns:1fr;gap:0}.section-intro{grid-template-columns:1fr;gap:1rem}.situations article{border-left:0;padding:0}.steps{column-gap:0}.nav-links a:not(:last-child){display:none}.site-header .shell{min-height:76px}.site-logo{width:60px;height:60px}.hero-grid{grid-template-columns:1fr;gap:32px}.hero-copy,.hero-figure{width:100%}.situations{grid-template-columns:1fr;gap:22px}.situations article+article{border-top:1px solid var(--line);padding-top:22px}.split{grid-template-columns:1fr;gap:32px}.close .shell{grid-template-columns:1fr;gap:20px}.close h2{grid-row:auto}.close .email{grid-column:auto}.steps{row-gap:28px}.investment{grid-template-columns:1fr;gap:12px}}
-    @media(max-width:560px){.steps li,.steps li:nth-child(even),.steps li:nth-child(odd){border-left:0;border-top:1px solid var(--line);padding:1.25rem 0 0}body{font-size:16px}.hero-copy>p{font-size:1rem}.comparison,.steps{grid-template-columns:1fr}.comparison{gap:32px}.comparison figure:first-child{padding-right:0}.comparison figure+figure{padding-left:0;border-left:0;border-top:1px solid rgba(201,161,74,.4);padding-top:28px}.nav-links a{font-size:.75rem;min-height:44px;display:flex;align-items:center}.button{width:100%}.proof-link{font-size:.94rem}.steps{margin-top:26px}section{padding-block:3rem}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-  </style>
+  .site-footer a:hover{text-decoration:underline}
+  .footer-offer{text-align:center}
+
+
+  /* when the website is not the thing */
+  .runs{background:var(--paper);padding:clamp(3rem,5vh,3.75rem) 0}
+  .runs-head{
+    margin:0 auto clamp(2.4rem,4vh,3.2rem);
+    max-width:60ch;
+    text-align:center;
+  }
+  .runs-head .eyebrow{justify-content:center;margin-bottom:1.2rem}
+  .runs h2{font-size:clamp(1.8rem,2.4vw,2.3rem);margin:0;text-wrap:balance}
+  .runs-q{
+    color:var(--gold-ink);
+    font-family:var(--question);
+    font-size:clamp(1.28rem,1.75vw,1.55rem);
+    font-weight:600;
+    line-height:1.3;
+    margin:.9rem 0 0;
+    text-wrap:balance;
+  }
+  .runs-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    row-gap:clamp(1.6rem,2.6vh,2.2rem);
+  }
+  .runs-card{padding:1.15rem clamp(1.2rem,3vw,2.2rem)}
+  .runs-card .number{
+    color:var(--gold-ink);
+    display:block;
+    font-family:var(--body);
+    font-size:1.1rem;
+    margin-bottom:1.25rem;
+  }
+  .runs-card:nth-child(odd){padding-left:0}
+  .runs-card:nth-child(even){border-left:1px solid var(--line);padding-right:0}
+  .runs-card p{
+    color:var(--navy);
+    font-family:var(--display);
+    font-size:clamp(1.18rem,1.55vw,1.38rem);
+    font-weight:500;
+    letter-spacing:-.02em;
+    line-height:1.3;
+    margin:0;
+  }
+  .runs-more{margin:clamp(1.5rem,3vh,2.1rem) 0 0;text-align:center}
+  .runs-more .text-link{
+    align-items:center;
+    border-bottom:1px solid rgba(201,161,74,.6);
+    color:var(--navy);
+    display:inline-flex;
+    font-size:1.05rem;
+    font-weight:600;
+    gap:.55rem;
+    padding:.95rem .25rem .4rem;
+    transition:border-color .2s ease;
+  }
+  .runs-more .text-link::after{
+    color:var(--gold-ink);
+    content:"\2192";
+    font-size:1.15rem;
+    transition:transform .2s ease;
+  }
+  .runs-more .text-link:hover{border-bottom-color:var(--gold)}
+  .runs-more .text-link:hover::after{transform:translateX(4px)}
+  @media (max-width:860px){
+    .runs-grid{grid-template-columns:1fr;row-gap:0}
+    .runs-card{border-left:0;padding:1.35rem 0}
+    .runs-card .number{margin-bottom:1rem}
+    .runs-card:nth-child(even){border-left:0;padding-right:0}
+    .runs-card + .runs-card{border-top:1px solid var(--line)}
+  }
+
+  /* 1 Oct: aftercare on cream so it doesn't sit navy-on-navy before the invitation */
+  .aftercare{background:var(--cream);color:var(--ink)}
+  .aftercare h2{color:var(--navy)}
+  .aftercare-body,.care-item{border-color:var(--line)}
+  .care-lede,.care-item p{color:var(--lavender-dim)}
+  .care-h{color:var(--gold-ink)}
+  .care-own{color:var(--navy)}
+  .footer-offer{color:var(--lavender-dim,#746d80);font-size:.75rem;line-height:1.6;margin:0 0 .85rem}
+  .footer-offer a{color:var(--gold,#c9a14a);text-decoration:none;border-bottom:1px solid rgba(201,161,74,.4)}
+  .site-footer .shell{text-align:center}
+  .site-footer .footer-row{justify-content:center}
+
+  /* ---- 1 Oct rebuild: one feature layout, same system as the Google page ---- */
+  .feat{padding:clamp(3rem,6vh,4.5rem) 0}
+  .feat.paper{background:var(--paper)}.feat.cream{background:var(--cream)}
+  .feat-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+  .feat-text h2{color:var(--navy);margin-bottom:.9rem}
+  .feat-lead{color:var(--lavender-dim);margin:0 0 1.3rem}
+  .feat-cite,.feat-link{margin-top:1.2rem;font-size:.95rem;color:var(--lavender-dim)}
+  .feat-cite{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink)}
+  .feat-link a{color:var(--navy);font-weight:600;border-bottom:1px solid rgba(201,161,74,.6)}
+  .dots{list-style:none;margin:0;padding:0}
+  .dots li{position:relative;padding:9px 0 9px 22px;font-size:1rem;line-height:1.55;color:var(--ink)}
+  .dots li::before{content:"";position:absolute;left:2px;top:19px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+  .dots strong{font-weight:600;color:inherit}
+  .slot{margin:0;justify-self:center;width:100%;max-width:460px}
+  .slot img{display:block;width:100%;height:auto;border-radius:6px;box-shadow:0 14px 32px rgba(10,22,40,.14)}
+  .slot.portrait{max-width:224px}
+  .slot.phoneshot{max-width:166px}
+  #recognition .ba-pair,#story .ba-pair{grid-template-columns:1fr;gap:16px}
+  #recognition .slot.ba{max-width:225px}
+  #story .slot.ba{max-width:280px}
+  #about .slot.portrait{max-width:330px}
+  .slot figcaption{text-align:center;font-size:.78rem;color:var(--lavender-dim);margin-top:12px}
+  .slot figcaption a{color:var(--navy);font-weight:600}
+  .ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .ba-label{display:block;font-size:.72rem;font-weight:600;color:var(--gold-ink);margin-bottom:8px}
+  .about-portrait-slot figcaption{display:flex;flex-direction:column;align-items:center;gap:6px;letter-spacing:.14em;text-transform:uppercase;font-size:.62rem;color:var(--gold-ink)}
+  .about-portrait-slot .signature-mark{background-color:var(--navy)}
+  .feat .roles{margin-top:.9rem}
+  .close{position:relative;color:var(--cream);text-align:center;padding:clamp(3.5rem,7vh,5rem) 0;background:linear-gradient(rgba(10,22,40,.80),rgba(10,22,40,.88)),url("/images/owner-session-sitdown.jpg") center 40%/cover no-repeat}
+  .close .shell>*{max-width:700px;margin-left:auto;margin-right:auto}
+  .close .eyebrow{justify-content:center}
+  .close h2{color:var(--cream);margin-bottom:1rem}
+  .close p{color:var(--lavender)}
+  .close .button{margin-top:22px}
+  .close-os{margin-top:20px;font-size:.92rem}
+  .close-os a{color:var(--gold-light);border-bottom:1px solid rgba(225,197,127,.45)}
+  .close .tm{margin:40px auto 0;padding-top:32px;border-top:1px solid rgba(201,161,74,.3);max-width:420px}
+  .close .tm-or{font-size:.95rem;margin:0 0 .6rem}
+  .close .fineprint{font-size:.75rem;color:var(--lavender-dim);margin-top:1rem}
+  .close .field{text-align:left}
+  .tm .stage{display:none}
+  .tm .stage.on{display:block}
+  @media(max-width:800px){.feat-grid{grid-template-columns:1fr;gap:36px}}
+
+  /* 1 Oct: smaller hero, portrait same scale as other images */
+  h1{font-size:clamp(2.6rem,5vw,4.4rem)}
+  #about .slot.portrait{max-width:250px}
+  .slot.land{max-width:400px}
+
+  /* 1 Oct: shorter close, whole photo (same size on every page) */
+  .close{padding:clamp(2.6rem,5vh,3.4rem) 0;background:linear-gradient(rgba(10,22,40,.80),rgba(10,22,40,.88)),url("/images/owner-session-sitdown.jpg") center center/cover no-repeat,var(--navy-2)}
+  .close .shell>*{max-width:780px}
+  .close h2{font-size:clamp(1.8rem,2.6vw,2.4rem);margin-bottom:.8rem}
+  .close .button{margin-top:16px}
+  .close-os{margin-top:14px}
+  .close .tm{margin:24px auto 0;padding-top:20px}
+  .close .tm-or{margin:0 0 .3rem}
+  .close .fineprint{margin-top:.6rem}
+  .close h2,.close .shell>p{max-width:900px}
+  .close .close-os{max-width:none}
+
+  /* Palm Coast page, 1 Oct: same system as the front page */
+  .method-grid.four{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:900px){.method-grid.four{grid-template-columns:1fr}}
+  .ba-stack .ba-pair{grid-template-columns:1fr;gap:14px}
+  .ba-stack .ba-label{display:block;font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:6px;text-align:left}
+  .slot.ba-stack{max-width:232px}
+  #talk-first .slot.portrait{max-width:300px}
+  #keep .slot.land{max-width:100%}
+  .price-line{margin-top:1.3rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.92rem;color:var(--ink);display:flex;flex-wrap:wrap;gap:.35rem 1.1rem}
+  .price-line span{position:relative;padding-left:16px}
+  .price-line span::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+  .price-line strong{font-weight:600;color:var(--navy)}
+  .dots a{color:var(--navy);font-weight:600;border-bottom:1px solid rgba(201,161,74,.6)}
+  .faq-sec .shell{max-width:1180px}
+  .faqs{width:100%;margin:0}
+  .faqs h2{font-size:clamp(1.5rem,2vw,1.95rem);color:var(--navy);margin-bottom:1.2rem}
+  .faqs details{border-top:1px solid var(--line)}
+  .faqs details:last-child{border-bottom:1px solid var(--line)}
+  .faqs summary{padding:20px 34px 20px 0;cursor:pointer;position:relative;font-weight:600;color:var(--navy);list-style:none;line-height:1.5}
+  .faqs summary::-webkit-details-marker{display:none}
+  .faqs summary::after{content:'';position:absolute;right:7px;top:27px;width:8px;height:8px;border-right:1.5px solid var(--gold-ink);border-bottom:1.5px solid var(--gold-ink);transform:rotate(45deg)}
+  .faqs details[open] summary::after{transform:rotate(225deg);top:31px}
+  /* close: whole photo, zoomed out, shorter section */
+  .close{padding:clamp(2.6rem,5vh,3.4rem) 0;background:linear-gradient(rgba(10,22,40,.80),rgba(10,22,40,.88)),url("/images/owner-session-sitdown.jpg") center center/cover no-repeat,var(--navy-2)}
+  .close .shell>*{max-width:780px}
+  .close h2{font-size:clamp(1.8rem,2.6vw,2.4rem);margin-bottom:.8rem}
+  .close .button{margin-top:16px}
+  .close-os{margin-top:14px}
+  .close .tm{margin:24px auto 0;padding-top:20px}
+  .close .tm-or{margin:0 0 .3rem}
+  .close .fineprint{margin-top:.6rem}
+  .close h2,.close .shell>p{max-width:900px}
+  .close .close-os{max-width:none}
+  .faqs details>p{padding:0 32px 22px 0;color:var(--lavender-dim);font-size:1rem;margin:0}
+</style>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="site-header">
+
+<header class="site-header">
   <div class="shell nav">
-    <a class="logo-link" href="/" aria-label="Owners Behind It, back to the home page">
+    <a class="logo-link" href="/" aria-label="Owners Behind It, home page">
       <img class="site-logo" src="/images/ob-logo.png" alt="Owners Behind It" width="52" height="52">
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
-      <a href="/#approach">My approach</a>
-      <a href="/#story">A real result</a>
+      <a href="#process">My approach</a>
+      <a href="#real-work">A real result</a>
       <a href="/#about">About me</a>
       <a href="/tools.html">Beyond the site</a>
-      <a href="/#invite">Let's talk</a>
+      <a href="#lets-talk">Let's talk</a>
     </nav>
   </div>
 </header>
-  <main id="main">
-    <section class="hero" aria-labelledby="page-title">
-      <div class="shell hero-grid">
-        <h1 id="page-title">Website redesign in Palm Coast for a business that has <em>outgrown its site.</em></h1>
-        <div class="hero-copy">
 
-          <p>Your work has improved. Your reputation has grown. But it’s hard to see your own business when you’re in it every day. I’m Robert T. Szigeti. You don’t need to know what your website should say before we meet. Let’s start with a short conversation about your project and whether we’re a good fit.</p>
-          <a class="button" href="#lets-talk">Book a sit-down</a>
-          <p class="local-note">Palm Coast &amp; Flagler County</p>
-        </div>
-        <figure class="hero-figure">
-          <img class="hero-image" src="/images/ohlson-home-new.webp" width="820" height="512" fetchpriority="high" alt="The redesigned Ohlson Photography homepage, with a wedding photograph leading the page">
-          <figcaption>Ohlson Photography, redesigned. <a href="#real-work">See where we started.</a></figcaption>
-        </figure>
+<!--
+  Netlify Forms registration for the voice recorder in #tell-me.
+  Static and hidden so Netlify's build-time parser finds it. Submissions land in
+  Netlify > Forms > tell-your-story. The audio arrives as a link in the notification
+  email, not as an attachment.
+-->
+<form name="tell-your-story" method="post" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" hidden>
+  <input type="hidden" name="form-name" value="tell-your-story">
+  <input type="text" name="name">
+  <input type="text" name="contact">
+  <input type="text" name="duration">
+  <input type="text" name="source">
+  <input type="text" name="page">
+  <input type="file" name="audio">
+  <input name="bot-field">
+</form>
+
+<main id="top">
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div>
+        <span class="eyebrow light">Website redesign &middot; Palm Coast &amp; Flagler County</span>
+        <h1 id="page-title"><span>Website redesign in Palm Coast</span> for a business that has <em>outgrown its site.</em></h1>
+        <p class="hero-positioning">Your work has improved. Your reputation has grown. You don&rsquo;t need to know what your website should say before we meet.</p>
       </div>
-    </section>
-
-    <section class="paper" aria-labelledby="recognize-title">
-      <div class="shell">
-        <div class="section-intro"><h2 id="recognize-title">The business changed. What should the website show now?</h2><p>A new service, better work, a different kind of customer. We start with what changed and what you want people to understand.</p></div>
-        <div class="situations">
-          <article><h3>The work you do today</h3><p>The services changed. The projects got better. The website still describes the business as it was a few years ago.</p></article>
-          <article><h3>The way people find you</h3><p>We look at the site on a phone, where a customer may be reading between appointments or looking for a way to reach you.</p></article>
-          <article><h3>The value people see in person</h3><p>Referrals know why you are worth choosing. Someone finding you for the first time needs your website to help them see it.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="proof" id="real-work" aria-labelledby="proof-title">
-      <div class="shell">
-        <div class="section-intro"><h2 id="proof-title">The same photographer.<br>A clearer picture of her work.</h2><p>With Ohlson Photography, the conversation came first. The redesign brought Paola’s approach, photographs and client experience into focus, while carrying her existing stories into the new site.</p></div>
-        <div class="comparison">
-          <figure><span class="label">Before · Ohlson Photography</span><img src="/images/ohlson-home-old.webp" width="820" height="512" loading="lazy" decoding="async" alt="Ohlson Photography’s previous homepage, with a portrait-led layout"><figcaption>The previous homepage led with a local wedding photography introduction. The full case study shows the original pages alongside the redesign.</figcaption></figure>
-          <figure><span class="label">After · Ohlson Photography</span><img src="/images/ohlson-home-new.webp" width="820" height="512" loading="lazy" decoding="async" alt="Ohlson Photography’s redesigned homepage, with wedding imagery and a clearer introduction"><figcaption>The new site gives her photographs, voice and approach room to tell the story, with dedicated pages for the work.</figcaption></figure>
-        </div>
-        <a class="proof-link" href="/ohlson-before-after">Explore the full before-and-after case study</a>
-      </div>
-    </section>
-
-    <section aria-labelledby="repair-title">
-      <div class="shell split">
-        <div><h2 id="repair-title">Before we decide what to build, we talk.</h2><p>The initial sit-down is a chance to tell me about your project and ask how I work. If the project is clear, I can prepare a proposal. If you need help figuring out the direction first, I offer a separate 90-minute paid conversation about your business, with a written summary of what to do next. I call it <a href="/owner-session">The Owner Session</a>. Deeper discovery is also part of a website project once you hire me.</p><p>If the problem is discovery, start with <a href="/not-showing-up-on-google">why your business may not be showing up on Google</a>. A new design alone does not solve every visibility problem.</p></div>
-        <div class="choices">
-          <article><h3>Sometimes, a focused improvement is enough.</h3><p>The structure may still work. Clearer service descriptions, stronger examples or a simpler inquiry path could be the right starting point. I’ll tell you when a full rebuild seems unnecessary.</p></article>
-          <article><h3>Sometimes, the business needs a different foundation.</h3><p>If the structure, content and experience all belong to an earlier version of the business, we plan a custom rebuild around what your customers need to understand today.</p></article>
+      <div class="hero-side">
+        <span class="label">Why it&rsquo;s hard to fix alone</span>
+        <p>It&rsquo;s hard to see your own business when you&rsquo;re in it every day.</p>
+        <div class="hero-actions">
+          <a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
+          <a class="hero-step" href="#tell-me">Prefer to start with a message? Tell me your story.</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="paper" aria-labelledby="process-title">
-      <div class="shell">
-        <div class="section-intro"><h2 id="process-title">From the owner’s story to a working website.</h2><p>Once we agree on the project and begin the paid work, you work directly with me. The conversation shapes the content; the content shapes the design.</p></div>
-        <ol class="steps">
-          <li><div><h3>Understand the business</h3><p>We talk about your customers, the work you want more of and what people notice after working with you. Then we look at what your current site says.</p></div></li>
-          <li><div><h3>Agree on what the site needs to do</h3><p>We map the pages, the story and the next step for a visitor. You see the direction and scope before the build moves forward.</p></div></li>
-          <li><div><h3>Build around real work</h3><p>Your services, projects and voice become a site that works on phones and larger screens, with a clear way for the right customer to get in touch.</p></div></li>
-          <li><div><h3>Plan the move and check the details</h3><p>We review existing URLs, preserve useful content and plan redirects where needed. Before launch, we check links, forms, mobile layouts and search settings.</p></div></li>
-        </ol>
+  <section class="feat paper" id="changed" aria-labelledby="changed-title">
+    <div class="shell feat-grid">
+      <div class="feat-text">
+        <span class="eyebrow">Where we start</span>
+        <h2 id="changed-title">The business changed. What should the website show now?</h2>
+        <p class="feat-lead">A new service, better work, a different kind of customer. We start with what changed.</p>
+        <ul class="dots">
+          <li><strong>The work you do today.</strong> The services changed and the projects got better. The website still describes the business from a few years ago.</li>
+          <li><strong>The way people find you.</strong> We look at the site on a phone, the way a customer reads it between appointments.</li>
+          <li><strong>The value people see in person.</strong> Referrals know why you&rsquo;re worth choosing. A stranger needs your website to show it.</li>
+        </ul>
       </div>
-    </section>
+      <figure class="slot portrait"><img src="/images/real-search-palm-coast.jpg" width="600" height="1090" loading="lazy" alt="A real Google search in Palm Coast on a phone"><figcaption>A real Palm Coast search, on a phone.</figcaption></figure>
+    </div>
+  </section>
 
-    <section aria-labelledby="keep-title">
-      <div class="shell">
-        <div class="section-intro">
-          <h2 id="keep-title">A fresh start shouldn’t throw away what you’ve built.</h2><p>Your domain, content and customer relationships matter. We discuss what stays, what changes and what needs moving before replacing the old site.</p>
-        </div>
-          <ul class="keep-list">
-            <li><strong>Your domain and ownership</strong><p>The site is built for your business to own. Keeping your existing domain is usually possible; we check access and hosting arrangements first.</p></li>
-            <li><strong>Your useful pages and old links</strong><p>We identify content worth keeping and plan where changed addresses should lead, so a redesign does not casually discard years of work.</p></li>
-            <li><strong>Your search foundations</strong><p>The pages explain what you do and where you work, with the behind-the-scenes information search engines need to read them. We also keep the counters that show visits and actions. No redesign comes with a guaranteed Google position.</p></li>
-          </ul>
-        <div class="investment">
-          <div><h3>Custom websites from $3,000.</h3><p>The quote depends on the pages, content, migration and functionality involved. We agree on the scope before the work begins.</p></div>
-          <div><h3>Care after launch, from $99/month.</h3><p>Ongoing care is a separate plan. We agree on what needs looking after once the site is live.</p></div>
-        </div>
-        <p class="offer-note">Need a smaller website? A one-page website starts at $1,500.</p>
-        <p class="offer-note">Not sure what your business needs yet? We can spend 90 minutes talking through your business, what makes your work yours, and what to do next. Within three days, you get a written summary you can keep and use, whether or not we build a website together. That’s <a href="/owner-session">The Owner Session</a>, a separate $350 working session. The fee is credited toward a build within 30 days.</p>
-        <p class="offer-note"><a class="button" href="https://calendly.com/robertszigeti/the-owner-session" target="_blank" rel="noopener">Book The Owner Session</a></p>
+  <section class="feat cream" id="real-work" aria-labelledby="proof-title">
+    <div class="shell feat-grid">
+      <div class="feat-text">
+        <span class="eyebrow">A real result</span>
+        <h2 id="proof-title">The same photographer. A clearer picture of her work.</h2>
+        <p class="feat-lead">With Ohlson Photography, the conversation came first.</p>
+        <ul class="dots">
+          <li><strong>Before.</strong> The homepage led with a local wedding photography introduction.</li>
+          <li><strong>After.</strong> Her photographs, voice and approach get room to tell the story, and her existing stories came with her to the new site.</li>
+        </ul>
+        <p class="feat-link"><a href="/ohlson-before-after">Explore the full before-and-after case study &rarr;</a></p>
       </div>
-    </section>
+      <figure class="slot ba-stack"><div class="ba-pair"><div><span class="ba-label">Before</span><img src="/images/ohlson-home-old.webp" width="820" height="512" loading="lazy" alt="Ohlson Photography homepage before the redesign"></div><div><span class="ba-label">After</span><img src="/images/ohlson-home-new.webp" width="820" height="512" loading="lazy" alt="Ohlson Photography homepage after the redesign"></div></div><figcaption>Ohlson Photography, before and after.</figcaption></figure>
+    </div>
+  </section>
 
-    <section class="paper" aria-labelledby="questions-title">
-      <div class="shell"><div class="faqs">
-        <h2 id="questions-title">Before you replace your website.</h2>
-        <details><summary>Can I keep my existing domain?</summary><p>Usually, yes. We check who controls the domain, where the site is hosted and what needs to move. A redesign does not automatically require a new web address.</p></details>
+  <section class="feat paper" id="talk-first" aria-labelledby="repair-title">
+    <div class="shell feat-grid">
+      <div class="feat-text">
+        <span class="eyebrow">The first conversation</span>
+        <h2 id="repair-title">Before we decide what to build, we talk.</h2>
+        <p class="feat-lead">The first sit-down is a chance to tell me about your project and ask how I work.</p>
+        <ul class="dots">
+          <li><strong>If the project is clear,</strong> I prepare a proposal.</li>
+          <li><strong>If you need the direction first,</strong> <a href="/owner-session">The Owner Session</a> is a separate 90-minute paid conversation, with a written summary of what to do next.</li>
+          <li><strong>Sometimes a focused improvement is enough.</strong> Clearer services, stronger examples or a simpler way to reach you. I&rsquo;ll tell you when a rebuild isn&rsquo;t needed.</li>
+          <li><strong>Sometimes it needs a new foundation.</strong> When the whole site belongs to an earlier version of the business, we plan a custom rebuild.</li>
+        </ul>
+        <p class="feat-link">Not showing up at all? Start with <a href="/not-showing-up-on-google">why your business may not be showing up on Google</a>.</p>
+      </div>
+      <figure class="slot portrait"><img src="/images/paola-conversation.jpg" width="420" height="747" loading="lazy" alt="Paola Ohlson talking about her business"><figcaption>Paola Ohlson, talking about her business.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="method" id="process" aria-labelledby="process-title">
+    <div class="shell">
+      <div class="method-head">
+        <div>
+          <span class="eyebrow light">How the project runs</span>
+          <h2 id="process-title">From the owner&rsquo;s story to a working website.</h2>
+        </div>
+        <p class="method-intro">You work directly with me. The conversation shapes the content, and the content shapes the design.</p>
+      </div>
+      <div class="method-grid four">
+        <article class="method-card"><span class="number">01</span><h3>Understand the business.</h3><p>Your customers, the work you want more of, and what your current site says.</p></article>
+        <article class="method-card"><span class="number">02</span><h3>Agree on what the site needs to do.</h3><p>The pages, the story and the next step. You see the direction before the build.</p></article>
+        <article class="method-card"><span class="number">03</span><h3>Build around real work.</h3><p>Your services, projects and voice, on phones and larger screens, with a clear way to get in touch.</p></article>
+        <article class="method-card"><span class="number">04</span><h3>Plan the move and check the details.</h3><p>Useful content kept, old links redirected. Links, forms and phones checked before launch.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="feat cream" id="keep" aria-labelledby="keep-title">
+    <div class="shell feat-grid">
+      <div class="feat-text">
+        <span class="eyebrow">What you keep</span>
+        <h2 id="keep-title">A fresh start shouldn&rsquo;t throw away what you&rsquo;ve built.</h2>
+        <p class="feat-lead">We decide what stays before the old site comes down.</p>
+        <ul class="dots">
+          <li><strong>Your domain and ownership.</strong> The site is yours, usually on the domain you already have.</li>
+          <li><strong>Your useful pages and old links.</strong> What&rsquo;s worth keeping stays, and old addresses still work.</li>
+          <li><strong>Your search foundations.</strong> Pages that say what you do and where. No redesign comes with a guaranteed Google position.</li>
+        </ul>
+      </div>
+      <figure class="slot land"><img src="/images/ohlson-analytics.jpg" width="900" height="564" loading="lazy" alt="Google Analytics for Ohlson Photography showing active and new users"><figcaption>Paola&rsquo;s site after launch, with every visit still counted.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="feat paper faq-sec" id="questions" aria-labelledby="questions-title">
+    <div class="shell"><div class="faqs">
+      <span class="eyebrow">Frequently asked</span>
+      <h2 id="questions-title">Before you replace your website.</h2>
+      <details><summary>Can I keep my existing domain?</summary><p>Usually, yes. We check who controls the domain, where the site is hosted and what needs to move. A redesign does not automatically require a new web address.</p></details>
         <details><summary>Will a redesign affect my Google rankings?</summary><p>It can. Changing content and URLs can change how search engines understand the site. We review the existing pages, plan redirects where needed and check the search foundations at launch. Rankings cannot be guaranteed.</p></details>
         <details><summary>Can we improve part of the site instead of rebuilding everything?</summary><p>We can start by looking at that. Whether a focused update makes sense depends on the platform, access, existing structure and the problem you want to solve. The first conversation helps us decide whether I can help. A detailed review can be scoped as paid work.</p></details>
         <details><summary>How long does a website redesign take?</summary><p>The schedule depends on the number of pages, the content available, feedback and any migration or custom functionality. I give you a project-specific schedule with the scope, rather than promising the same turnaround for every business.</p></details>
         <details><summary>Do I need to write all the content myself?</summary><p>The work begins with a conversation about your business. Your experience, services and real examples give us the material to shape the story together. We agree on content responsibilities as part of the scope.</p></details>
         <details><summary>Do you work with businesses outside Palm Coast?</summary><p>Yes. I work with owners around Flagler County, St. Augustine and North Florida, and can meet by video when that is more practical. Tell me where you are and what you need when we talk.</p></details>
-      </div></div>
-    </section>
+    </div></div>
+  </section>
 
-    <section class="close" id="lets-talk" aria-labelledby="talk-title">
-      <div class="shell">
-        <h2 id="talk-title">Let’s sit down.<br>We’ll figure out the next step together.</h2>
-        <p>You don’t need a perfect brief. Start with a short conversation about your project, how I work, and whether we’re a good fit. If you need help finding the direction itself, <a href="/owner-session">The Owner Session</a> is a separate paid working session with a written summary.</p>
-        <a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
-        <p class="email">Prefer email? Send your website to <a href="mailto:robert@ownersbehindit.com">robert@ownersbehindit.com</a></p>
+  <section class="close" id="lets-talk" aria-labelledby="talk-title">
+    <div class="shell">
+      <span class="eyebrow light">The invitation</span>
+      <h2 id="talk-title">Let&rsquo;s sit down. We&rsquo;ll figure out the next step together.</h2>
+      <p>Start with a short conversation about your project and whether we&rsquo;re a good fit. Custom websites from $3,000, a two-page Starting Point from $1,500, and care after launch from $99 a month.</p>
+      <a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
+      <div class="tm" id="tell-me">
+        <p class="tm-or">Rather talk than book? Tell me your story.</p>
+<p class="tm-name">Tell Me<sup>&trade;</sup></p>
+        <div class="stage on" id="sd-idle">
+          <button class="mic-btn" id="sd-record" type="button" aria-label="Start recording">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="2.5" width="6" height="12" rx="3"></rect>
+              <path d="M5 11a7 7 0 0 0 14 0"></path>
+              <line x1="12" y1="18" x2="12" y2="21.5"></line>
+              <line x1="8.5" y1="21.5" x2="15.5" y2="21.5"></line>
+            </svg>
+          </button>
+          <p class="mic-label">Tap to start talking</p>
+        </div>
+
+        <div class="stage" id="sd-rec">
+          <button class="mic-btn rec" id="sd-stop" type="button" aria-label="Stop recording">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"></rect></svg>
+          </button>
+          <p class="mic-label">I&rsquo;m listening. Tap the square when you&rsquo;re done.</p>
+          <p class="timer" id="sd-timer">0:00</p>
+        </div>
+
+        <div class="stage" id="sd-review">
+          <p class="mic-label">Here it is. Listen back if you want, then send it, or record it again.</p>
+          <audio id="sd-playback" controls></audio>
+          <input class="field" type="text" id="sd-name" placeholder="Your first name" autocomplete="given-name">
+          <input class="field" type="text" id="sd-contact" placeholder="Best phone or email to reach you" autocomplete="tel">
+          <div class="stepdown-actions">
+            <button class="btn-ghost" id="sd-redo" type="button">Record again</button>
+            <button class="btn-gold" id="sd-send" type="button">Send it to Robert</button>
+          </div>
+        </div>
+
+        <div class="stage" id="sd-done">
+          <p class="sent-mark" aria-hidden="true">&#10003;</p>
+          <h3 class="stepdown-sent">Got it. I&rsquo;ll listen today.</h3>
+          <p class="stepdown-lead">Thanks for telling me about it. I&rsquo;ll hear the whole thing, start to finish, and get back to you myself.</p>
+        </div>
+
+        <p class="stepdown-msg" id="sd-msg" role="status" aria-live="polite"></p>
+        <p class="fineprint">Your recording comes to me and no one else. It is never posted, shared, or used anywhere.</p>
       </div>
-    </section>
-  </main>
-  <footer class="site-footer">
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
   <div class="shell">
+    <p class="footer-offer"><a href="/owner-session">The Owner Session</a> &nbsp;&middot;&nbsp; Ninety minutes about the business you built. $350</p>
     <div class="footer-row">
       <small>RS Global Enterprises &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; <a href="mailto:robert@ownersbehindit.com">robert@ownersbehindit.com</a><br><a href="/privacy">Privacy</a> &nbsp;&middot;&nbsp; <a href="/terms">Terms</a></small>
     </div>
   </div>
 </footer>
+
 <script>
-  document.addEventListener('click', function(event) {
-    const link = event.target.closest('a');
-    if (!link || typeof window.gtag !== 'function') return;
-    const href = link.getAttribute('href') || '';
-    if (href.startsWith('https://calendly.com/robertszigeti/owners-behind-it') || href.startsWith('https://calendly.com/robertszigeti/the-owner-session')) {
-      gtag('event', 'booking_click', {page_path: '/website-redesign-palm-coast', link_url: href});
-    } else if (href.startsWith('mailto:')) {
-      gtag('event', 'email_click', {page_path: '/website-redesign-palm-coast'});
+/* ------------------------------------------------------------------
+   Step down from the calendar: voice recorder.
+   Ported from therobertszigeti.com/voice.html.
+   Netlify Forms only. Nothing here depends on GoHighLevel.
+   ------------------------------------------------------------------ */
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var root = $('tell-me');
+  if (!root) return;
+
+  var MAX_SECONDS = 180;               /* 3 minutes. ~2MB per file. */
+  var SOURCE      = 'ownersbehindit.com website-redesign-palm-coast';
+  var CALENDLY    = 'https://calendly.com/robertszigeti/owners-behind-it';
+
+  var recorder = null, chunks = [], stream = null, blob = null;
+  var startAt = 0, tick = null, durSec = 0;
+
+  function show(id){
+    ['sd-idle','sd-rec','sd-review','sd-done'].forEach(function(x){
+      $(x).classList.toggle('on', x === id);
+    });
+  }
+  function fmt(s){ var m = Math.floor(s/60), r = s%60; return m + ':' + (r<10 ? '0'+r : r); }
+  function say(html){ $('sd-msg').innerHTML = html; }
+
+  function pickMime(){
+    var types = ['audio/webm;codecs=opus','audio/webm','audio/mp4'];
+    for (var i=0;i<types.length;i++){
+      if (window.MediaRecorder && MediaRecorder.isTypeSupported(types[i])) return types[i];
     }
+    return '';
+  }
+
+  /* No recording available: never leave a dead button. Hand them the other two doors. */
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder){
+    $('sd-record').disabled = true;
+    $('sd-idle').querySelector('.mic-label').textContent = 'This browser cannot record audio.';
+    say('No problem. <a href="' + CALENDLY + '" target="_blank" rel="noopener">Book a sit-down</a> or email <a href="mailto:robert@ownersbehindit.com">robert@ownersbehindit.com</a> instead.');
+    return;
+  }
+
+  $('sd-record').addEventListener('click', function(){
+    say('');
+    navigator.mediaDevices.getUserMedia({ audio:true }).then(function(s){
+      stream = s; chunks = [];
+      var mime = pickMime();
+      try {
+        recorder = mime ? new MediaRecorder(s, { mimeType:mime, audioBitsPerSecond:96000 })
+                        : new MediaRecorder(s);
+      } catch(e){ recorder = new MediaRecorder(s); }
+
+      recorder.ondataavailable = function(e){ if (e.data && e.data.size) chunks.push(e.data); };
+      recorder.onstop = function(){
+        blob = new Blob(chunks, { type: recorder.mimeType || 'audio/webm' });
+        $('sd-playback').src = URL.createObjectURL(blob);
+        if (stream) stream.getTracks().forEach(function(t){ t.stop(); });
+        show('sd-review');
+      };
+      recorder.start();
+      startAt = Date.now();
+      show('sd-rec');
+      tick = setInterval(function(){
+        durSec = Math.floor((Date.now() - startAt)/1000);
+        $('sd-timer').textContent = fmt(durSec);
+        if (durSec >= MAX_SECONDS) stopRec();
+      }, 250);
+    }).catch(function(){
+      say('I could not get to the microphone. Check the browser permission and try again.');
+    });
   });
+
+  function stopRec(){
+    if (tick){ clearInterval(tick); tick = null; }
+    if (recorder && recorder.state !== 'inactive') recorder.stop();
+  }
+  $('sd-stop').addEventListener('click', stopRec);
+
+  $('sd-redo').addEventListener('click', function(){
+    blob = null; durSec = 0;
+    $('sd-playback').removeAttribute('src');
+    say('');
+    show('sd-idle');
+  });
+
+  $('sd-send').addEventListener('click', function(){
+    var name    = ($('sd-name').value || '').trim();
+    var contact = ($('sd-contact').value || '').trim();
+
+    if (!contact){ say('Add a phone or email so I can get back to you.'); return; }
+    if (!blob){ say('Something went wrong with the recording. Please record it again.'); return; }
+
+    $('sd-send').disabled = true;
+    $('sd-redo').disabled = true;
+    say('Sending...');
+
+    var ext  = (recorder && recorder.mimeType && recorder.mimeType.indexOf('mp4') > -1) ? 'mp4' : 'webm';
+    var file = new File([blob], 'story-' + Date.now() + '.' + ext, { type: blob.type });
+
+    /* ----------------------------------------------------------------
+       GOHIGHLEVEL WEBHOOK GOES HERE, LATER.
+
+       When Amber delivers the RS Global inbound webhook URL, add a
+       fire-and-forget POST at this point, before the Netlify submit
+       below. It carries the contact fields only. The audio always
+       travels through Netlify Forms and never through the webhook.
+
+         var payload = {
+           form_type:  'tell_your_story',
+           source:     SOURCE,
+           first_name: name.split(' ')[0] || '',
+           last_name:  name.split(' ').slice(1).join(' '),
+           phone:      contact.replace(/[^\d+]/g, ''),
+           contact:    contact,
+           summary:    'Length about ' + fmt(durSec) +
+                       '. Listen: Netlify dashboard > Forms > tell-your-story'
+         };
+         var body = Object.keys(payload).map(function(k){
+           return encodeURIComponent(k) + '=' + encodeURIComponent(payload[k] == null ? '' : payload[k]);
+         }).join('&');
+         fetch('PASTE_WEBHOOK_URL_HERE', {
+           method:'POST', mode:'no-cors',
+           headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+           body: body
+         }).catch(function(){});
+
+       Wrap it in try/catch and never await it. If GoHighLevel is down,
+       the recording must still reach Netlify.
+       ---------------------------------------------------------------- */
+
+    var fd = new FormData();
+    fd.append('form-name', 'tell-your-story');
+    fd.append('name',     name);
+    fd.append('contact',  contact);
+    fd.append('duration', fmt(durSec));
+    fd.append('source',   SOURCE);
+    fd.append('page',     SOURCE);
+    fd.append('audio',    file);
+
+    fetch('/', { method:'POST', body: fd })
+      .then(function(res){
+        if (!res.ok) throw new Error('bad status');
+        say('');
+        show('sd-done');
+      })
+      .catch(function(){
+        say('That did not go through. Check your connection and tap Send again.');
+        $('sd-send').disabled = false;
+        $('sd-redo').disabled = false;
+      });
+  });
+})();
 </script>
 </body>
 </html>

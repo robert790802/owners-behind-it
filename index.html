@@ -17,7 +17,7 @@
 <meta name="description" content="Custom website strategy, story, design and local search foundations for owner-led businesses in Palm Coast, St. Augustine and across North Florida.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#0a1628;
@@ -31,9 +31,9 @@
     --lavender-dim:#746d80;
     --ink:#302d38;
     --line:rgba(10,22,40,.13);
-    --display:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+    --display:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,sans-serif;
     --question:"Cormorant Garamond",Georgia,serif;
-    --body:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+    --body:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,sans-serif;
     --page:1180px;
   }
 
@@ -54,7 +54,7 @@
     color:var(--navy);
     font-family:var(--display);
     font-weight:500;
-    letter-spacing:-.045em;
+    letter-spacing:-.02em;
     line-height:1.12;
   }
   h1{font-size:clamp(3.15rem,6.6vw,6.1rem)}
@@ -1063,6 +1063,79 @@
     .runs-card:nth-child(even){border-left:0;padding-right:0}
     .runs-card + .runs-card{border-top:1px solid var(--line)}
   }
+
+  /* 1 Oct: aftercare on cream so it doesn't sit navy-on-navy before the invitation */
+  .aftercare{background:var(--cream);color:var(--ink)}
+  .aftercare h2{color:var(--navy)}
+  .aftercare-body,.care-item{border-color:var(--line)}
+  .care-lede,.care-item p{color:var(--lavender-dim)}
+  .care-h{color:var(--gold-ink)}
+  .care-own{color:var(--navy)}
+  .footer-offer{color:var(--lavender-dim,#746d80);font-size:.75rem;line-height:1.6;margin:0 0 .85rem}
+  .footer-offer a{color:var(--gold,#c9a14a);text-decoration:none;border-bottom:1px solid rgba(201,161,74,.4)}
+  .site-footer .shell{text-align:center}
+  .site-footer .footer-row{justify-content:center}
+
+  /* ---- 1 Oct rebuild: one feature layout, same system as the Google page ---- */
+  .feat{padding:clamp(3rem,6vh,4.5rem) 0}
+  .feat.paper{background:var(--paper)}.feat.cream{background:var(--cream)}
+  .feat-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+  .feat-text h2{color:var(--navy);margin-bottom:.9rem}
+  .feat-lead{color:var(--lavender-dim);margin:0 0 1.3rem}
+  .feat-cite,.feat-link{margin-top:1.2rem;font-size:.95rem;color:var(--lavender-dim)}
+  .feat-cite{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink)}
+  .feat-link a{color:var(--navy);font-weight:600;border-bottom:1px solid rgba(201,161,74,.6)}
+  .dots{list-style:none;margin:0;padding:0}
+  .dots li{position:relative;padding:9px 0 9px 22px;font-size:1rem;line-height:1.55;color:var(--ink)}
+  .dots li::before{content:"";position:absolute;left:2px;top:19px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+  .dots strong{font-weight:600;color:inherit}
+  .slot{margin:0;justify-self:center;width:100%;max-width:460px}
+  .slot img{display:block;width:100%;height:auto;border-radius:6px;box-shadow:0 14px 32px rgba(10,22,40,.14)}
+  .slot.portrait{max-width:224px}
+  .slot.phoneshot{max-width:166px}
+  #recognition .ba-pair,#story .ba-pair{grid-template-columns:1fr;gap:16px}
+  #recognition .slot.ba{max-width:225px}
+  #story .slot.ba{max-width:280px}
+  #about .slot.portrait{max-width:330px}
+  .slot figcaption{text-align:center;font-size:.78rem;color:var(--lavender-dim);margin-top:12px}
+  .slot figcaption a{color:var(--navy);font-weight:600}
+  .ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .ba-label{display:block;font-size:.72rem;font-weight:600;color:var(--gold-ink);margin-bottom:8px}
+  .about-portrait-slot figcaption{display:flex;flex-direction:column;align-items:center;gap:6px;letter-spacing:.14em;text-transform:uppercase;font-size:.62rem;color:var(--gold-ink)}
+  .about-portrait-slot .signature-mark{background-color:var(--navy)}
+  .feat .roles{margin-top:.9rem}
+  .close{position:relative;color:var(--cream);text-align:center;padding:clamp(3.5rem,7vh,5rem) 0;background:linear-gradient(rgba(10,22,40,.80),rgba(10,22,40,.88)),url("/images/owner-session-sitdown.jpg") center 40%/cover no-repeat}
+  .close .shell>*{max-width:700px;margin-left:auto;margin-right:auto}
+  .close .eyebrow{justify-content:center}
+  .close h2{color:var(--cream);margin-bottom:1rem}
+  .close p{color:var(--lavender)}
+  .close .button{margin-top:22px}
+  .close-os{margin-top:20px;font-size:.92rem}
+  .close-os a{color:var(--gold-light);border-bottom:1px solid rgba(225,197,127,.45)}
+  .close .tm{margin:40px auto 0;padding-top:32px;border-top:1px solid rgba(201,161,74,.3);max-width:420px}
+  .close .tm-or{font-size:.95rem;margin:0 0 .6rem}
+  .close .fineprint{font-size:.75rem;color:var(--lavender-dim);margin-top:1rem}
+  .close .field{text-align:left}
+  .tm .stage{display:none}
+  .tm .stage.on{display:block}
+  @media(max-width:800px){.feat-grid{grid-template-columns:1fr;gap:36px}}
+
+  /* 1 Oct: smaller hero, portrait same scale as other images */
+  h1{font-size:clamp(2.6rem,5vw,4.4rem)}
+  #about .slot.portrait{max-width:250px}
+  .slot.land{max-width:400px}
+
+  /* 1 Oct: shorter close, whole photo (same size on every page) */
+  .close{padding:clamp(2.6rem,5vh,3.4rem) 0;background:linear-gradient(rgba(10,22,40,.80),rgba(10,22,40,.88)),url("/images/owner-session-sitdown.jpg") center center/cover no-repeat,var(--navy-2)}
+  .close .shell>*{max-width:780px}
+  .close h2{font-size:clamp(1.8rem,2.6vw,2.4rem);margin-bottom:.8rem}
+  .close .button{margin-top:16px}
+  .close-os{margin-top:14px}
+  .close .tm{margin:24px auto 0;padding-top:20px}
+  .close .tm-or{margin:0 0 .3rem}
+  .close .fineprint{margin-top:.6rem}
+  .close h2,.close .shell>p{max-width:900px}
+  .close .close-os{max-width:none}
 </style>
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png">
@@ -1293,42 +1366,29 @@
         <p>What do people only discover about your business after they choose you?</p>
         <div class="hero-actions">
           <a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
-          <a class="hero-step" href="#tell-me">Prefer to start with a message? Talk to me for two minutes.</a>
+          <a class="hero-step" href="#tell-me">Prefer to start with a message? Tell me your story.</a>
         </div>
       </div>
     </div>
   </section>
-
-  <section class="interview" aria-labelledby="interview-title">
-    <div class="shell">
-      <div class="interview-head">
-        <p class="section-question">What part of your business would you love someone to finally ask you about?</p>
-        <div>
-          <span class="eyebrow">Before anything is built</span>
-          <h2 id="interview-title">The work begins by listening.</h2>
-        </div>
-        <p class="lead">Anne had more than 30 years of businesses, ideas and experience. Her website could not begin with a template. It had to begin with the questions that would bring the pattern into view.</p>
-
-        <blockquote class="interview-quote">
-          <p>&ldquo;I have generally been far better at promoting other people's businesses than explaining what I have built myself. That changes now.&rdquo;</p>
-          <p>&ldquo;I&rsquo;ve built out of other people&rsquo;s problems all the time.&rdquo;</p>
-          <p>&ldquo;Visibility is so important that it&rsquo;s worth edging on the line of boldness. You just have to do it, at this stage of my life.&rdquo;</p>
-          <cite>Anne McNamara</cite>
-        </blockquote>
-
+  <section class="feat paper" id="interview" aria-labelledby="interview-title">
+    <div class="shell feat-grid">
+      <div class="feat-text">
+        <span class="eyebrow">Before anything is built</span>
+        <h2 id="interview-title">The work begins by listening.</h2>
+        <p class="feat-lead">Anne had more than 30 years of businesses and ideas. Her website had to begin with questions, not a template.</p>
+        <ul class="dots">
+            <li>&ldquo;I have generally been far better at promoting other people&rsquo;s businesses than explaining what I have built myself.&rdquo;</li>
+            <li>&ldquo;I&rsquo;ve built out of other people&rsquo;s problems all the time.&rdquo;</li>
+            <li>&ldquo;Visibility is worth edging on the line of boldness.&rdquo;</li>
+        </ul>
+        <p class="feat-cite">Anne McNamara</p>
       </div>
-
-      <div class="interview-collage">
-          <figure class="wide-shot">
-            <img src="/images/anne-mcnamara-home.jpg" alt="Anne McNamara, photographed at home in St. Augustine">
-          </figure>
-        </div>
+      <figure class="slot portrait"><img src="/images/anne-mcnamara-home.jpg" width="860" height="1290" loading="lazy" alt="Anne McNamara, photographed at home in St. Augustine"><figcaption>Anne McNamara, St. Augustine.</figcaption></figure>
     </div>
   </section>
-
   <section class="method" id="approach" aria-labelledby="method-title">
     <div class="shell">
-      <p class="section-question light">What would someone have to ask before they could understand how your business really works?</p>
       <div class="method-head">
         <div>
           <span class="eyebrow light">The Business Behind the Business Process</span>
@@ -1341,223 +1401,113 @@
         <article class="method-card">
           <span class="number">01</span>
           <h3>I uncover the business behind the business.</h3>
-          <p>We talk about why you started, how you work, what customers remember and what you refuse to compromise. I listen for the value that has become ordinary to you.</p>
+          <p>We talk about why you started and what customers remember. I listen for what has become ordinary to you.</p>
         </article>
         <article class="method-card">
           <span class="number">02</span>
           <h3>I shape the story and build the website.</h3>
-          <p>Positioning, copy, photographs, pages and mobile design become one clear experience that looks and sounds like the business you actually built.</p>
+          <p>Words, photos and pages that look and sound like the business you actually built.</p>
         </article>
         <article class="method-card">
           <span class="number">03</span>
           <h3>I make it ready to be found.</h3>
-          <p>The build includes search-ready pages, a local SEO foundation and Google Business Profile setup or review when needed, so the right people can find and understand you.</p>
+          <p>Search-ready pages and your Google profile set up, so the right people find you.</p>
         </article>
       </div>
 
       <p class="method-more"><a class="text-link" href="/not-showing-up-on-google">Why isn't my business showing up on Google?</a></p>
     </div>
   </section>
-
-  <section class="recognition" aria-labelledby="recognition-title">
-    <div class="shell">
-      <p class="section-question">Has your business outgrown the way it appears online?</p>
-      <div class="recognition-head">
-        <div>
-          <span class="eyebrow">The moment owners start looking</span>
-          <h2 id="recognition-title">The business changed. The website did not.</h2>
-        </div>
-        <p class="lead">Most owners are not starting from zero. They have years of real work that their current website, template or social page no longer represents.</p>
+  <section class="feat cream" id="recognition" aria-labelledby="recognition-title">
+    <div class="shell feat-grid">
+      <div class="feat-text">
+        <span class="eyebrow">The moment owners start looking</span>
+        <h2 id="recognition-title">The business changed. The website did not.</h2>
+        <p class="feat-lead">Most owners are not starting from zero. Their website just stopped keeping up.</p>
+        <ul class="dots">
+            <li><strong>The website you outgrew.</strong> Built before the business became what it is today.</li>
+            <li><strong>The DIY site that stalled.</strong> The template keeps making it generic.</li>
+            <li><strong>The value strangers can&rsquo;t see.</strong> Referrals explain why you&rsquo;re worth choosing. Your website should too.</li>
+            <li><strong>The part that never got updated.</strong> New people, new tools. The website stayed the same.</li>
+        </ul>
+        <p class="feat-link"><a href="/website-redesign-palm-coast">Website redesign in Palm Coast &rarr;</a></p>
       </div>
-
-      <div class="recognition-grid">
-        <article class="recognition-card">
-          <span class="number">01</span>
-          <h3>The website you outgrew</h3>
-          <p>It was built before the business became what it is today. The services, confidence and reputation changed, but the website stayed behind.</p>
-          <p><a class="text-link" href="/website-redesign-palm-coast">Website redesign in Palm Coast</a></p>
-        </article>
-        <article class="recognition-card">
-          <span class="number">02</span>
-          <h3>The DIY site that stalled</h3>
-          <p>You know how you want the business to feel, but limited time and rigid templates keep reducing it to something generic.</p>
-        </article>
-        <article class="recognition-card">
-          <span class="number">03</span>
-          <h3>The value strangers cannot see</h3>
-          <p>Referrals work because someone explains why you are worth choosing. Your website should make that value understandable before the introduction.</p>
-        </article>
-        <article class="recognition-card">
-          <span class="number">04</span>
-          <h3>The part that never got updated</h3>
-          <p>You changed how the business runs. New people, new tools, better ways of doing the job. The website is the one thing that stayed the same, and you are not sure who to ask about it.</p>
-        </article>
-      </div>
+      <figure class="slot land"><img src="/images/ohlson-blog-stories.jpg" width="900" height="707" loading="lazy" alt="Ohlson Photography blog: stories, weddings and guides, with real couples Paola photographed"><figcaption>Paola&rsquo;s blog: real couples and their stories, now on her own site.</figcaption></figure>
     </div>
   </section>
-
-
-  <section class="story" id="story" aria-labelledby="story-title">
-    <div class="shell story-grid">
-      <p class="section-question story-question-top">What small thing do you do that your customers remember long after the work is finished?</p>
-      <div class="story-copy">
+  <section class="feat paper" id="story" aria-labelledby="story-title">
+    <div class="shell feat-grid">
+      <div class="feat-text">
         <span class="eyebrow">A real result</span>
         <h2 id="story-title">One small question found the heart of a 17-year business.</h2>
-        <p>I sat down with a photographer whose clients loved her and whose reviews were exceptional. Her old website showed photographs, but not why couples trusted her. She was still undercharging and unable to see the value everyone else already saw.</p>
-        <div class="story-mid">
-          <figure class="paola-thumb">
-            <img src="/images/paola-conversation.jpg" alt="Paola Ohlson during her conversation with Robert Szigeti">
-            <figcaption>Paola</figcaption>
-          </figure>
-          <p>As we talked, I reflected back what I was hearing. She became quiet and said, “It's hard to hear these things. I'm the one stopping myself. It's just this fear.”</p>
-        </div>
-        <blockquote class="interview-quote story-quote">
-          <p>&ldquo;It seems like it's so much work, but still you're able to get it done. For me, this is so overwhelming.&rdquo;</p>
-          <cite>Paola Ohlson</cite>
-        </blockquote>
-
+        <p class="feat-lead">Her clients loved her and her reviews were exceptional, but she was still undercharging.</p>
+        <ul class="dots">
+            <li><strong>What I asked:</strong> &ldquo;You hand the couple a few Polaroids at the end of the night. When did that start?&rdquo;</li>
+            <li><strong>What she said:</strong> &ldquo;They can take the Polaroids with them that night, and wake up the next morning and go, wow. This really happened.&rdquo;</li>
+            <li><strong>What I found:</strong> Her reviews kept calling her affordable. Seventeen years of work, and that was the compliment.</li>
+        </ul>
       </div>
-
-      <aside class="conversation-card" aria-label="Excerpt from Robert's conversation with a photographer">
-        <div class="exchange">
-          <span class="who">What I asked her</span>
-          <p>You hand the couple a few Polaroids at the end of the night. When did that start? What made you think of that?</p>
-        </div>
-        <div class="exchange">
-          <span class="who">What she told me</span>
-          <p>“You have to wait at least a day for the real photos. But they can take the Polaroids with them that night, and wake up the next morning and go, wow. This really happened.”</p>
-        </div>
-        <blockquote class="story-insight">
-          <p>Her reviews kept calling her affordable. Seventeen years of work, and that was the compliment she was getting.</p>
-          <cite>What I found before we ever talked</cite>
-        </blockquote>
-      </aside>
-      <div class="story-crops">
-        <div class="crop-row">
-          <figure class="crop">
-            <img src="/images/ohlson-home-old.webp" width="820" height="512" loading="lazy" decoding="async" alt="The top of Paola's old homepage">
-            <figcaption>Her old homepage</figcaption>
-          </figure>
-          <figure class="crop">
-            <img src="/images/ohlson-home-new.webp" width="820" height="512" loading="lazy" decoding="async" alt="The top of the homepage I built for her">
-            <figcaption>The one I built</figcaption>
-          </figure>
-        </div>
-        <p class="story-more"><a class="text-link" href="/ohlson-before-after">See her old site next to the new one</a></p>
-      </div>
+      <figure class="slot portrait"><img src="/images/ohlson-polaroids.jpg" width="700" height="1049" loading="lazy" alt="The Polaroid prints Paola hands couples at the end of the wedding night"><figcaption>The Polaroids, now on her site as &ldquo;Something real to hold.&rdquo; <a href="/ohlson-before-after">See the full before and after.</a></figcaption></figure>
     </div>
-
   </section>
-
-  <section class="about" id="about" aria-labelledby="about-title">
-    <div class="shell about-grid">
-      <p class="section-question">What does sitting across from people at a kitchen table have to do with building a website?</p>
-      <figure class="about-portrait">
-        <img src="/images/robert-portrait.jpg" alt="Robert T. Szigeti">
-        <figcaption>
-          <span class="signature-mark portrait-signature" role="img" aria-label="Robert T. Szigeti signature"></span>
-          <span>The person behind this business</span>
-        </figcaption>
-      </figure>
-
-      <div class="about-heading">
+  <section class="feat cream" id="about" aria-labelledby="about-title">
+    <div class="shell feat-grid">
+      <div class="feat-text">
         <span class="eyebrow">Why I work this way</span>
         <h2 id="about-title">I came to websites through real estate, but the work was always about people.</h2>
-      </div>
-
-      <div class="about-story">
-        <p>I spent years sitting across from people, trying to understand them. Why they do what they do. What they are actually good at. I loved the buildings, but I was always more interested in the person.</p>
-        <p>People kept telling me they talk to me differently, that things come out they had not planned on saying. It took me a long time to realize that was not just a good conversation. It was the beginning of the work I was meant to build.</p>
-        <p>Here is what those years taught me. You can put the numbers up. You can say here is the service and here is what it costs. But if I have never met you, how do I know whether to trust you? How do I believe what you say?</p>
-        <p>That is the part most websites skip, and it is the only part that decides anything.</p>
-        <p>So I do not start with the site. I start with a conversation about you and the business, and I keep asking until we find the thing you stopped noticing years ago because you have lived with it. Then I build around that.</p>
-      </div>
-
-      <div class="about-closing">
-        <p class="payoff">The best part is not the website. It is watching somebody hear their own story back and realize what they have been sitting on the whole time.</p>
-        <p class="other-site">I still buy and sell houses. That side of my work lives at <a href="https://therobertszigeti.com">therobertszigeti.com</a>, the tools, the writing, the deals. I built that one too.</p>
+        <p class="feat-lead">I love remodeling homes, but I was always more interested in the people.</p>
+        <ul class="dots">
+            <li><strong>People talk to me differently.</strong> Things come out they hadn&rsquo;t planned on saying. It took me a long time to realize that was my passion.</li>
+            <li><strong>Trust is the part websites skip.</strong> If I&rsquo;ve never met you, how do I believe what your website says?</li>
+            <li><strong>So I start with a conversation.</strong> I keep asking until we find what you stopped noticing years ago.</li>
+        </ul>
+        <p class="feat-link">I still buy and sell houses. That side lives at <a href="https://therobertszigeti.com">therobertszigeti.com</a>.</p>
         <p class="roles">Husband &middot; Dad &middot; Pilot &middot; Investor &middot; Problem Solver</p>
       </div>
-
+      <figure class="slot portrait about-portrait-slot"><img src="/images/robert-portrait.jpg" width="1067" height="1600" loading="lazy" alt="Robert T. Szigeti"><figcaption><span class="signature-mark portrait-signature" role="img" aria-label="Robert T. Szigeti signature"></span>The person behind this business</figcaption></figure>
     </div>
   </section>
-
-  <section class="runs" id="runs" aria-labelledby="runs-title">
-    <div class="shell">
-      <div class="runs-head">
+  <section class="feat paper" id="runs" aria-labelledby="runs-title">
+    <div class="shell feat-grid">
+      <div class="feat-text">
         <span class="eyebrow">When the website is not the thing</span>
         <h2 id="runs-title">Sometimes I don&rsquo;t even build websites.</h2>
-        <p class="runs-q">What is the one thing you struggle with every day?</p>
+        <p class="feat-lead">What is the one thing you struggle with every day?</p>
+        <ul class="dots">
+            <li>The spreadsheet only you know how to use.</li>
+            <li>The invoice that still has not gone out.</li>
+            <li>The numbers you can only run at your desk.</li>
+            <li>The paperwork that has been a mess for ten years.</li>
+        </ul>
+        <p class="feat-link"><a href="/tools.html">Beyond the site &rarr;</a></p>
       </div>
-
-      <div class="runs-grid">
-        <article class="runs-card"><span class="number">01</span><p>The spreadsheet only you know how to use.</p></article>
-        <article class="runs-card"><span class="number">02</span><p>The invoice that still has not gone out.</p></article>
-        <article class="runs-card"><span class="number">03</span><p>The numbers you can only run at your desk.</p></article>
-        <article class="runs-card"><span class="number">04</span><p>The paperwork that has been a mess for ten years.</p></article>
-      </div>
-
-      <p class="runs-more"><a class="text-link" href="/tools.html">Beyond the site</a></p>
+      <figure class="slot phoneshot"><img src="/images/ohlson-pocket-finally-seen.jpg" width="780" height="1270" loading="lazy" alt="Paola Ohlson pocket page: The love you poured into it, finally seen. Brand, headshot and commercial photographer"><figcaption>Paola&rsquo;s pocket: a one-page card on her phone, in her own brand.</figcaption></figure>
     </div>
   </section>
-
-  <section class="aftercare" id="aftercare" aria-labelledby="aftercare-title">
-    <div class="shell">
-      <span class="eyebrow light">After it is live</span>
-      <h2 id="aftercare-title">Most sites quietly stop being true about a year after launch.</h2>
-      <div class="aftercare-body">
-        <p class="care-lede">New prices. A new person. The award that came in last month. Your business keeps moving after the site goes live, and the owner either cannot change it or is afraid of breaking something.</p>
-            <div class="care-grid">
-              <div class="care-item">
-                <span class="care-h">Always included</span>
-                <p>You text me what changed. It is done that day.</p>
-              </div>
-              <div class="care-item">
-                <span class="care-h">Depends on the business</span>
-                <p>Keeping the Google profile alive. Knowing what people searched to find you. We work that out in the same conversation as the build.</p>
-              </div>
-            </div>
-            <p class="care-own">The domain, the site and the Google profile are in your name from the first day. If you ever stop the plan, you keep all of it. Plans begin at $99 a month, quoted after we talk.</p>
+  <section class="feat cream" id="aftercare" aria-labelledby="aftercare-title">
+    <div class="shell feat-grid">
+      <div class="feat-text">
+        <span class="eyebrow">After it is live</span>
+        <h2 id="aftercare-title">Most sites quietly stop being true about a year after launch.</h2>
+        <p class="feat-lead">New prices. A new person. The award that came in last month.</p>
+        <ul class="dots">
+            <li><strong>You text me what changed.</strong> It&rsquo;s done that day.</li>
+            <li><strong>Your Google profile stays alive.</strong> We work out what you need in the same conversation as the build.</li>
+            <li><strong>You own all of it.</strong> Domain, site and Google profile are in your name from day one. Plans from $99 a month.</li>
+        </ul>
       </div>
+      <figure class="slot land"><img src="/images/ohlson-search-console.jpg" width="900" height="564" loading="lazy" alt="Google Search Console for Ohlson Photography showing 3,310 appearances in Google over three months"><figcaption>Paola&rsquo;s site, kept up after launch: 3,310 appearances in Google in three months.</figcaption></figure>
     </div>
   </section>
-  <section class="invite" id="invite" aria-labelledby="invite-title">
+  <section class="close" id="invite" aria-labelledby="invite-title">
     <div class="shell">
-      <div class="invite-panel">
-        <div class="invite-copy">
-          <p class="section-question light">If your website finally felt like your business, what would it need to say that it does not say now?</p>
-          <span class="eyebrow light">The invitation</span>
-          <h2 id="invite-title">Let's find out what's been hiding in plain sight inside your business.</h2>
-          <p>We start with a short conversation about your project, how I work, and whether we are the right fit. If the project is clear, I prepare a proposal with the scope and cost. If you need help finding the direction first, <a href="/owner-session">The Owner Session</a> is a paid working session with a written summary. Deeper discovery is part of the paid website project once you hire me.</p>
-          <p>Custom website projects begin at $3,000.</p>
-
-        </div>
-        <div class="invite-action">
-          <p class="promise">When you see the finished website, you should recognize your own business in it.</p>
-          <p class="invite-local">Palm Coast &middot; St. Augustine &middot; North Florida</p>
-          <a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
-          <p class="contact">Or email <a href="mailto:robert@ownersbehindit.com" data-fill="email">robert@ownersbehindit.com</a></p>
-            <div class="invite-next"><p class="in-eyebrow">Just starting out, or not sure what you need?</p><p class="in-name">The Owner Session, $350</p><p class="in-desc">Ninety minutes about the business you are starting, or the one you have built, and a written summary of what to do next.</p><a href="/owner-session">Learn about The Owner Session &rarr;</a></div>
-        </div>
-
-      </div>
-
-      <div class="stepdown" id="tell-me">
-        <div class="stepdown-copy">
-        <span class="eyebrow light stepdown-eyebrow">No forms. No scheduling. No obligation.</span>
-        <h2 class="stepdown-title">Tell me your story</h2>
-        <p class="stepdown-lead">You don&rsquo;t have to type it and you don&rsquo;t have to book anything. Press the button and talk to me for two minutes like I&rsquo;m sitting across from you. I&rsquo;ll listen to the whole thing and come back to you myself.</p>
-
-        <div class="prompts">
-          <p class="plabel">If it helps, tell me things like</p>
-          <p>What does your business do, and how long have you been at it?</p>
-          <p>What do people keep saying to you after the work is done?</p>
-          <p>What do you wish somebody would finally ask you about?</p>
-        </div>
-        </div>
-
-        <div class="stepdown-action">
-        <p class="tm-name">Tell Me<sup>&trade;</sup></p>
+      <span class="eyebrow light">The invitation</span>
+      <h2 id="invite-title">Let&rsquo;s find out what&rsquo;s been hiding in plain sight inside your business.</h2>
+      <p>Start with a short conversation about your project, how I work and whether we&rsquo;re a good fit. Custom websites begin at $3,000, or a two-page Starting Point from $1,500.</p>
+      <a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
+      <div class="tm" id="tell-me">
+        <p class="tm-or">Rather talk than book? Tell me your story.</p>
+<p class="tm-name">Tell Me<sup>&trade;</sup></p>
         <div class="stage on" id="sd-idle">
           <button class="mic-btn" id="sd-record" type="button" aria-label="Start recording">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1596,19 +1546,16 @@
         </div>
 
         <p class="stepdown-msg" id="sd-msg" role="status" aria-live="polite"></p>
-        </div>
-
         <p class="fineprint">Your recording comes to me and no one else. It is never posted, shared, or used anywhere.</p>
       </div>
-
     </div>
   </section>
-
 
 </main>
 
 <footer class="site-footer">
   <div class="shell">
+    <p class="footer-offer"><a href="/owner-session">The Owner Session</a> &nbsp;&middot;&nbsp; Ninety minutes about the business you built. $350</p>
     <div class="footer-row">
       <small>RS Global Enterprises &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; <a href="mailto:robert@ownersbehindit.com">robert@ownersbehindit.com</a><br><a href="/privacy">Privacy</a> &nbsp;&middot;&nbsp; <a href="/terms">Terms</a></small>
     </div>

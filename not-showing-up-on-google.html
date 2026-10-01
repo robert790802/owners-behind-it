@@ -13,7 +13,12 @@
 <meta property="og:url" content="https://ownersbehindit.com/not-showing-up-on-google">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta property="og:image" content="https://ownersbehindit.com/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ownersbehindit.com/images/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
   <script>
@@ -409,7 +414,19 @@
     main>section.paper{background:var(--paper)}
     .dots li::before{background:var(--gold)}
 
-  </style>
+  
+  /* 1 Oct: shorter close, whole photo (same size on every page) */
+  .close{padding:clamp(2.6rem,5vh,3.4rem) 0;background:linear-gradient(rgba(10,22,40,.80),rgba(10,22,40,.88)),url("/images/owner-session-sitdown.jpg") center center/cover no-repeat,var(--navy-2)}
+  .close .shell>*{max-width:780px}
+  .close h2{font-size:clamp(1.8rem,2.6vw,2.4rem);margin-bottom:.8rem}
+  .close .button{margin-top:16px}
+  .close-os{margin-top:14px}
+  .close .tm{margin:24px auto 0;padding-top:20px}
+  .close .tm-or{margin:0 0 .3rem}
+  .close .fineprint{margin-top:.6rem}
+  .close h2,.close .shell>p{max-width:900px}
+  .close .close-os{max-width:none}
+</style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
