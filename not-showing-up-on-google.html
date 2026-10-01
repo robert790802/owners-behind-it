@@ -398,6 +398,17 @@
   /* close: sit-down photo as the background, navy wash so the text reads */
   .close{position:relative;background:linear-gradient(rgba(10,22,40,.80),rgba(10,22,40,.88)),url("/images/owner-session-sitdown.jpg") center 40%/cover no-repeat}
 
+    /* ---- match the front page palette ---- */
+    body{background:var(--paper)}
+    .hero{background:radial-gradient(circle at 84% 18%,rgba(201,161,74,.15),transparent 27rem),linear-gradient(145deg,var(--navy),var(--navy-2) 67%,#132440)!important}
+    .hero-head{grid-column:1/-1}
+    .eyebrow{display:flex;align-items:center;gap:.8rem;color:var(--gold-ink);font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.1rem}
+    .eyebrow::before{content:"";width:2rem;height:1px;background:currentColor}
+    .eyebrow.light{color:var(--gold-light);margin-bottom:1.35rem}
+    main>section:not(.hero):not(.close):not(.paper){background:var(--cream)}
+    main>section.paper{background:var(--paper)}
+    .dots li::before{background:var(--gold)}
+
   </style>
 </head>
 <body>
@@ -419,7 +430,8 @@
   <main id="main">
     <section class="hero" aria-labelledby="page-title">
       <div class="shell hero-grid">
-        <h1 id="page-title">Why isn't my business showing up on Google?</h1>
+        <div class="hero-head"><span class="eyebrow light">Owner-led businesses &middot; Palm Coast &middot; Flagler County</span>
+        <h1 id="page-title">Why isn't my business showing up on Google?</h1></div>
         <div class="hero-copy">
           <p class="six-lead">Almost always one of six things:</p>
           <ul class="dots six-dots">
@@ -427,7 +439,6 @@
             <li>Too few reviews</li><li>A website that&rsquo;s too vague</li><li>A competitor doing all of it</li>
           </ul>
           <a class="button" href="#lets-talk">Book a sit-down</a>
-          <p class="local-note">Palm Coast &amp; Flagler County</p>
         </div>
         <figure class="hero-figure"><img class="hero-image" src="/images/ohlson-search-console.jpg" width="900" height="564" fetchpriority="high" alt="Google Search Console for ohlsonphotography.com showing 3,310 appearances in Google over three months"><figcaption>Ohlson Photography, a site I built: 3,310 appearances in Google in three months.</figcaption></figure>
       </div>
@@ -436,6 +447,7 @@
     <section class="feat paper" aria-labelledby="check-title">
       <div class="shell feat-grid">
         <div class="feat-text">
+          <span class="eyebrow">Start here</span>
           <h2 id="check-title">Before you fix anything, do this.</h2>
           <p class="feat-lead">Five checks on your phone. Two minutes tells you how big the problem is.</p>
           <ul class="dots">
@@ -453,9 +465,9 @@
     <section class="feat " aria-labelledby="six-title">
       <div class="shell feat-grid">
         <div class="feat-text">
+          <span class="eyebrow">What I usually find</span>
           <h2 id="six-title">The six reasons.</h2>
-          <p class="feat-lead">In the order I usually find them. In Palm Coast, where the searcher stands matters too.</p>
-          <ul class="dots">
+                    <ul class="dots">
             <li><strong>Never verified.</strong> Creating a profile and verifying it are two steps.</li>
             <li><strong>Wrong categories.</strong> List &ldquo;contractor&rdquo; and you go missing for kitchens.</li>
             <li><strong>Details don&rsquo;t match.</strong> Old numbers and addresses split your trust.</li>
@@ -471,6 +483,7 @@
     <section class="feat paper" aria-labelledby="changed-title">
       <div class="shell feat-grid">
         <div class="feat-text">
+          <span class="eyebrow">What changed</span>
           <h2 id="changed-title">The part that changed recently.</h2>
           <p class="feat-lead">Google now writes its own answer near the top of the page.</p>
           <ul class="dots">
@@ -486,6 +499,7 @@
     <section class="feat " aria-labelledby="pivot-title">
       <div class="shell feat-grid">
         <div class="feat-text">
+          <span class="eyebrow">The part nobody warns you about</span>
           <h2 id="pivot-title">Sometimes the phone still doesn&rsquo;t ring.</h2>
           <p class="feat-lead">You fix all of it, and visitors still leave in seconds.</p>
           <ul class="dots">
@@ -505,7 +519,8 @@
 
     <section class="paper" aria-labelledby="faq-title">
       <div class="shell"><div class="faqs">
-        <h2 id="faq-title">Questions owners ask next.</h2>
+        <span class="eyebrow">Frequently asked</span>
+        <h2 id="faq-title">Owner questions.</h2>
         <details><summary>Why does my business show up for me but not for my customers?</summary><p>Google knows you. You've searched yourself a hundred times. Your customers get none of that, which is why the off-wifi check matters.</p></details>
         <details><summary>My business used to show up. Why did it disappear?</summary><p>Usually something changed: a move, a new number, or an edit Google paused to review. Check your profile for a notice first.</p></details>
         <details><summary>How long until a new business shows up?</summary><p>Verification takes days to weeks. Showing up is earned over months, through reviews and a website that says plainly what you do.</p></details>
