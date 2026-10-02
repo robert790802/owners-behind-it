@@ -436,6 +436,14 @@
   .button.ghost:hover{background:rgba(201,161,74,.16)}
   .close .close-os-note{margin-top:12px;font-size:.9rem;color:var(--lavender)}
   @media(max-width:700px){.close-actions{flex-direction:column;align-items:stretch}.close .close-actions .button{width:100%;justify-content:center}}
+
+  /* 1 Oct: two choices in the close, each explained */
+  .close .shell>.close-choices{max-width:760px}
+  .close-choices{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:22px auto 0;text-align:left}
+  .choice .button{display:flex;justify-content:center;width:100%;margin:0}
+  .close .choice p{margin:12px 2px 0;font-size:.9rem;line-height:1.55;color:var(--lavender)}
+  .close .choice p strong{color:var(--cream);font-weight:600}
+  @media(max-width:700px){.close-choices{grid-template-columns:1fr;gap:22px}}
 </style>
 </head>
 <body>
@@ -560,8 +568,10 @@
       <div class="shell">
         <h2 id="talk-title">Getting found is step one.</h2>
         <p>Everything on this page you can do yourself, for free. Step two is what people see when they land on your site. That&rsquo;s the part I&rsquo;d like to sit down and talk through with you.</p>
-        <div class="close-actions"><a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a><a class="button ghost" href="/owner-session">The Owner Session, $350</a></div>
-      <p class="close-os-note">Not sure what you need yet? The Owner Session is ninety minutes about your business, with a written summary of what to do next within three days.</p>
+        <div class="close-choices">
+        <div class="choice"><a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a><p><strong>You know you want a website.</strong> A short conversation about your project, how I work and whether we&rsquo;re a good fit.</p></div>
+        <div class="choice"><a class="button ghost" href="/owner-session">The Owner Session, $350</a><p><strong>Not sure what you need yet?</strong> Ninety minutes about your business and a written plan within three days. The $350 comes off a build within 30 days.</p></div>
+      </div>
         <div class="tm" id="tell-me">
           <p class="tm-or">Rather talk than book? Leave me a voice message.</p>
         <p class="tm-name">Tell Me<sup>&trade;</sup></p>
