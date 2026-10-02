@@ -428,6 +428,14 @@
   .close .close-os{max-width:none}
 
   button,input,select,textarea{font-family:inherit}/* form fonts */
+
+  /* 1 Oct: Owner Session button beside Book a sit-down in the close */
+  .close-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .close .close-actions .button{margin-top:0;width:auto}
+  .button.ghost{background:transparent;color:var(--cream);border:1px solid var(--gold-light);box-shadow:none}
+  .button.ghost:hover{background:rgba(201,161,74,.16)}
+  .close .close-os-note{margin-top:12px;font-size:.9rem;color:var(--lavender)}
+  @media(max-width:700px){.close-actions{flex-direction:column;align-items:stretch}.close .close-actions .button{width:100%;justify-content:center}}
 </style>
 </head>
 <body>
@@ -552,7 +560,8 @@
       <div class="shell">
         <h2 id="talk-title">Getting found is step one.</h2>
         <p>Everything on this page you can do yourself, for free. Step two is what people see when they land on your site. That&rsquo;s the part I&rsquo;d like to sit down and talk through with you.</p>
-        <a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
+        <div class="close-actions"><a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a><a class="button ghost" href="/owner-session">The Owner Session, $350</a></div>
+      <p class="close-os-note">Not sure what you need yet? The Owner Session is ninety minutes about your business, with a written summary of what to do next within three days.</p>
         <div class="tm" id="tell-me">
           <p class="tm-or">Rather talk than book? Leave me a voice message.</p>
         <p class="tm-name">Tell Me<sup>&trade;</sup></p>

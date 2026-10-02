@@ -1138,6 +1138,14 @@
   .close .close-os{max-width:none}
 
   button,input,select,textarea{font-family:inherit}/* form fonts */
+
+  /* 1 Oct: Owner Session button beside Book a sit-down in the close */
+  .close-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .close .close-actions .button{margin-top:0;width:auto}
+  .button.ghost{background:transparent;color:var(--cream);border:1px solid var(--gold-light);box-shadow:none}
+  .button.ghost:hover{background:rgba(201,161,74,.16)}
+  .close .close-os-note{margin-top:12px;font-size:.9rem;color:var(--lavender)}
+  @media(max-width:700px){.close-actions{flex-direction:column;align-items:stretch}.close .close-actions .button{width:100%;justify-content:center}}
 </style>
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png">
@@ -1506,7 +1514,8 @@
       <span class="eyebrow light">The invitation</span>
       <h2 id="invite-title">Let&rsquo;s find out what&rsquo;s been hiding in plain sight inside your business.</h2>
       <p>Start with a short conversation about your project, how I work and whether we&rsquo;re a good fit. Custom websites begin at $3,000, or a two-page Starting Point from $1,500.</p>
-      <a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
+      <div class="close-actions"><a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a><a class="button ghost" href="/owner-session">The Owner Session, $350</a></div>
+      <p class="close-os-note">Not sure what you need yet? The Owner Session is ninety minutes about your business, with a written summary of what to do next within three days.</p>
       <div class="tm" id="tell-me">
         <p class="tm-or">Rather talk than book? Tell me your story.</p>
 <p class="tm-name">Tell Me<sup>&trade;</sup></p>
