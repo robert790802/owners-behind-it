@@ -1154,6 +1154,20 @@
   .close .choice p{margin:12px 2px 0;font-size:.9rem;line-height:1.55;color:var(--lavender)}
   .close .choice p strong{color:var(--cream);font-weight:600}
   @media(max-width:700px){.close-choices{grid-template-columns:1fr;gap:22px}}
+  /* Robert's introduction: user-initiated playback, with the existing response path. */
+  .intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+  .intro-copy h2{max-width:22ch;margin-bottom:1rem}
+  .intro-copy>p{color:var(--lavender-dim);max-width:48ch}
+  .intro-copy .intro-question{font-family:var(--question);font-size:clamp(1.5rem,2.3vw,2rem);font-weight:600;line-height:1.3;color:var(--navy);margin:1.6rem 0 1.2rem}
+  .intro-player{width:min(100%,224px);justify-self:center;margin:0}
+  .intro-player video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;background:var(--navy);border:1px solid rgba(201,161,74,.45);border-radius:12px;box-shadow:0 16px 36px rgba(10,22,40,.16)}
+  .intro-player figcaption{color:var(--lavender-dim);font-size:.78rem;text-align:center;line-height:1.5;margin-top:.7rem}
+  .intro-transcript{max-width:48ch;margin-top:1.4rem;font-size:.88rem;color:var(--lavender-dim)}
+  .intro-transcript summary{cursor:pointer;color:var(--navy);font-weight:600;width:fit-content}
+  .intro-transcript summary:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+  .intro-transcript[open] summary{margin-bottom:.8rem}
+  .intro-transcript p{margin-bottom:.7rem}
+  @media(max-width:800px){.intro-grid{grid-template-columns:1fr;gap:36px}.intro-player{width:min(100%,224px)}}
 </style>
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png">
@@ -1387,6 +1401,36 @@
           <a class="hero-step" href="#tell-me">Prefer to start with a message? Tell me your story.</a>
         </div>
       </div>
+    </div>
+  </section>
+  <section class="feat cream" id="meet-robert" aria-labelledby="intro-title">
+    <div class="shell intro-grid">
+      <div class="intro-copy">
+        <span class="eyebrow">Meet the person behind Owners Behind It</span>
+        <h2 id="intro-title">It starts with understanding your business.</h2>
+        <p>I&rsquo;m Robert. I build websites around the story, strengths and people behind a business, and custom tools around the problems that take up your day.</p>
+        <p>In this short introduction, I explain why we begin with a conversation and how what I learn shapes what we build together.</p>
+        <p class="intro-question">If you could make one part of your business easier, what would it be?</p>
+        <a class="button" href="#tell-me">Tell me about your business</a>
+        <details class="intro-transcript">
+          <summary>Read the video transcript</summary>
+          <p>When someone lands on your website, do they understand why they should choose you?</p>
+          <p>I&rsquo;m Robert, the person behind Owners Behind It.</p>
+          <p>Your website might be someone&rsquo;s first introduction to your business. They need to understand what you do, who is behind the business, and what makes you the right fit for them.</p>
+          <p>That&rsquo;s why, before I build the website about your business, I want to sit down with you. I would love to know how you started, why this work matters to you, and of course how the customer appreciates your business.</p>
+          <p>That conversation helps me to bring out what makes your business yours, so your website gives people a reason to trust you and take the next step.</p>
+          <p>I bring the same curiosity to how your business works every day. What are you struggling with? What is taking your time? And where does the work get stuck?</p>
+          <p>Once we understand the problem, we can build a custom tool around it. Whether it&rsquo;s simplifying the process, saving your time, or making it easier for you and your customer, then we test it together and see if it actually helps.</p>
+          <p>So let me ask you: if you could make one part of your business easier, what would that be?</p>
+        </details>
+      </div>
+      <figure class="intro-player">
+        <video controls playsinline preload="none" poster="/images/owners-behind-it-introduction-poster.jpg" width="1080" height="1920" aria-label="Robert introduces Owners Behind It, website discovery, and custom business tools">
+          <source src="/videos/owners-behind-it-introduction.mp4" type="video/mp4">
+          Your browser does not support this video. <a href="/videos/owners-behind-it-introduction.mp4">Watch Robert&rsquo;s introduction</a>.
+        </video>
+        <figcaption>Watch Robert&rsquo;s introduction &middot; 1 min 18 sec<br>Music: &ldquo;Sanctuary&rdquo; by Torus on <a href="https://uppbeat.io/c/torus" target="_blank" rel="noopener">Uppbeat</a>.</figcaption>
+      </figure>
     </div>
   </section>
   <section class="feat paper" id="interview" aria-labelledby="interview-title">
