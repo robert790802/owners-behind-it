@@ -1376,6 +1376,9 @@
 -->
 <form name="tell-your-story" method="post" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" hidden>
   <input type="hidden" name="form-name" value="tell-your-story">
+  <input name="source_form" value="tell-your-story" type="hidden">
+  <input name="submission_id" type="hidden">
+  <input name="submitted_at" type="hidden">
   <input type="text" name="name">
   <input type="text" name="contact">
   <input type="text" name="duration">
@@ -1644,6 +1647,7 @@
 
   var recorder = null, chunks = [], stream = null, blob = null;
   var startAt = 0, tick = null, durSec = 0;
+  var submissionId = null, submittedAt = null;
 
   function show(id){
     ['sd-idle','sd-rec','sd-review','sd-done'].forEach(function(x){
@@ -1706,7 +1710,7 @@
   $('sd-stop').addEventListener('click', stopRec);
 
   $('sd-redo').addEventListener('click', function(){
-    blob = null; durSec = 0;
+    blob = null; durSec = 0; submissionId = null; submittedAt = null;
     $('sd-playback').removeAttribute('src');
     say('');
     show('sd-idle');
@@ -1759,6 +1763,10 @@
 
     var fd = new FormData();
     fd.append('form-name', 'tell-your-story');
+    if (!submissionId) { submissionId = crypto.randomUUID(); submittedAt = new Date().toISOString(); }
+    fd.append('source_form', 'tell-your-story');
+    fd.append('submission_id', submissionId);
+    fd.append('submitted_at', submittedAt);
     fd.append('name',     name);
     fd.append('contact',  contact);
     fd.append('duration', fmt(durSec));

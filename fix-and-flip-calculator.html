@@ -1065,6 +1065,9 @@ window.buildLenderPDF=function(jsPDFCtor,d){
   </div>
 
   <form name="visualizer-leads" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input name="source_form" value="visualizer-leads" type="hidden" />
+    <input name="submission_id" type="hidden" />
+    <input name="submitted_at" type="hidden" />
     <input type="text" name="first_name" />
     <input type="email" name="email" />
     <input type="text" name="have" />
@@ -1729,7 +1732,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
       }).join('&');
       /* lead capture removed on this page */
     }catch(err){}
-    var body='form-name=visualizer-leads&first_name='+encodeURIComponent(fn)+'&email='+encodeURIComponent(e)+'&have='+encodeURIComponent(have)+'&need='+encodeURIComponent(need);
+    var body='source_form=visualizer-leads&submission_id='+encodeURIComponent(crypto.randomUUID())+'&submitted_at='+encodeURIComponent(new Date().toISOString())+'&form-name=visualizer-leads&first_name='+encodeURIComponent(fn)+'&email='+encodeURIComponent(e)+'&have='+encodeURIComponent(have)+'&need='+encodeURIComponent(need);
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(cb).catch(cb);
   }
   function gatherForProjectPDF(){
