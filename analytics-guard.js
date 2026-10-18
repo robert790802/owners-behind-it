@@ -27,15 +27,16 @@
     if (arguments[0] === 'event' && quietEvents.has(arguments[1])) return;
     window.dataLayer.push(arguments);
   };
+  function enqueueConfirmed() { window.dataLayer.push(arguments); }
   window.SiteAnalytics = {
     allowed: allowed,
     ga: config && config.ga,
     // This entry point is used only by the verified response/Calendly observer.
     confirmed: function (name) {
       if (!allowed) return;
-      window.dataLayer.push(['event', name, {event_category:'confirmed_outcome'}]);
+      enqueueConfirmed('event', name, {event_category:'confirmed_outcome'});
       if (name === 'lead_received' || name === 'voice_received') {
-        window.dataLayer.push(['event', 'generate_lead', {lead_type:name === 'voice_received' ? 'voice' : 'typed'}]);
+        enqueueConfirmed('event', 'generate_lead', {lead_type:name === 'voice_received' ? 'voice' : 'typed'});
       }
     }
   };
