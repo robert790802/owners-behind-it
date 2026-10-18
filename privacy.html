@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7XPBFX6PR"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-L7XPBFX6PR');
-  </script>
-  <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "ymckcxsv99");</script>
+  
+  
+  
 
 <meta charset="UTF-8">
+<script src="/analytics-guard.js?v=20261018-2"></script>
+<script defer src="/site-measurement.js?v=20261018-2"></script>
+<script defer src="/clarity-privacy.js?v=20261018-2"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy | Owners Behind It</title>
 <meta name="description" content="What ownersbehindit.com collects, how it is used, and how to have your information deleted.">
@@ -1202,7 +1201,7 @@
   button,input,select,textarea{font-family:inherit}/* form fonts */
 </style>
 </head>
-<body>
+<body data-clarity-mask="true">
 
 <header class="site-header">
   <div class="shell nav">
@@ -1238,8 +1237,9 @@
       <li><strong>Voice messages.</strong> When you record a message on this site, I receive the recording, your name, and the phone number or email you give me.</li>
       <li><strong>The flip calculator.</strong> If you ask for your results, I receive your first name, your email, and what you told me you have and need.</li>
       <li><strong>Bookings.</strong> When you book a conversation or an Owner Session, Calendly collects your name, email, the time you pick and any answers you give.</li>
-      <li><strong>Visits.</strong> Google Analytics records how people use the site, such as pages viewed, rough location and device type. It does not tell me who you are.</li>
-      <li><strong>How visitors move around.</strong> Microsoft Clarity shows me how people use the site, such as where they click, how far they scroll and how they move through a page, so I can make it easier to use. It collects this through cookies and similar technology and does not record what you type into forms. <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Microsoft&rsquo;s privacy statement</a> explains how it handles this data.</li>
+      <li><strong>Confirmed outcomes.</strong> Analytics receives an event name when a contact submission or voice upload is accepted, or an embedded Calendly booking is confirmed. Names, contact details, message text, audio and booking identifiers are not included in these outcome events. Calendly processes booking details in its own embedded service when you open the scheduler. Local development, preview pages and designated test pages are excluded from site analytics. Open <a href="/?analytics=off">test mode</a> to exclude this browser; the test-mode notice lets you resume normal analytics.</li>
+        <li><strong>Visits.</strong> Google Analytics records how people use the site, such as pages viewed, rough location and device type. It does not tell me who you are.</li>
+      <li id="clarity"><strong>Optional session recordings.</strong> Microsoft Clarity loads only after you choose “Allow recordings.” Page text and images, including contact and voice form content and feedback, are masked in recordings. Clarity does not receive submitted audio. Advertising storage is denied. Use “Clarity privacy settings” at the bottom of a tracked page to change your choice, which is remembered in this browser for up to 180 days. Global Privacy Control and Do Not Track keep recordings off. Google Analytics is a separate visit measurement service. <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Microsoft’s privacy statement</a> describes its data practices.</li>
     </ul></div>
 <div class="sec"><h2 id="how-i-use-it">How I use it</h2>
     <ul>
@@ -1284,3 +1284,4 @@
 </footer>
 </body>
 </html>
+

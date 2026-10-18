@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+<script src="/analytics-guard.js?v=20261018-2"></script>
+<script defer src="/site-measurement.js?v=20261018-2"></script>
+<script defer src="/clarity-privacy.js?v=20261018-2"></script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Website Redesign in Palm Coast | Owners Behind It</title>
   <meta name="description" content="Outgrown your business website? Robert T. Szigeti helps Palm Coast owners rethink the story, design and inquiry path. See real before-and-after work.">
@@ -20,24 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script>
-    // Preview visits should not enter production analytics.
-    if (['ownersbehindit.com', 'www.ownersbehindit.com'].includes(location.hostname)) {
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function(){ dataLayer.push(arguments); };
-      gtag('js', new Date());
-      gtag('config', 'G-L7XPBFX6PR');
-      const analytics = document.createElement('script');
-      analytics.async = true;
-      analytics.src = 'https://www.googletagmanager.com/gtag/js?id=G-L7XPBFX6PR';
-      document.head.appendChild(analytics);
-      window.clarity = window.clarity || function(){ (window.clarity.q = window.clarity.q || []).push(arguments); };
-      const clarityTag = document.createElement('script');
-      clarityTag.async = true;
-      clarityTag.src = 'https://www.clarity.ms/tag/ymckcxsv99';
-      document.head.appendChild(clarityTag);
-    }
-  </script>
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1234,7 +1221,7 @@
   @media(max-width:700px){.close-choices{grid-template-columns:1fr;gap:22px}}
 </style>
 </head>
-<body>
+<body data-clarity-mask="true">
 
 <header class="site-header">
   <div class="shell nav">
@@ -1258,6 +1245,7 @@
   email, not as an attachment.
 -->
 <form name="tell-your-story" method="post" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" hidden>
+  <input type="hidden" name="submission_id"><input type="hidden" name="submitted_at">
   <input type="hidden" name="form-name" value="tell-your-story">
   <input type="text" name="name">
   <input type="text" name="contact">
@@ -1604,3 +1592,4 @@
 </script>
 </body>
 </html>
+
