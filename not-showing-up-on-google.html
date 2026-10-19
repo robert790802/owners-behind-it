@@ -8,11 +8,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Why isn't my business showing up on Google? | Owners Behind It</title>
-<meta name="description" content="The six reasons a real business goes missing on Google, in plain language, plus the part nobody warns you about.">
+<meta name="description" content="The six reasons a business goes missing on Google, and what I set up so you show up on Google, Bing, Apple Maps and ChatGPT. You keep working.">
 <link rel="canonical" href="https://ownersbehindit.com/not-showing-up-on-google">
 
 <meta property="og:title" content="Why isn't my business showing up on Google?">
-<meta property="og:description" content="The six reasons a real business goes missing on Google, in plain language, plus the part nobody warns you about.">
+<meta property="og:description" content="The six reasons a business goes missing on Google, and what I set up so you show up on Google, Bing, Apple Maps and ChatGPT. You keep working.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://ownersbehindit.com/not-showing-up-on-google">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png">
@@ -44,7 +44,15 @@
       "name": "Why does my business show up for me but not for my customers?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Google knows you. You've searched yourself a hundred times. Your customers get none of that, which is why the off-wifi check matters."
+        "text": "Google knows you. You've searched yourself a hundred times. Your customers get none of that, which is why I check from a stranger's phone, off wifi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's changed in how customers find a business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A lot, and it keeps changing. Many people now type a whole question into ChatGPT or Google's AI and get one answer with a few options, instead of a list of websites. If you're not in that world every day, you don't know what to ask or where to look. You don't know what you don't know. I'm in it every day, so you don't have to be."
       }
     },
     {
@@ -52,7 +60,7 @@
       "name": "My business used to show up. Why did it disappear?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Usually something changed: a move, a new number, or an edit Google paused to review. Check your profile for a notice first."
+        "text": "Usually something changed: a move, a new number, or an edit Google paused to review. Or it was never set up right in the first place, and it held on for a while and then dropped. I check your profile and how it was set up first."
       }
     },
     {
@@ -68,15 +76,31 @@
       "name": "Do I need a website to show up on Google Maps?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. But most people tap your website next, and that's where you win or lose them."
+        "text": "No. But the website is where everything connects: your Google profile, your reviews, your social pages, your quote requests. It's where people go when you say \"look me up,\" and where they decide if you're the real deal. A website was never a luxury. If you're serious about your business, it's a must."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I fix this myself for free?",
+      "name": "Why does Bing matter? Nobody I know uses it.",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most of it, yes. It costs your time. Paying someone buys their time and knowing where to look."
+        "text": "Bing is Microsoft's search engine, the other one besides Google. Most people never open it, but AI tools often do. When someone asks ChatGPT for a local business, it often runs a Bing search and builds its answer from the top results. If you're not on Bing, you're harder for AI to find."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Someone in the family built our site. Do we have to start over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not always. If you already own your domain, you keep it, and I put the new site on it. Your Google reviews show right on the new site, like we did for Ohlson Photography, and blog posts from the old site come over too. What matters most is the foundation: how your domain, profile and site are set up and connected. When that's done wrong, things go sideways. That's not your problem. I take care of it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I have to do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One sit-down, and let us onto a job for photos. I bring the photographer and handle the rest. Your part is reaching out. You don't lose anything, and at least someone asks you the right questions."
       }
     }
   ]
@@ -431,6 +455,40 @@
   .close .choice p{margin:12px 2px 0;font-size:.9rem;line-height:1.55;color:var(--lavender)}
   .close .choice p strong{color:var(--cream);font-weight:600}
   @media(max-width:700px){.close-choices{grid-template-columns:1fr;gap:22px}}
+
+  /* Oct 19: grounds, profile drawing and the eight cards */
+  .feat.cream{background:var(--cream)}
+  .gbp{background:#fff;padding:16px 14px 18px;font-family:var(--body);color:var(--ink)}
+  .gbp-map{height:62px;border-radius:10px;background:linear-gradient(135deg,#e8eee0,#dfe8ef);position:relative;margin-bottom:12px}
+  .gbp-map::after{content:"";position:absolute;left:50%;top:38%;width:16px;height:16px;margin-left:-8px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#c5221f}
+  .gbp-name{font-weight:600;font-size:1rem;color:var(--navy);margin:0}
+  .gbp-line{font-size:.74rem;color:var(--lavender-dim);margin:.15rem 0 0}
+  .gbp-stars{color:var(--gold);font-size:.8rem;letter-spacing:.08em;margin:.3rem 0 0}
+  .gbp-actions{display:flex;gap:6px;margin:.8rem 0}
+  .gbp-actions span{flex:1;text-align:center;font-size:.72rem;font-weight:600;color:var(--navy);border:1px solid var(--line);border-radius:999px;padding:5px 0}
+  .gbp-row{font-size:.74rem;padding:6px 0;border-top:1px solid var(--line)}
+  .gbp-photos{display:flex;gap:5px;margin-top:8px}
+  .gbp-photos span{flex:1;height:34px;border-radius:6px;background:linear-gradient(135deg,#cfc6b3,#e6dfd0)}
+  main>section.method:not(.hero):not(.close):not(.paper){background:var(--navy);color:var(--cream);padding:clamp(3rem,6vh,4.5rem) 0}
+  .feat-grid.wide{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+  .two-dots{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+  .two-dots li{padding-top:0;padding-bottom:18px}
+  .two-dots li::before{top:10px}
+  @media(max-width:1000px){.two-dots{grid-template-columns:1fr}}
+  @media(max-width:800px){.feat-grid.wide{grid-template-columns:1fr}}
+  .feat-end{margin-top:1.4rem}
+  .feat .dots a{color:var(--navy);font-weight:600;border-bottom:1px solid rgba(201,161,74,.6)}
+  .method .eyebrow{color:var(--gold-light)}
+  .method-head{align-items:end;display:flex;gap:3rem;justify-content:space-between;margin-bottom:clamp(2.25rem,4vh,3rem)}
+  .method h2{color:var(--cream);max-width:760px;margin:0}
+  .method-intro{color:rgba(245,239,225,.68);max-width:350px;margin:0}
+  .method-grid.eight{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,auto);grid-auto-flow:column;column-gap:clamp(2.5rem,6vw,5.5rem)}
+  .method-card{display:grid;grid-template-columns:3rem minmax(0,1fr);align-items:baseline;align-content:start;border-top:1px solid rgba(245,239,225,.15);padding:1.35rem 0 1.25rem}
+  .method-card .number{color:var(--gold-light);font-family:var(--body);font-size:.95rem;font-weight:600;letter-spacing:.08em}
+  .method-card h3{color:var(--cream);margin:0 0 .35rem;font-size:1.15rem;line-height:1.3}
+  .method-card p{grid-column:2;color:rgba(245,239,225,.7);font-size:.98rem;line-height:1.6;margin:0}
+  @media(max-width:700px){.method-head{flex-direction:column;align-items:start;gap:1rem}
+    .method-grid.eight{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}}
 </style>
 </head>
 <body data-clarity-mask="true">
@@ -466,68 +524,126 @@
       </div>
     </section>
 
-    <section class="feat paper" aria-labelledby="check-title">
+    <section class="feat paper" aria-labelledby="six-title">
       <div class="shell feat-grid">
         <div class="feat-text">
-          <span class="eyebrow">Start here</span>
-          <h2 id="check-title">Before you fix anything, do this.</h2>
-          <p class="feat-lead">Five checks on your phone. Two minutes tells you how big the problem is.</p>
+          <span class="eyebrow">Where I come in</span>
+          <h2 id="six-title">You don&rsquo;t fix any of this. I do.</h2>
+          <p class="feat-lead">Each of the six has a fix. I set it up, so you can keep working.</p>
           <ul class="dots">
-            <li><strong>Search like a stranger.</strong> Phone off wifi. What you do plus the town.</li>
-            <li><strong>Check the phone number.</strong> An old number on Google costs you calls.</li>
-            <li><strong>Search Maps too.</strong> It ranks separately from Google.</li>
-            <li><strong>Count your reviews.</strong> How many, and when was the last one?</li>
-            <li><strong>Open your profile.</strong> Not verified? That&rsquo;s your answer.</li>
+            <li><strong>Never verified.</strong> I create or claim your profile and get it verified.</li>
+            <li><strong>Wrong categories.</strong> I pick the categories for your exact work.</li>
+            <li><strong>Details don&rsquo;t match.</strong> I make your name, phone and address match everywhere.</li>
+            <li><strong>Too few reviews.</strong> I set up a review request that goes out automatically after each job.</li>
+            <li><strong>No plain words.</strong> I write pages that answer what your customers ask.</li>
+            <li><strong>A competitor does it all.</strong> Now you do too, and I keep it up.</li>
           </ul>
         </div>
-        <figure class="slot phone"><div class="screen"><img src="/images/real-search-palm-coast.jpg" width="600" height="1090" loading="lazy" alt="A real Google search for pool service Palm Coast on a phone, showing the top local businesses with their reviews"></div><figcaption>A real search on a phone in Palm Coast.</figcaption></figure>
+        <figure class="slot phone"><div class="screen"><img src="/images/real-maps-palm-coast.jpg" width="600" height="1090" loading="lazy" alt="Google Maps on a phone in Palm Coast, with local businesses pinned across town and a blue dot where the person searching is standing"></div><figcaption>Google Maps in Palm Coast. The blue dot is the searcher.</figcaption></figure>
       </div>
     </section>
 
-    <section class="feat " aria-labelledby="six-title">
-      <div class="shell feat-grid">
-        <div class="feat-text">
-          <span class="eyebrow">What I usually find</span>
-          <h2 id="six-title">The six reasons.</h2>
-                    <ul class="dots">
-            <li><strong>Never verified.</strong> Creating a profile and verifying it are two steps.</li>
-            <li><strong>Wrong categories.</strong> List &ldquo;contractor&rdquo; and you go missing for kitchens.</li>
-            <li><strong>Details don&rsquo;t match.</strong> Old numbers and addresses split your trust.</li>
-            <li><strong>Too few reviews.</strong> Six against ninety is not a close race.</li>
-            <li><strong>No plain words.</strong> Say what you do and the town, in those words.</li>
-            <li><strong>A competitor does it all.</strong> Usually someone your size. It&rsquo;s copyable.</li>
-          </ul>
+    
+
+    <section class="feat cream" aria-labelledby="profile-title">
+      <div class="shell">
+        <div class="section-intro">
+          <div>
+            <span class="eyebrow">Your Google profile</span>
+            <h2 id="profile-title">Your Google profile, built around your business.</h2>
+          </div>
+          <p>It starts at our sit-down. I ask what you do, what you want more of and where you work. Then I set up your profile around that.</p>
         </div>
-        <figure class="slot phone"><div class="screen"><img src="/images/real-maps-palm-coast.jpg" width="600" height="1090" loading="lazy" alt="Google Maps on a phone in Palm Coast, with pool service businesses pinned across town and a blue dot where the person searching is standing"></div><figcaption>Google Maps in Palm Coast. The blue dot is the searcher.</figcaption></figure>
+        <div class="feat-grid wide">
+        <div class="feat-text">
+          <ul class="dots two-dots">
+            <li><strong>Your name and the right categories.</strong> Not just &ldquo;contractor.&rdquo; Driveways, pavers, pool decks: each is a search someone types, and Google matches categories first.</li>
+            <li><strong>Every service and every town you cover.</strong> So you show up where you actually work.</li>
+            <li><strong>Phone, website and hours, the same everywhere.</strong> When they don&rsquo;t match, Google trusts you less.</li>
+            <li><strong>A professional photographer at your job.</strong> I bring one. Your work isn&rsquo;t stock, so your photos aren&rsquo;t either. Customers look at photos before they call.</li>
+            <li><strong>Your business in your words.</strong> What you do, how you do it and why people hire you, from our sit-down.</li>
+            <li><strong>Reviews that come in on their own.</strong> When you finish a job, a review request goes to your customer automatically. You don&rsquo;t send anything.</li>
+          </ul>
+          <p class="feat-lead feat-end"><strong>I don&rsquo;t just build a pretty website. I build your business into it.</strong></p>
+        </div>
+        <figure class="slot phone" aria-label="A drawing of a complete Google profile on a phone"><div class="screen"><div class="gbp">
+          <div class="gbp-map"></div>
+          <p class="gbp-name">Owners Behind It</p>
+          <p class="gbp-line">Website designer &middot; Palm Coast</p>
+          <p class="gbp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <div class="gbp-actions"><span>Call</span><span>Website</span><span>Directions</span></div>
+          <div class="gbp-row">Serves Palm Coast, Flagler County, St. Augustine</div>
+          <div class="gbp-row">ownersbehindit.com</div>
+          <div class="gbp-row">(386) 307-3179</div>
+          <div class="gbp-photos"><span></span><span></span><span></span></div>
+        </div></div><figcaption>What a complete profile shows on a phone.</figcaption></figure>
+      </div>
       </div>
     </section>
 
     <section class="feat paper" aria-labelledby="changed-title">
-      <div class="shell feat-grid">
+      <div class="shell">
+        <div class="section-intro">
+          <div>
+            <span class="eyebrow">Beyond Google</span>
+            <h2 id="changed-title">Where else your customers look now.</h2>
+          </div>
+          <p>Your customers ask ChatGPT, search on their phones and read Google&rsquo;s own answer before they call. I put you in each place.</p>
+        </div>
+        <div class="feat-grid wide">
         <div class="feat-text">
-          <span class="eyebrow">What changed</span>
-          <h2 id="changed-title">The part that changed recently.</h2>
-          <p class="feat-lead">Google now writes its own answer near the top of the page.</p>
-          <ul class="dots">
-            <li><strong>It sits under the ads,</strong> above the list of businesses.</li>
-            <li><strong>If you&rsquo;re not in it,</strong> many people never scroll far enough to find you.</li>
-            <li><strong>Most advice</strong> was written before this, and it&rsquo;s quietly out of date.</li>
+          <ul class="dots two-dots">
+            <li><strong>Google Maps.</strong> Your profile on the map when someone nearby searches.</li>
+            <li><strong>Apple Maps.</strong> iPhones open Apple Maps for directions. I set up your listing there.</li>
+            <li><strong>Your Bing listing.</strong> <a href="https://searchengineland.com/how-does-chatgpt-conduct-local-searches-454894" target="_blank" rel="noopener">ChatGPT often searches Bing</a> for local questions, so this is how you get into its answer.</li>
+            <li><strong>ChatGPT and other AI tools.</strong> They answer from listings and pages that say plainly what you do. I write yours that way and check what they say about you as they change.</li>
+            <li><strong>Google&rsquo;s own answer.</strong> The summary at the top of the results. Plain pages give it something to quote.</li>
           </ul>
         </div>
         <figure class="slot land"><img src="/images/real-ai-answer-palm-coast.jpg" width="910" height="569" loading="lazy" alt="A real Google search for the cost of pool cleaning in Palm Coast, with Google&rsquo;s AI Overview answer near the top"><figcaption>A real search, October 2026.</figcaption></figure>
       </div>
+      </div>
     </section>
 
-    <section class="feat " aria-labelledby="pivot-title">
-      <div class="shell feat-grid">
+    <section class="method" aria-labelledby="setup-title">
+      <div class="shell">
+        <div class="method-head">
+          <div>
+            <span class="eyebrow light">What I set up, and keep up</span>
+            <h2 id="setup-title">The work around the website.</h2>
+          </div>
+          <p class="method-intro">Each piece is simple. There are a lot of them, and they have to match.</p>
+        </div>
+        <div class="method-grid eight">
+          <article class="method-card"><span class="number">01</span><h3>Your Google profile.</h3><p>Created or claimed, verified, with the right categories.</p></article>
+          <article class="method-card"><span class="number">02</span><h3>Bing and Apple Maps.</h3><p>The same profile where ChatGPT and iPhone users look.</p></article>
+          <article class="method-card"><span class="number">03</span><h3>The same details everywhere.</h3><p>Name, phone and address written the same on every listing and on your site.</p></article>
+          <article class="method-card"><span class="number">04</span><h3>Pages that answer real questions.</h3><p>One for each service: price range, permits, how long it takes, where you work. Local or statewide.</p></article>
+          <article class="method-card"><span class="number">05</span><h3>Found, then checked.</h3><p>Every page sent to Google and Bing, then checked that it actually shows up.</p></article>
+          <article class="method-card"><span class="number">06</span><h3>Professional photos and your story.</h3><p>A photographer at your job, never stock. Your story from the sit-down.</p></article>
+          <article class="method-card"><span class="number">07</span><h3>Tools that run the office.</h3><p>Quote requests, automatic replies, estimates and follow-up.</p></article>
+          <article class="method-card"><span class="number">08</span><h3>Kept current.</h3><p>New photos and reviews as jobs finish, your social pages linked, and a short monthly note on what&rsquo;s working.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="feat cream" aria-labelledby="pivot-title">
+      <div class="shell">
+        <div class="section-intro">
+          <div>
+            <span class="eyebrow">The part nobody warns you about</span>
+            <h2 id="pivot-title">Sometimes the phone still doesn&rsquo;t ring.</h2>
+          </div>
+          <p>You show up, people click, and they still leave in seconds. Look at your site like a stranger would:</p>
+        </div>
+        <div class="feat-grid">
         <div class="feat-text">
-          <span class="eyebrow">The part nobody warns you about</span>
-          <h2 id="pivot-title">Sometimes the phone still doesn&rsquo;t ring.</h2>
-          <p class="feat-lead">You fix all of it, and visitors still leave in seconds.</p>
           <ul class="dots">
-            <li><strong>Usually it&rsquo;s the page.</strong> What makes you worth hiring never made it on.</li>
-            <li><strong>That&rsquo;s what I look for.</strong> The proof you already have, put where people see it.</li>
+            <li><strong>Does it say exactly what you do?</strong> Not &ldquo;quality service.&rdquo; Driveways, pool decks, repairs.</li>
+            <li><strong>Does it show your real work?</strong> Your jobs, not stock photos.</li>
+            <li><strong>Would they know why to call you over the next name?</strong> Your years, your process, what customers say.</li>
           </ul>
+          <p class="feat-lead feat-end">When the answer is no, that&rsquo;s what I fix. The proof is usually already there. It just never made it onto the site.</p>
         </div>
         <figure class="slot land ba">
           <div class="ba-pair">
@@ -537,24 +653,28 @@
           <figcaption>Paola's About page. <a href="/ohlson-before-after">See the full before and after.</a></figcaption>
         </figure>
       </div>
+      </div>
     </section>
 
     <section class="paper" aria-labelledby="faq-title">
       <div class="shell"><div class="faqs">
         <span class="eyebrow">Frequently asked</span>
         <h2 id="faq-title">Owner questions.</h2>
-        <details><summary>Why does my business show up for me but not for my customers?</summary><p>Google knows you. You've searched yourself a hundred times. Your customers get none of that, which is why the off-wifi check matters.</p></details>
-        <details><summary>My business used to show up. Why did it disappear?</summary><p>Usually something changed: a move, a new number, or an edit Google paused to review. Check your profile for a notice first.</p></details>
+        <details><summary>Why does my business show up for me but not for my customers?</summary><p>Google knows you. You've searched yourself a hundred times. Your customers get none of that, which is why I check from a stranger&rsquo;s phone, off wifi.</p></details>
+        <details><summary>What&rsquo;s changed in how customers find a business?</summary><p>A lot, and it keeps changing. Many people now type a whole question into ChatGPT or Google&rsquo;s AI and get one answer with a few options, instead of a list of websites. If you&rsquo;re not in that world every day, you don&rsquo;t know what to ask or where to look. You don&rsquo;t know what you don&rsquo;t know. I&rsquo;m in it every day, so you don&rsquo;t have to be.</p></details>
+        <details><summary>My business used to show up. Why did it disappear?</summary><p>Usually something changed: a move, a new number, or an edit Google paused to review. Or it was never set up right in the first place, and it held on for a while and then dropped. I check your profile and how it was set up first.</p></details>
         <details><summary>How long until a new business shows up?</summary><p>Verification takes days to weeks. Showing up is earned over months, through reviews and a website that says plainly what you do.</p></details>
-        <details><summary>Do I need a website to show up on Google Maps?</summary><p>No. But most people tap your website next, and that's where you win or lose them.</p></details>
-        <details><summary>Can I fix this myself for free?</summary><p>Most of it, yes. It costs your time. Paying someone buys their time and knowing where to look.</p></details>
+        <details><summary>Do I need a website to show up on Google Maps?</summary><p>No. But the website is where everything connects: your Google profile, your reviews, your social pages, your quote requests. It&rsquo;s where people go when you say &ldquo;look me up,&rdquo; and where they decide if you&rsquo;re the real deal. A website was never a luxury. If you&rsquo;re serious about your business, it&rsquo;s a must.</p></details>
+        <details><summary>Why does Bing matter? Nobody I know uses it.</summary><p>Bing is Microsoft&rsquo;s search engine, the other one besides Google. Most people never open it, but AI tools often do. When someone asks ChatGPT for a local business, it often runs a Bing search and builds its answer from the top results. If you&rsquo;re not on Bing, you&rsquo;re harder for AI to find.</p></details>
+        <details><summary>Someone in the family built our site. Do we have to start over?</summary><p>Not always. If you already own your domain, you keep it, and I put the new site on it. Your Google reviews show right on the new site, like we did for Ohlson Photography, and blog posts from the old site come over too. What matters most is the foundation: how your domain, profile and site are set up and connected. When that&rsquo;s done wrong, things go sideways. That&rsquo;s not your problem. I take care of it.</p></details>
+        <details><summary>What do I have to do?</summary><p>One sit-down, and let us onto a job for photos. I bring the photographer and handle the rest. Your part is reaching out. You don&rsquo;t lose anything, and at least someone asks you the right questions.</p></details>
       </div></div>
     </section>
 
     <section class="close" id="lets-talk" aria-labelledby="talk-title">
       <div class="shell">
         <h2 id="talk-title">Getting found is step one.</h2>
-        <p>Everything on this page you can do yourself, for free. Step two is what people see when they land on your site. That&rsquo;s the part I&rsquo;d like to sit down and talk through with you.</p>
+        <p>I set it up, keep it up, and show you what&rsquo;s working. You keep doing your work.</p>
         <div class="close-choices">
         <div class="choice"><a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a><p><strong>Running your business already?</strong> Start with a conversation. No clock and nothing to pay. Two days later you get one page from me: what I heard, what I&rsquo;d build and what it costs.</p></div>
         <div class="choice"><a class="button ghost" href="/owner-session">The Owner Session, $347</a><p><strong>Just starting, or not sure of the direction?</strong> Ninety minutes, recorded, and a written plan within three days: what makes your work yours, the stories worth telling, a first line for your homepage and an honest next step. It&rsquo;s yours to keep, and the $347 comes off a build within 30 days.</p></div>
