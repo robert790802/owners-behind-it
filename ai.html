@@ -1200,6 +1200,20 @@
 
   button,input,select,textarea{font-family:inherit}/* form fonts */
 </style>
+<style>
+  /* Mobile menu: shows every tab on phones */
+  .nav-menu{display:none}
+  @media (max-width:700px){
+    .nav-menu{display:inline-flex;align-items:center;gap:.55rem;background:none;border:1px solid rgba(169,134,58,.55);color:#a9863a;font:inherit;font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.72rem .95rem;border-radius:2px;cursor:pointer;margin-left:1.1rem}
+    .nav-menu .bars{display:inline-block;width:14px;height:10px;border-top:1.5px solid currentColor;border-bottom:1.5px solid currentColor;position:relative}
+    .nav-menu .bars:after{content:"";position:absolute;left:0;right:0;top:50%;border-top:1.5px solid currentColor;transform:translateY(-50%)}
+    .nav-links{margin-left:auto}
+    .site-header.menu-open .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--cream);border-top:1px solid rgba(10,22,40,.10);border-bottom:1px solid rgba(10,22,40,.10);box-shadow:0 18px 30px rgba(10,22,40,.22);padding:.3rem clamp(1.35rem,4vw,3rem) .9rem;z-index:30}
+    .site-header.menu-open .nav-links a{display:block !important;padding:1rem 0;border-bottom:1px solid rgba(10,22,40,.08);font-size:.8rem}
+    .site-header.menu-open .nav-links a:last-child{border-bottom:0}
+    .site-header.menu-open .nav-links + .nav-menu{border-color:#a9863a;background:rgba(169,134,58,.08)}
+  }
+</style>
 </head>
 <body data-clarity-mask="true">
 
@@ -1208,13 +1222,14 @@
     <a class="logo-link" href="/" aria-label="Owners Behind It, home page">
       <img class="site-logo" src="/images/ob-logo.png" alt="Owners Behind It" width="52" height="52">
     </a>
-    <nav class="nav-links" aria-label="Primary navigation">
+    <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
       <a href="/#approach">My approach</a>
       <a href="/#story">A real result</a>
       <a href="/#about">About me</a>
       <a href="/tools.html">Beyond the site</a>
       <a href="/#invite">Let's talk</a>
     </nav>
+      <button class="nav-menu" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
   </div>
 </header>
 
@@ -1330,6 +1345,11 @@
     </div>
   </div>
 </footer>
+<script>
+(function(){var h=document.querySelector('.site-header'),b=document.querySelector('.nav-menu');if(!h||!b)return;
+b.addEventListener('click',function(){var o=h.classList.toggle('menu-open');b.setAttribute('aria-expanded',o?'true':'false');b.querySelector('.lbl').textContent=o?'Close':'Menu';});
+h.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('menu-open');b.setAttribute('aria-expanded','false');b.querySelector('.lbl').textContent='Menu';});});})();
+</script>
 </body>
 </html>
 
