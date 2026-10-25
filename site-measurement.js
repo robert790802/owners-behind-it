@@ -98,6 +98,13 @@
     var url; try {url=new URL(link.href);} catch (_) {return;}
     if (url.origin !== 'https://calendly.com' || !url.pathname.startsWith('/robertszigeti/')) return;
     event.preventDefault();
+    // Mobile and touch browsers use the full scheduler page. Embedded popups
+    // can leave location icons over the form in iOS in-app browsers.
+    if (window.matchMedia('(max-width: 1023px), (pointer: coarse)').matches) {
+      bookingAttempt = null;
+      location.assign(url.href);
+      return;
+    }
     var attempt = uuid(); bookingAttempt = attempt;
     widget().then(function(){
       window.Calendly.initPopupWidget({url:url.href});
