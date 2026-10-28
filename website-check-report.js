@@ -138,7 +138,7 @@ export function buildReport({site, pages = [], links = [], speed = null, now = n
 
   const profiles = {}; all.forEach(p => Object.entries(p.profiles).forEach(([k,v]) => profiles[k] ||= v));
   if (profiles['Google profile']) add(G3,'good','Your Google profile is linked','The site links to a Google Maps or Business Profile page.', 'It connects your website and your Google listing, which helps Google treat them as the same business.', 'Google Business Profile link');
-  else add(G3,'look','The site doesn’t link to a Google profile','No link to a Google Maps or Business Profile page was found.', 'Your reviews live there. A link connects the two and lets customers read them.', 'Google Business Profile link');
+  else add(G3,'info','No link to a Google profile','The site doesn’t link to a Google Maps or Business Profile page. If the business has a profile, this is worth adding. If it doesn’t have one, that is a separate choice.', 'Where a profile exists, a link connects it to the site and lets customers read the reviews.', 'Google Business Profile link');
   const socials = Object.keys(profiles).filter(k => k !== 'Google profile');
   if (socials.length) add(G3,'info','Profiles linked from the site', socials.join(', ') + '.', 'Search engines use these links to confirm who the business is.', 'sameAs / social links');
 
