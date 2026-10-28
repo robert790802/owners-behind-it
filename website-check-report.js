@@ -31,7 +31,7 @@ export function buildReport({site, pages = [], links = [], speed = null, now = n
   const G1 = 'find';
   // A host's test or staging address: findings there say little about the real site.
   const testHost = /(\.wpenginepowered\.com|\.wpengine\.com|\.kinsta\.cloud|\.myftpupload\.com|\.flywheelstaging\.com|\.flywheelsites\.com|\.pantheonsite\.io|\.cloudwaysapps\.com|\.wpcomstaging\.com|\.instawp\.xyz|\.lndo\.site)$/i.test(site.host) || /^(staging|stage|dev|test|preview)[.-]/i.test(site.host) || /^deploy-preview-\d+--/i.test(site.host);
-  if (testHost) add(G1,'look','This looks like a test copy, not the live website', `${site.host} is a hosting company’s test or staging address.`, 'Test copies are often hidden from Google on purpose, so some findings below may not apply to the real site. Check the business’s main address too.', 'staging host');
+  if (testHost) add(G1,'look','This looks like a test copy, not the live website', `${site.host} is a hosting company’s test or staging address.`, 'Test copies are often hidden from Google on purpose, so some findings below may not apply to the real site. Check the business’s main address too.', 'staging host', {pin: true});
   const hidden = each(p => p.noindex);
   if (!hidden.length) add(G1,'good','Your pages are open to search engines','None of the pages checked tell Google or Bing to stay away.','Search engines are allowed to list them. That is not the same as being listed; only Google Search Console can confirm that.','robots meta / X-Robots-Tag');
   else add(G1, hidden.some(isHome) ? 'fix' : 'look', hidden.some(isHome) ? 'Your home page tells Google not to list it' : `${plural(hidden.length,'page')} ${verb(hidden.length,'asks','ask')} search engines not to list ${verb(hidden.length,'it','them')}`, `Found a “do not list” instruction on: ${listPages(hidden)}.`, 'Google and Bing will leave these pages out of search results. Sometimes that is on purpose (a thank-you page). On a main page it usually is not.', 'noindex');
@@ -203,7 +203,7 @@ export function buildReport({site, pages = [], links = [], speed = null, now = n
     {id:'land',  eyebrow:'The first few seconds', title:'What happens when they land?'},
     {id:'reach', eyebrow:'Calls, forms and email', title:'Can they reach you?'},
     {id:'trust', eyebrow:'Security, links and care', title:'Can they trust what they see?'},
-  ].map(g => ({...g, findings: F.filter(f => f.group === g.id).sort((a,b) => STATUS[a.status].order - STATUS[b.status].order)}));
+  ].map(g => ({...g, findings: F.filter(f => f.group === g.id).sort((a,b) => (b.pin?1:0) - (a.pin?1:0) || STATUS[a.status].order - STATUS[b.status].order)}));
   const counts = {}; Object.keys(STATUS).forEach(k => counts[k] = F.filter(f => f.status === k).length);
   return {
     url: site.url, host: site.host, checkedAt: site.checkedAt, pagesChecked: all.length, pagesFound: (site.pages||[]).length + 1,
