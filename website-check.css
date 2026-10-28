@@ -1,0 +1,100 @@
+/* Owners Behind It website check. Builds on the site's own tokens and section system. */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.check-form{display:flex;flex-direction:column;gap:.75rem;margin-top:.2rem}
+.check-form input{background:rgba(245,239,225,.06);border:1px solid rgba(201,161,74,.55);border-radius:2px;color:var(--cream);font-size:1rem;min-height:52px;padding:.8rem 1rem;width:100%}
+.check-form input::placeholder{color:rgba(245,239,225,.45)}
+.check-form input:focus-visible{outline:3px solid var(--gold-light);outline-offset:2px}
+.check-form .button{border:0;cursor:pointer;width:100%}
+.check-form .button:disabled{cursor:progress;opacity:.75;transform:none}
+.hero-side .check-note{font-family:var(--body);font-weight:400;color:rgba(245,239,225,.62);font-size:.82rem;line-height:1.55;margin-top:.85rem}
+.hero-side .check-error{font-family:var(--body);font-weight:400;border-left:3px solid var(--gold);color:var(--cream);font-size:.92rem;line-height:1.5;margin-top:1rem;padding-left:.9rem}
+
+/* report head */
+.wc-head{scroll-margin-top:1rem}
+.wc-head h2{overflow-wrap:anywhere}
+.wc-steps .wc-step{color:var(--lavender-dim)}
+.wc-steps .wc-step.running::before{animation:wcpulse 1.1s ease-in-out infinite;background:transparent;border:2px solid var(--gold);height:9px;top:17px;width:9px}
+.wc-steps .wc-step.done{color:var(--ink)}
+.wc-steps .wc-step.failed{color:var(--lavender-dim)}
+.wc-steps .wc-step.failed::before{background:var(--lavender)}
+@keyframes wcpulse{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.wc-steps .wc-step.running::before{animation:none}}
+.wc-counts{margin-top:.2rem}
+.wc-counts strong{color:var(--navy);font-weight:600}
+.wc-actions{border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin-top:1.3rem;padding-top:1rem}
+.wc-link{background:none;border:0;border-bottom:1px solid rgba(201,161,74,.6);color:var(--navy);cursor:pointer;font-size:.95rem;font-weight:600;padding:0 0 .15rem}
+.wc-link:hover{border-bottom-color:var(--gold)}
+.wc-link:focus-visible{outline:3px solid var(--gold-light);outline-offset:4px}
+
+/* the preview figure: what Google shows, what a stranger reads */
+.wc-preview{max-width:460px}
+.wc-serp,.wc-first{background:#fff;border-radius:6px;box-shadow:0 14px 32px rgba(10,22,40,.14);padding:1.15rem 1.25rem;text-align:left}
+.wc-first{margin-top:14px}
+.wc-serp-label{color:var(--gold-ink);display:block;font-size:.62rem;font-weight:600;letter-spacing:.16em;margin-bottom:.7rem;text-transform:uppercase}
+.wc-serp-url{color:#4d5156;font-family:var(--body);font-size:.82rem;line-height:1.4;margin:0;overflow-wrap:anywhere}
+.wc-serp-title{color:#1a0dab;font-family:var(--body);font-size:1.18rem;line-height:1.3;margin:.2rem 0 .3rem}
+.wc-serp-desc{color:#4d5156;font-family:var(--body);font-size:.9rem;line-height:1.5;margin:0}
+.wc-first-h1{color:var(--navy);font-size:1.12rem;font-weight:600;line-height:1.35;margin:0}
+.wc-first-p{color:var(--lavender-dim);font-size:.92rem;line-height:1.55;margin:.5rem 0 0}
+p+.wc-serp-title,p+.wc-serp-desc,p+.wc-first-p{margin-top:.3rem}
+
+/* a findings section: head left, lead right, then the full-width list */
+.wc-ghead{align-items:end;display:grid;gap:clamp(2rem,6vw,6rem);grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);margin-bottom:clamp(1.8rem,3.5vh,2.6rem)}
+.wc-ghead h2{margin:0}
+.wc-ghead .lead{color:var(--lavender-dim)}
+.wc-list{border-top:1px solid var(--line)}
+.wc-row{align-items:start;border-bottom:1px solid var(--line);display:grid;gap:1rem clamp(1.2rem,3vw,2.4rem);grid-template-columns:150px minmax(0,1fr) 190px;padding:1.35rem 0}
+.wc-row>*{margin:0}
+.wc-row p+p{margin-top:0}
+.wc-status{align-items:center;color:var(--lavender-dim);display:flex;font-size:.68rem;font-weight:600;gap:.6rem;letter-spacing:.14em;padding-top:.35rem;text-transform:uppercase}
+.wc-mark{border-radius:50%;display:inline-block;flex:none;height:10px;width:10px}
+.s-fix .wc-status{color:var(--gold-ink)}
+.s-fix .wc-mark{background:var(--gold-ink)}
+.s-look .wc-status{color:var(--gold-ink)}
+.s-look .wc-mark{border:2px solid var(--gold)}
+.s-good .wc-status{color:var(--navy)}
+.s-good .wc-mark{background:var(--navy);position:relative}
+.s-good .wc-mark::after{border:solid var(--cream);border-width:0 1.5px 1.5px 0;content:"";height:5px;left:3.5px;position:absolute;top:1.6px;transform:rotate(45deg);width:2.5px}
+.s-info .wc-mark{background:var(--lavender)}
+.s-unknown .wc-mark{border:2px dashed var(--lavender)}
+.pending .wc-mark{animation:wcpulse 1.1s ease-in-out infinite}
+.wc-body h3{color:var(--navy);font-size:clamp(1.1rem,1.4vw,1.25rem);font-weight:600;letter-spacing:-.01em;line-height:1.35;margin:0 0 .45rem}
+.wc-saw{color:var(--ink);font-size:1rem;line-height:1.6;overflow-wrap:anywhere}
+.wc-means{color:var(--lavender-dim);font-size:.95rem;line-height:1.6;margin-top:.45rem!important}
+.wc-tech{color:var(--lavender-dim);font-size:.62rem;font-weight:600;letter-spacing:.14em;line-height:1.5;padding-top:.4rem;text-align:right;text-transform:uppercase}
+
+/* page by page */
+.wc-pages{border-bottom:1px solid var(--line);margin-top:0}
+.wc-pages summary{color:var(--navy);cursor:pointer;font-weight:600;list-style:none;padding:20px 34px 20px 0;position:relative}
+.wc-pages summary::-webkit-details-marker{display:none}
+.wc-pages summary::after{border-bottom:1.5px solid var(--gold-ink);border-right:1.5px solid var(--gold-ink);content:"";height:8px;position:absolute;right:7px;top:27px;transform:rotate(45deg);width:8px}
+.wc-pages[open] summary::after{top:31px;transform:rotate(225deg)}
+.wc-table{overflow-x:auto}
+.wc-pages table{border-collapse:collapse;font-size:.9rem;width:100%}
+.wc-pages th{color:var(--gold-ink);font-size:.62rem;font-weight:600;letter-spacing:.14em;padding:.5rem .8rem .5rem 0;text-align:left;text-transform:uppercase;white-space:nowrap}
+.wc-pages td{border-top:1px solid var(--line);color:var(--ink);padding:.6rem .8rem .6rem 0}
+.wc-pages td:first-child{max-width:420px;overflow-wrap:anywhere}
+.wc-pages td a{border-bottom:1px solid rgba(201,161,74,.6);color:var(--navy)}
+.wc-pages td.off{color:var(--gold-ink);font-weight:600}
+.wc-pages .wc-means{padding:.8rem 0 1.4rem}
+
+@media (max-width:900px){
+  .wc-ghead{align-items:start;grid-template-columns:1fr;gap:1rem}
+  .wc-row{grid-template-columns:120px minmax(0,1fr)}
+  .wc-tech{grid-column:2;padding-top:0;text-align:left}
+}
+@media (max-width:600px){
+  .wc-row{gap:.55rem;grid-template-columns:1fr;padding:1.2rem 0}
+  .wc-tech{grid-column:auto}
+  .wc-status{padding-top:0}
+}
+
+/* the saved or printed report */
+@media print{
+  .site-header,.hero,#what,#where-from,#questions,#lets-talk,.site-footer,.wc-actions,.wc-steps{display:none!important}
+  body{background:#fff;font-size:12pt}
+  .feat{padding:18pt 0;background:#fff!important}
+  .wc-row{break-inside:avoid;grid-template-columns:110px 1fr 140px}
+  .wc-serp,.wc-first{box-shadow:none;border:1px solid #ddd}
+  .wc-group{break-before:auto}
+}
