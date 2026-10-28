@@ -71,3 +71,8 @@ test('handler guards',async()=>{
  assert.equal((await handler(req(JSON.stringify({url:'http://127.0.0.1'})))).status,400);
  assert.equal((await handler(req(JSON.stringify({mode:'pages',site:'https://example.com',urls:['https://evil.example/x']})))).status,200);
 });
+test('photos without a size, mouse-only controls and unnamed labels are found',()=>{
+ const a=analyzePage({url:'https://example.com/',status:200,headers:{},body:'<img src="/me.jpg" alt="Me"><img src="/s.png" alt="" width="10" height="10"><img src="https://www.facebook.com/tr?id=1" style="display:none"><span onclick="x()">×</span><button onclick="x()">ok</button><span class="yes" aria-label="Included"></span><span role="img" aria-label="Included"></span>'});
+ assert.equal(a.images.unsized,1); assert.deepEqual(a.images.unsizedSrc,['me.jpg']);
+ assert.equal(a.mouseOnly,1); assert.equal(a.namelessRole,1);
+});

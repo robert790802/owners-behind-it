@@ -140,6 +140,12 @@ export function analyzePage(page) {
     try { const u=new URL(h,base); u.hash=''; if(!/^https?:$/.test(u.protocol))continue; (sameSite(u.hostname,base.hostname)?internal:external).add(u.href); } catch {}
   }
   const images = (visible.match(/<img\b[^>]*>/gi)||[]).map(attrs);
+  // Photos with no size let the page jump as they load. Tracking pixels (1x1, hidden) are not photos.
+  const unsized = images.filter(i => !('width' in i) && !('height' in i) && !/display\s*:\s*none/i.test(i.style||'') && !/(facebook\.com\/tr|pixel|spacer|1x1)/i.test(i.src||''));
+  // Things that only respond to a mouse: a click action on an element a keyboard can't reach.
+  const mouseOnly = (visible.match(/<(div|span|li|img|p|td|section)\b[^>]*\sonclick\s*=[^>]*>/gi)||[]).filter(t => !/\srole\s*=\s*["']?(button|link)/i.test(t) || !/\stabindex\s*=/i.test(t)).length;
+  // A spoken name on a plain box is ignored by screen readers unless the box has a role.
+  const namelessRole = (visible.match(/<(div|span)\b[^>]*\saria-label\s*=[^>]*>/gi)||[]).filter(t => !/\srole\s*=/i.test(t)).length;
   const inlineImageBytes = [...html.matchAll(/data:image\/[a-z+]+;base64,([A-Za-z0-9+/=]{2000,})/g)].reduce((s,m)=>s+Math.round(m[1].length*0.75),0);
   const structured=[]; let schemaInvalid=false;
   for (const m of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
@@ -184,7 +190,8 @@ export function analyzePage(page) {
     viewport: metaAll('viewport')[0]||'', lang: (noComments.match(/<html\b[^>]*\blang\s*=\s*["']?([a-z-]+)/i)||[])[1]||'',
     schemaTypes, schemaInvalid,
     business: bizNode ? {name:String(bizNode.name).slice(0,120), telephone:bizNode.telephone?String(bizNode.telephone):'', address:addrText.slice(0,200), sameAs:[].concat(bizNode.sameAs||[]).slice(0,10)} : null,
-    images: {total: images.length, missingAlt: images.filter(i=>!('alt' in i)).length},
+    images: {total: images.length, missingAlt: images.filter(i=>!('alt' in i)).length, unsized: unsized.length, unsizedSrc: unsized.slice(0,3).map(i=>(i.src||'').split('/').pop().split('?')[0]).filter(Boolean)},
+    mouseOnly, namelessRole,
     firstImageLazy: (images[0]?.loading||'').toLowerCase()==='lazy',
     inlineImageBytes,
     telLinks, phonesText, mailto: [...new Set(hrefs.filter(h=>/^mailto:/i.test(h)).map(h=>h.slice(7).split('?')[0].toLowerCase()))],
