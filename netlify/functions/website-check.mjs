@@ -70,7 +70,8 @@ export async function readPublic(value, {resolve = lookup, deadline = Date.now()
 }
 
 // ---------- reading one page ----------
-const decode = s => s.replace(/&#(x[0-9a-f]+|\d+);/gi,(_,n)=>{const p=n[0].toLowerCase()==='x'?parseInt(n.slice(1),16):Number(n);return p>0&&p<=0x10ffff?String.fromCodePoint(p):'';}).replace(/&amp;/gi,'&').replace(/&quot;/gi,'"').replace(/&#39;|&apos;/gi,"'").replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/&nbsp;/gi,' ').replace(/&copy;/gi,'©').replace(/&rsquo;/gi,'’').replace(/&mdash;/gi,'—').replace(/&ndash;/gi,'–');
+const decode = s => s.replace(/&#(x[0-9a-f]+|\d+);/gi,(_,n)=>{const p=n[0].toLowerCase()==='x'?parseInt(n.slice(1),16):Number(n);return p>0&&p<=0x10ffff?String.fromCodePoint(p):'';}).replace(/&amp;/gi,'&').replace(/&quot;/gi,'"').replace(/&#39;|&apos;/gi,"'").replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/&nbsp;/gi,' ').replace(/&([a-z]+);/gi,(m,n)=>NAMED[n.toLowerCase()]??m);
+const NAMED={copy:'©',reg:'®',trade:'™',middot:'·',bull:'•',hellip:'…',rsquo:'’',lsquo:'‘',rdquo:'”',ldquo:'“',mdash:'—',ndash:'–',laquo:'«',raquo:'»',eacute:'é',egrave:'è',aacute:'á',iacute:'í',oacute:'ó',uacute:'ú',ntilde:'ñ',uuml:'ü',ouml:'ö',auml:'ä',deg:'°',frac12:'½',times:'×',rarr:'→',larr:'←',zwj:'',shy:''};
 const plain = s => decode(s.replace(/<[^>]*>/g,' ')).replace(/\s+/g,' ').trim();
 export function attrs(tag) {
   const result={};

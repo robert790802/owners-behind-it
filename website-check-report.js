@@ -9,7 +9,7 @@ export const STATUS = {
 };
 const host = u => { try { return new URL(u).hostname.replace(/^www\./,''); } catch { return ''; } };
 const path = u => { try { const x = new URL(u); return (x.pathname + x.search) || '/'; } catch { return u; } };
-const norm = u => { try { const x = new URL(u); x.hash=''; return (x.hostname.replace(/^www\./,'') + x.pathname.replace(/\/(index\.html?)?$/,'') + x.search).toLowerCase(); } catch { return String(u||''); } };
+const norm = u => { try { const x = new URL(u); x.hash=''; return (x.hostname.replace(/^www\./,'') + x.pathname.replace(/\/(index\.html?)?$/,'').replace(/\.html?$/,'') + x.search).toLowerCase(); } catch { return String(u||''); } };
 const fmtPhone = d => d.length === 10 ? `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}` : d;
 const plural = (n, one, many) => `${n} ${n === 1 ? one : (many || one + 's')}`;
 const verb = (n, one, many) => n === 1 ? one : many;
@@ -116,14 +116,18 @@ export function buildReport({site, pages = [], links = [], speed = null, now = n
   // ---------- 3. Can they reach you ----------
   const G3 = 'reach';
   const tel = new Set(all.flatMap(p => p.telLinks));
-  const shown = new Set(all.flatMap(p => p.phonesText));
+  // Business numbers only: tapped links, the schema phone, the home page, or a number repeated across pages.
+  // A helpline quoted in one article is not the business's number.
+  const seenOn = {}; all.forEach(p => p.phonesText.forEach(d => seenOn[d] = (seenOn[d] || 0) + 1));
+  const bizPhone = biz?.telephone ? biz.telephone.replace(/\D/g,'').slice(-10) : '';
+  const shown = new Set(Object.keys(seenOn).filter(d => tel.has(d) || d === bizPhone || home.phonesText.includes(d) || seenOn[d] > 1));
   const notTappable = [...shown].filter(d => !tel.has(d));
-  const tappableNowhere = all.filter(p => p.phonesText.some(d => !p.telLinks.includes(d))).map(p => p.url);
+  const tappableNowhere = all.filter(p => p.phonesText.some(d => shown.has(d) && !p.telLinks.includes(d))).map(p => p.url);
   if (!shown.size && !tel.size) add(G3,'look','No phone number on the pages checked', `Checked ${plural(all.length,'page')} and found no phone number.`, 'Many local customers want to call. If calling is not how you work, that is fine.', 'phone number');
   else if (notTappable.length) add(G3,'fix','Phone numbers that don’t dial when tapped', `${notTappable.map(fmtPhone).join(', ')} ${notTappable.length === 1 ? 'shows' : 'show'} on ${listPages(tappableNowhere,4)} without a call link.`, 'On a phone, a person has to copy the number by hand instead of tapping it.', 'tel: link');
   else add(G3,'good','Phone numbers dial when tapped', `${[...tel].map(fmtPhone).join(', ')}, tappable on a phone.`, 'One tap from the page to a call.', 'tel: link');
 
-  const numbers = new Set([...tel, ...shown, ...(biz?.telephone ? [biz.telephone.replace(/\D/g,'').slice(-10)] : [])]);
+  const numbers = new Set([...tel, ...shown, ...(bizPhone ? [bizPhone] : [])]);
   if (numbers.size > 1) add(G3,'look','Different phone numbers on different pages', `Found ${plural(numbers.size,'number')}: ${[...numbers].map(fmtPhone).join(', ')}.`, 'If they are different lines on purpose, fine. If one is old, Google and customers can’t tell which is right.', 'NAP consistency');
 
   const contactPages = each(p => p.forms > 0 || p.mailto.length);
