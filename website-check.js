@@ -103,7 +103,7 @@ async function check(input) {
       got.flat().forEach(p => pages.push(p));
       if (me !== run) return;
     }
-    s2.done(`Read ${pages.filter(p => !p.error).length + 1} pages`);
+    { const n = pages.filter(p => !p.error).length + 1; s2.done(`Read ${n} ${n === 1 ? 'page' : 'pages'}`); }
     const s3 = step('Testing the links inside the site');
     const read = new Set([site.url, ...site.pages].map(u => u.replace(/\/$/, '')));
     const linkSet = new Set(); [site.home, ...pages].forEach(p => (p.internal || []).forEach(u => { if (!read.has(u.replace(/\/$/, ''))) linkSet.add(u); }));
