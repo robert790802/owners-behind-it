@@ -339,7 +339,10 @@ export default async request => {
     if(data.mode==='speedkey'){ const key=typeof Netlify!=='undefined'?Netlify.env.get('PAGESPEED_API_KEY')||'':''; return json({key}); }
     if(data.mode==='pages') { if(!Array.isArray(data.urls))throw new Error('No pages to check.'); return json({pages: await checkPages(data.site, data.urls.map(String))}); }
     if(data.mode==='links') { if(!Array.isArray(data.urls))throw new Error('No links to check.'); return json({links: await checkLinks(data.site, data.urls.map(String))}); }
-    return json(await checkSite(normalizeUrl(data.url).href));
+    const report = await checkSite(normalizeUrl(data.url).href);
+    // One line in the function log per check: which public website was checked and when. Nothing about the visitor.
+    console.log(JSON.stringify({event:'website_check', site: report.host, pages: report.pages.length + 1, at: report.checkedAt}));
+    return json(report);
   } catch(error) {
     const m = error instanceof SyntaxError ? 'Enter a valid website address.' : /ENOTFOUND|EAI_AGAIN/.test(error.code||error.message) ? 'That website address could not be found. Check the spelling and try again.' : /ECONNREFUSED|ECONNRESET|EPROTO|certificate|SSL/i.test(error.code||error.message) ? 'The website would not accept a secure connection from the checker.' : error.message||'This website could not be checked.';
     return json({error:m},400);

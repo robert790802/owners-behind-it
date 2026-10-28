@@ -117,6 +117,8 @@ async function check(input) {
     if (me !== run) return;
     speed.available ? s4.done('Google’s phone speed test finished') : s4.fail(speed.message);
     render(buildReport({site, pages, links, speed}));
+    // Count the check in the site's own analytics: the checked website's address only, never the visitor.
+    try { if (window.SiteAnalytics && window.SiteAnalytics.allowed && window.gtag) window.gtag('event', 'website_check', {checked_site: site.host, pages_read: pages.length + 1}); if (window.SiteClarityConsented && typeof window.clarity === 'function') window.clarity('event', 'website_check'); } catch {}
   } catch (e) {
     if (me !== run) return;
     $('results').hidden = true; $('check-error').textContent = e.name === 'TimeoutError' ? 'That website took too long to answer. It may be down or blocking automated visitors.' : e.message; $('check-error').hidden = false;
