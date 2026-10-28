@@ -44,7 +44,7 @@ function render(report, opts = {}) {
   const when = new Date(report.checkedAt).toLocaleString('en-US', {month:'long', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit'});
   $('results-lead').textContent = `Read ${report.pagesChecked} ${report.pagesChecked === 1 ? 'page' : 'pages'} on ${when}.` + (report.pagesFound > report.pagesChecked ? ' Some linked pages could not be read.' : '');
   const counts = $('wc-counts'); counts.replaceChildren();
-  for (const k of ['fix','look','good','info','unknown']) if (report.counts[k]) { const li = el('li'); const s = el('strong', '', String(report.counts[k])); li.append(s, ' ' + STATUS[k].label.toLowerCase()); counts.append(li); }
+  for (const k of ['fix','look','good','info','unknown']) if (report.counts[k]) { const li = el('li', 'c-' + k); const s = el('strong', '', String(report.counts[k])); li.append(s, ' ' + STATUS[k].label.toLowerCase()); counts.append(li); }
   counts.hidden = false;
   if (!opts.keepSteps) $('wc-steps').hidden = true;
   const p = report.preview;

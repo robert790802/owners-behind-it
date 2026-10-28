@@ -29,6 +29,9 @@ export function buildReport({site, pages = [], links = [], speed = null, now = n
 
   // ---------- 1. Can people find you ----------
   const G1 = 'find';
+  // A host's test or staging address: findings there say little about the real site.
+  const testHost = /(\.wpenginepowered\.com|\.wpengine\.com|\.kinsta\.cloud|\.myftpupload\.com|\.flywheelstaging\.com|\.flywheelsites\.com|\.pantheonsite\.io|\.cloudwaysapps\.com|\.wpcomstaging\.com|\.instawp\.xyz|\.lndo\.site)$/i.test(site.host) || /^(staging|stage|dev|test|preview)[.-]/i.test(site.host) || /^deploy-preview-\d+--/i.test(site.host);
+  if (testHost) add(G1,'look','This looks like a test copy, not the live website', `${site.host} is a hosting company’s test or staging address.`, 'Test copies are often hidden from Google on purpose, so some findings below may not apply to the real site. Check the business’s main address too.', 'staging host');
   const hidden = each(p => p.noindex);
   if (!hidden.length) add(G1,'good','Your pages are open to search engines','None of the pages checked tell Google or Bing to stay away.','Search engines are allowed to list them. That is not the same as being listed; only Google Search Console can confirm that.','robots meta / X-Robots-Tag');
   else add(G1, hidden.some(isHome) ? 'fix' : 'look', hidden.some(isHome) ? 'Your home page tells Google not to list it' : `${plural(hidden.length,'page')} ${verb(hidden.length,'asks','ask')} search engines not to list ${verb(hidden.length,'it','them')}`, `Found a “do not list” instruction on: ${listPages(hidden)}.`, 'Google and Bing will leave these pages out of search results. Sometimes that is on purpose (a thank-you page). On a main page it usually is not.', 'noindex');
