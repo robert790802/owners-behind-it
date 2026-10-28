@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check Your Website | Owners Behind It</title>
+<meta name="description" content="Check your website's search foundation, business wording, contact options and technical basics. Get immediate findings, without an email signup.">
+<link rel="canonical" href="https://ownersbehindit.com/check-your-website">
+<meta property="og:title" content="Does your website explain your business?">
+<meta property="og:description" content="A free website check with practical findings you can use.">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website"><meta property="og:url" content="https://ownersbehindit.com/check-your-website"><meta property="og:image" content="https://ownersbehindit.com/images/og-image.png">
+<link rel="icon" href="/images/icon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/website-check.css">
+</head>
+<body>
+<header><a href="/" aria-label="Owners Behind It home"><img src="/images/ob-logo-light.webp" width="150" height="55" alt="Owners Behind It"></a><a href="/#meet-robert">Meet Robert <span aria-hidden="true">↗</span></a></header>
+<main>
+<section class="intro" aria-labelledby="page-title">
+<p class="eyebrow">A clearer picture of your website</p>
+<h1 id="page-title">You know your business.<br><em>Does your website show it?</em></h1>
+<p class="lead">See what your website says, how it helps people contact you, and whether the basics are in place for search engines to understand it.</p>
+<form id="check-form"><label for="website">Your website address</label><div class="input-row"><input id="website" name="website" type="text" inputmode="url" autocomplete="url" autocapitalize="none" spellcheck="false" placeholder="yourbusiness.com" maxlength="2048" required aria-describedby="input-note"><button type="submit">Check my website <span aria-hidden="true">→</span></button></div><p id="input-note" class="fine">Free. No email or phone number required. Most basic checks finish within 30 seconds.</p></form>
+<p id="progress" role="status" aria-live="polite"></p><p id="error" role="alert" hidden></p>
+<div class="topics"><span>Search foundation</span><span>Business clarity</span><span>Contact &amp; trust</span><span>Technical basics</span></div>
+</section>
+<section id="results" hidden aria-labelledby="results-title" tabindex="-1">
+<div class="result-head"><div><p class="eyebrow">Your website, checked</p><h2 id="results-title">Here’s what we found.</h2><p id="checked-url"></p></div><button id="print" class="secondary" type="button">Print / save PDF</button></div>
+<p id="scope" class="scope"></p>
+<div class="summary" id="summary"></div>
+<p class="legend"><strong>Found</strong> means detected, not certified. <strong>Needs attention</strong> identifies a concrete issue. <strong>Review</strong> means it needs a person’s judgment. <strong>Couldn’t confirm</strong> is not a failing grade.</p>
+<div id="findings"></div>
+<section class="extra" aria-labelledby="visibility-title"><p class="eyebrow">Google &amp; Bing</p><h2 id="visibility-title">Can people find you?</h2><p>This check shows search foundations. Only your Google Search Console and Bing Webmaster Tools accounts can confirm detailed indexing status. Public search results can give you another clue, but an absent result is not proof that a page is unindexed.</p><div class="actions" id="search-links"></div></section>
+<section class="extra" aria-labelledby="speed-title"><p class="eyebrow">A separate measurement</p><h2 id="speed-title">How does it load on mobile?</h2><p>Run Google’s Lighthouse mobile speed test for this page. This can take up to 45 seconds and sends the website address to Google.</p><button id="speed-button" type="button" class="secondary">Test mobile speed</button><div id="speed-result" role="status" aria-live="polite"></div></section>
+<section class="invite"><p class="eyebrow">The person behind the website</p><h2>The next question is yours.</h2><p>Does this website show what you want people to know about your business? If you’d like to talk through what you found, bring your results to a conversation with me.</p><a href="/#tell-me" class="button">Talk with Robert <span aria-hidden="true">→</span></a></section>
+</section>
+<section id="before-results" class="explainer"><h2>A useful starting point.</h2><p>This checks your homepage and public search files. It shows the wording it finds so you can judge whether it represents you. It does not promise rankings, certify accessibility, or submit your contact forms.</p></section>
+</main>
+<footer><p>Owners Behind It · Robert T. Szigeti</p><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/">Back to the site</a></footer>
+<script src="/website-check.js" defer></script>
+</body></html>
