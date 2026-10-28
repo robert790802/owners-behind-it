@@ -19,7 +19,9 @@ const kb = b => b >= 1048576 ? (b/1048576).toFixed(1) + ' MB' : Math.round(b/102
 export function buildReport({site, pages = [], links = [], speed = null, now = new Date()}) {
   const home = site.home;
   const seen = new Set(); const all = [home, ...pages.filter(p => p && !p.error && !p.notHtml && p.status < 400 && p.titles)].filter(p => { const k = norm(p.url); if (seen.has(k)) return false; seen.add(k); return true; });
-  const failed = pages.filter(p => p && (p.error || p.status >= 400));
+  // A page that answered with an error is a finding. A page the checker ran out of time on is not.
+  const failed = pages.filter(p => p && (p.status >= 400 || (p.error && !/in time|too long|timed out|respond/i.test(p.error))));
+  const slowPages = pages.filter(p => p && p.error && !failed.includes(p));
   const F = [];
   const add = (group, status, title, saw, means, tech, extra = {}) => F.push({group, status, title, saw, means, tech, ...extra});
   const each = fn => all.filter(fn).map(p => p.url);
@@ -160,6 +162,7 @@ export function buildReport({site, pages = [], links = [], speed = null, now = n
   else if (alt.finalUrl && host(alt.finalUrl) === host(site.url) && new URL(alt.finalUrl).hostname !== new URL(site.url).hostname) add(G4,'look',`Two copies of your site: with and without www`, `${alt.host} opens its own copy instead of moving visitors to ${site.host}.`, 'Google can treat them as two separate sites and split your standing between them.', 'www / non-www redirect');
 
   if (failed.length) add(G4,'fix',`${plural(failed.length,'page')} didn’t open`, `${failed.slice(0,6).map(p => `${path(p.url||p.requested)} (${p.status ? 'error ' + p.status : p.error})`).join(', ')}.`, 'These are linked from your own site, so visitors can land on them.', 'page errors');
+  if (slowPages.length) add(G4,'unknown',`${plural(slowPages.length,'page')} could not be read in time`, `${listPages(slowPages.map(p => p.url))}. This is a limit of the check, not proof the ${verb(slowPages.length,'page is','pages are')} broken.`, 'Open them yourself to be sure.', 'timeout');
   const broken = links.filter(l => l.status >= 400);
   const slow = links.filter(l => l.error === 'timeout');
   if (broken.length) add(G4,'fix',`${plural(broken.length,'link')} inside your site ${verb(broken.length,'leads','lead')} nowhere`, broken.slice(0,8).map(l => `${path(l.url)} (${l.status === 404 ? 'not found' : 'error ' + l.status})`).join(', ') + '.', 'Someone clicks and gets an error page. Search engines notice too.', 'broken internal links');
