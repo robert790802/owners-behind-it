@@ -1364,6 +1364,11 @@
     .site-header.menu-open .nav-links + .nav-menu{border-color:#a9863a;background:rgba(169,134,58,.08)}
   }
 </style>
+<style>
+  /* homepage hero: the free website check, the second door beside Book a sit-down */
+  .hero-check{align-items:flex-start;display:flex;flex-direction:column;gap:.55rem}
+  .hero-side .hero-check-note{color:rgba(245,239,225,.62);font-family:var(--body);font-size:.82rem;font-weight:400;line-height:1.5;margin:0}
+</style>
 </head>
 <body data-clarity-mask="true">
 
@@ -1417,7 +1422,10 @@
         <p>What do people only discover about your business after they choose you?</p>
         <div class="hero-actions">
           <a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
-          <a class="hero-step" href="/check-your-website">Check your website for free</a>
+          <div class="hero-check">
+            <a class="button ghost" href="/check-your-website">Free website check</a>
+            <p class="hero-check-note">Google, speed, calls and email. Nothing to sign up for.</p>
+          </div>
           <a class="hero-step" href="#tell-me">Prefer to start with a message? Tell me your story.</a>
         </div>
       </div>
