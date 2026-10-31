@@ -245,7 +245,7 @@ async function emailRecords(host) {
   const policy = (dm[0]?.match(/;\s*p\s*=\s*(\w+)/i)||[])[1]||'';
   const mxHosts = Array.isArray(mx) ? mx.map(x=>x.exchange.toLowerCase()) : [];
   const provider = mxHosts.some(h=>/google|googlemail/.test(h))?'Google':mxHosts.some(h=>/outlook|protection\.outlook/.test(h))?'Microsoft':mxHosts.some(h=>/secureserver/.test(h))?'GoDaddy':mxHosts.some(h=>/zoho/.test(h))?'Zoho':mxHosts.length?'another provider':'';
-  return {domain, hasMx: mxHosts.length>0, mxError: mx?.error||'', provider, spf: spf.length, spfRecord: spf[0]||'', dmarc: dm.length>0, dmarcPolicy: policy.toLowerCase(), lookupFailed: !!(txt?.error && dmarc?.error && mx?.error && !/ENODATA|ENOTFOUND/.test(txt.error))};
+  return {domain, hasMx: mxHosts.length>0, mxError: mx?.error||'', provider, spf: spf.length, spfRecord: spf[0]||'', dmarc: dm.length>0, dmarcPolicy: policy.toLowerCase(), lookupFailed: [mx,txt,dmarc].some(r=>r?.error&&!/^(ENODATA|ENOTFOUND)$/.test(r.error))};
 }
 
 async function certificate(host, resolve, deadline) {
@@ -291,12 +291,14 @@ async function checkSite(input, resolve = lookup) {
   const robotsOk = robots.status===200 && !/<html/i.test(robots.body||'');
   const rb = robotsOk ? parseRobots(robots.body) : {sitemaps:[],signals:[],blocked:[],everyoneBlocked:false};
   let sm = sm1.status===200 ? sitemapUrls(sm1.body) : {isSitemap:false,locs:[]};
+  let sitemapError = sm1.error || (sm1.status>=400&&sm1.status!==404?'Sitemap request returned HTTP '+sm1.status:'');
   let sitemapAt = sm.isSitemap ? final.origin+'/sitemap.xml' : '';
   const listed = rb.sitemaps.find(s=>{try{return sameSite(new URL(s).hostname,host)}catch{return false}});
   if ((!sm.isSitemap || sm.isIndex) && Date.now() < deadline - 1500) {
     const next = !sm.isSitemap ? (listed || final.origin+'/sitemap_index.xml') : (sm.locs.find(l=>/page|post|main|pages/i.test(l)) || sm.locs[0]);
-    if (next) { const r = await soft(readPublic(next,{resolve,deadline})); if (r.status===200) { const s=sitemapUrls(r.body); if (s.isSitemap) { if(!sitemapAt)sitemapAt=next; sm = s.isIndex ? {...s, locs: []} : {...s, isIndex: sm.isIndex}; } } }
+    if (next) { const r = await soft(readPublic(next,{resolve,deadline})); if(r.error||r.status>=400&&r.status!==404) sitemapError=r.error||'Sitemap request returned HTTP '+r.status; if (r.status===200) { const s=sitemapUrls(r.body); if (s.isSitemap) { sitemapError=''; if(!sitemapAt)sitemapAt=next; sm = s.isIndex ? {...s, locs: []} : {...s, isIndex: sm.isIndex}; } } }
   }
+  if(sm.isIndex&&!sm.locs.some(l=>! /\.xml(\?|$)/i.test(l))) sitemapError ||= 'Sitemap index could not be fully read.';
   const pageLocs = sm.locs.filter(l=>!/\.xml(\?|$)/i.test(l));
   return {
     checkedAt: new Date().toISOString(), input: String(input), url: page.url, host, chain,
@@ -304,8 +306,8 @@ async function checkSite(input, resolve = lookup) {
     https: final.protocol==='https:',
     httpRedirect: plainHttp.error ? {error:plainHttp.error} : {status:plainHttp.status, location:plainHttp.location||''},
     altHost: {host: other, ...(alt.error ? {error:alt.error} : {status:alt.status, finalUrl:alt.url})},
-    robots: {found: robotsOk, ...rb},
-    sitemap: {found: !!sitemapAt, at: sitemapAt, count: pageLocs.length, urls: pageLocs.slice(0,300), listedInRobots: !!listed},
+    robots: {found: robotsOk, ...rb, ...(robots.error||robots.status>=400&&robots.status!==404?{error:robots.error||'Robots request returned HTTP '+robots.status}:{})},
+    sitemap: {found: !!sitemapAt, at: sitemapAt, ...(sitemapError?{error:sitemapError}:{}), count: pageLocs.length, urls: pageLocs.slice(0,300), listedInRobots: !!listed},
     email, cert,
     home, pages: pickPages(page.url, home, pageLocs),
   };

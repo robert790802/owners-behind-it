@@ -20,7 +20,7 @@ export function buildReport({site, pages = [], links = [], speed = null, now = n
   const home = site.home;
   const seen = new Set(); const all = [home, ...pages.filter(p => p && !p.error && !p.notHtml && p.status < 400 && p.titles)].filter(p => { const k = norm(p.url); if (seen.has(k)) return false; seen.add(k); return true; });
   // A page that answered with an error is a finding. A page the checker ran out of time on is not.
-  const failed = pages.filter(p => p && (p.status >= 400 || (p.error && !/in time|too long|timed out|respond/i.test(p.error))));
+  const failed = pages.filter(p => p && (p.status >= 400));
   const slowPages = pages.filter(p => p && p.error && !failed.includes(p));
   const F = [];
   const add = (group, status, title, saw, means, tech, extra = {}) => F.push({group, status, title, saw, means, tech, ...extra});
@@ -68,7 +68,8 @@ export function buildReport({site, pages = [], links = [], speed = null, now = n
   else add(G1,'good','Pages say which address is the real one', noCanon.length ? `Set on most pages; missing on ${listPages(noCanon)}.` : 'Every page checked names one preferred address.', 'It keeps Google from splitting one page into several.', 'canonical tag');
 
   const sm = site.sitemap;
-  if (!sm.found) add(G1,'look','Search engines have no map of your site','No sitemap was found where search engines look for one.', 'A sitemap lists every page you want found. Without one, a page that nothing links to can sit unfound for months.', 'sitemap.xml');
+  if (sm.error) add(G1,'unknown','The site map could not be checked','The checker could not read the sitemap completely.', 'This is not proof that a sitemap is missing.', 'sitemap.xml');
+  else if (!sm.found) add(G1,'look','Search engines have no map of your site','No sitemap was found where search engines look for one.', 'A sitemap lists every page you want found. Without one, a page that nothing links to can sit unfound for months.', 'sitemap.xml');
   else {
     const inMap = new Set(sm.urls.map(norm));
     const missing = all.filter(p => !inMap.has(norm(p.url)) && !p.noindex).map(p => p.url);
@@ -82,7 +83,8 @@ export function buildReport({site, pages = [], links = [], speed = null, now = n
   const searchBlocked = rb.blocked.filter(b => ['Googlebot','Bingbot'].includes(b));
   const aiSearch = rb.blocked.filter(b => ['OAI-SearchBot','ChatGPT-User','PerplexityBot','Claude-SearchBot'].includes(b));
   const aiTrain = rb.blocked.filter(b => ['GPTBot','ClaudeBot','Google-Extended','Applebot-Extended'].includes(b));
-  if (rb.everyoneBlocked || searchBlocked.length) add(G1,'fix','Your site tells search engines to stay out', `The robots file blocks ${rb.everyoneBlocked ? 'every crawler from the whole site' : searchBlocked.join(' and ')}.`, 'Google and Bing will not read the pages. This is common on sites copied from a test version.', 'robots.txt Disallow: /');
+  if (rb.error) add(G1,'unknown','Crawler permissions could not be checked','The checker could not read the robots file.', 'This is not proof that crawlers are allowed or blocked.', 'robots.txt');
+  else if (rb.everyoneBlocked || searchBlocked.length) add(G1,'fix','Your site tells search engines to stay out', `The robots file blocks ${rb.everyoneBlocked ? 'every crawler from the whole site' : searchBlocked.join(' and ')}.`, 'Google and Bing will not read the pages. This is common on sites copied from a test version.', 'robots.txt Disallow: /');
   else if (aiSearch.length) add(G1,'look','AI assistants are told not to read your site', `The robots file blocks ${aiSearch.join(', ')}.`, 'ChatGPT, Perplexity and Claude search the web before they answer. When they are blocked, they can’t name your business in an answer.', 'robots.txt AI crawlers');
   else if (site.cloudflare) add(G1,'look','Check whether AI assistants are allowed in', `Your site runs through Cloudflare.${aiTrain.length ? ` The robots file blocks ${aiTrain.join(', ')}.` : ''}`, 'Since July 2025, Cloudflare blocks AI crawlers by default on new sites, from its dashboard, without changing the robots file. The checker can’t see that setting.', 'Cloudflare AI crawl control');
   else add(G1,'good','AI assistants and search engines can read your site', rb.found ? (aiTrain.length ? `Search crawlers are allowed. The robots file blocks AI training only (${aiTrain.join(', ')}), which does not stop AI search.` : 'The robots file lets search engines and AI assistants in.') : 'No robots file, so nothing is blocked.', 'Being readable is the first step to being named in an AI answer.', 'robots.txt');
@@ -164,15 +166,16 @@ export function buildReport({site, pages = [], links = [], speed = null, now = n
   else add(G4, days !== null && days < 21 ? 'look' : 'good', days !== null && days < 21 ? 'The security certificate renews soon' : 'Secure connection', days !== null ? `Secure, and the certificate is valid until ${new Date(c.validTo).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}${c.issuer ? ` (${c.issuer})` : ''}.` : 'The site loads securely.', days !== null && days < 21 ? 'Most hosts renew it on their own. If it lapses, visitors see a warning screen.' : 'Visitors see the padlock, not a warning.', 'HTTPS / certificate');
 
   const alt = site.altHost || {};
-  if (alt.error) add(G4,'look',`${alt.host} doesn’t open`, `Your site opens at ${site.host}, but ${alt.host} ${/ENOTFOUND|not be found/i.test(alt.error) ? 'doesn’t exist' : 'didn’t load'}.`, `People who type ${alt.host} get an error page.`, 'www / non-www');
+  if (alt.error) add(G4,'unknown',`${alt.host} doesn’t open`, `Your site opens at ${site.host}, but ${alt.host} ${/ENOTFOUND|not be found/i.test(alt.error) ? 'doesn’t exist' : 'didn’t load'}.`, 'The checker could not verify this hostname; this is not proof visitors get an error.', 'www / non-www');
   else if (alt.finalUrl && host(alt.finalUrl) === host(site.url) && new URL(alt.finalUrl).hostname !== new URL(site.url).hostname) add(G4,'look',`Two copies of your site: with and without www`, `${alt.host} opens its own copy instead of moving visitors to ${site.host}.`, 'Google can treat them as two separate sites and split your standing between them.', 'www / non-www redirect');
 
   if (failed.length) add(G4,'fix',`${plural(failed.length,'page')} didn’t open`, `${failed.slice(0,6).map(p => `${path(p.url||p.requested)} (${p.status ? 'error ' + p.status : p.error})`).join(', ')}.`, 'These are linked from your own site, so visitors can land on them.', 'page errors');
   if (slowPages.length) add(G4,'unknown',`${plural(slowPages.length,'page')} could not be read in time`, `${listPages(slowPages.map(p => p.url))}. This is a limit of the check, not proof the ${verb(slowPages.length,'page is','pages are')} broken.`, 'Open them yourself to be sure.', 'timeout');
   const broken = links.filter(l => l.status >= 400);
-  const slow = links.filter(l => l.error === 'timeout');
+  const slow = links.filter(l => l.error || l.skipped);
+  if (slow.length) add(G4,'unknown','Some internal links could not be checked', `${plural(slow.length,'link')} could not be verified.`, 'A checker failure is not proof of a broken link.', 'internal links');
   if (broken.length) add(G4,'fix',`${plural(broken.length,'link')} inside your site ${verb(broken.length,'leads','lead')} nowhere`, broken.slice(0,8).map(l => `${path(l.url)} (${l.status === 404 ? 'not found' : 'error ' + l.status})`).join(', ') + '.', 'Someone clicks and gets an error page. Search engines notice too.', 'broken internal links');
-  else if (links.length) add(G4,'good','Links inside your site work', `Checked ${plural(links.length,'link')}${slow.length ? `; ${slow.length} didn’t answer in time` : ''}.`, 'No dead ends found.', 'internal links');
+  else if (links.length && !slow.length) add(G4,'good','Links inside your site work', `Checked ${plural(links.length,'link')}${slow.length ? `; ${slow.length} didn’t answer in time` : ''}.`, 'No dead ends found.', 'internal links');
 
   const years = all.flatMap(p => p.years); const latest = years.length ? Math.max(...years) : 0;
   if (latest && latest < now.getFullYear() - 1) add(G4,'look','The site looks out of date', `The footer says © ${latest}.`, 'Customers read an old year as a business that isn’t paying attention, or isn’t open anymore.', 'copyright year');
