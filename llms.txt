@@ -36,6 +36,9 @@ templates. Projects begin at $3,000 and are quoted after a conversation.
 - Small business website design
 - Website redesign for businesses that outgrew their current site
 - Google Business Profile setup and review
+- Business automation setup: new inquiries captured and sorted, follow-up, reminders and review requests
+- Customer follow-up and review requests sent automatically after a call, quote or finished job
+- Scheduling and booking setup: online booking tied to the calendar, with automatic reminders
 - Custom web tools, such as a spreadsheet rebuilt to work on a phone
 
 ## Service area
