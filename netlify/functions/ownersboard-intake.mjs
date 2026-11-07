@@ -17,7 +17,7 @@ export async function forwardSubmission(data,env,send=fetch){
  // Only the fixed OwnersBoard endpoint receives the server-held secret.
  const result=await send('https://ownersboard-robert.netlify.app/.netlify/functions/website-webhook',{
   method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+env.WEBSITE_WEBHOOK_SECRET},
-  body:JSON.stringify({site_id:'a974c4ef-efc3-4771-8897-6607ca3a50ba',form_name:form,source_form:form,submission_id:data.submission_id,submitted_at:data.submitted_at,data:clean}),signal:AbortSignal.timeout(20000)
+  body:JSON.stringify({site_id:'a974c4ef-efc3-4771-8897-6607ca3a50ba',form_name:form,submission_id:data.submission_id,submitted_at:data.submitted_at,data:clean}),signal:AbortSignal.timeout(20000)
  });
  if(!result.ok)throw new Error('OwnersBoard delivery failed ('+result.status+'). Netlify retains the submission.');
 }
