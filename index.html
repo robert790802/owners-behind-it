@@ -1923,7 +1923,7 @@
 b.addEventListener('click',function(){var o=h.classList.toggle('menu-open');b.setAttribute('aria-expanded',o?'true':'false');b.querySelector('.lbl').textContent=o?'Close':'Menu';});
 h.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('menu-open');b.setAttribute('aria-expanded','false');b.querySelector('.lbl').textContent='Menu';});});})();
 </script>
-<form name="quick-answers" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="question"><input name="result"><input name="page"><input name="bot-field"></form>
+<form name="quick-answers" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="source_form"><input name="submission_id"><input name="submitted_at"><input name="question"><input name="result"><input name="page"><input name="bot-field"></form>
 
 <button class="qa-pill" type="button" id="qa-pill" data-qa-open aria-label="Open quick answers">Need a quick answer?</button>
 <div class="qa-scrim" id="qa-scrim"></div>
@@ -1967,7 +1967,8 @@ document.getElementById('qa-form').onsubmit=function(e){e.preventDefault();var q
  if(i>=0){answer(i,q);logQ(q,'matched');return}
  turn(q,['One moment...'],[],'');
  fetch('/api/quick-answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})}).then(function(r){return r.json()}).then(function(d){turn(q,[d.answer],d.doors||['tell','cal'],d.ask||'');logQ(q,d.covered?'answered':'handed off')}).catch(function(){turn(q,["I don't have that answer here yet, and I'd rather not guess. Robert will answer it himself: tell him about it in your own words, or book a sit-down."],['tell','cal']);logQ(q,'error')})};
-function logQ(q,how){try{var b=new URLSearchParams({'form-name':'quick-answers',question:q,result:how,page:location.pathname});fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:b.toString()}).catch(function(){})}catch(e){}}
+function qaId(){if(window.crypto&&crypto.randomUUID)return crypto.randomUUID();var h='0123456789abcdef',s='';for(var i=0;i<36;i++){s+=i==8||i==13||i==18||i==23?'-':i==14?'4':i==19?h[8+Math.floor(Math.random()*4)]:h[Math.floor(Math.random()*16)]}return s}
+function logQ(q,how){try{var b=new URLSearchParams({'form-name':'quick-answers',source_form:'quick-answers',submission_id:qaId(),submitted_at:new Date().toISOString(),question:q,result:how,page:location.pathname});fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:b.toString()}).catch(function(){})}catch(e){}}
 function open(){menu();panel.classList.add('on');scrim.classList.add('on');panel.setAttribute('aria-hidden','false');pill.classList.remove('show');setTimeout(function(){input.focus({preventScroll:true})},300)}
 function close(){panel.classList.remove('on');scrim.classList.remove('on');panel.setAttribute('aria-hidden','true');onScroll()}
 document.querySelectorAll('[data-qa-open]').forEach(function(b){b.addEventListener('click',open)});
