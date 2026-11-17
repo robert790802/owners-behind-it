@@ -1,0 +1,4 @@
+# Printed QR codes (shirts). Each address opens the homepage and is counted on its own in Clarity.
+# /shirt for the first shirt, /shirt/<question> for each new question printed later.
+/shirt     /?from=shirt          302
+/shirt/*   /?from=shirt-:splat   302
