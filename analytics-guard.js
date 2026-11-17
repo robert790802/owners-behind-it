@@ -50,11 +50,12 @@
     document.head.appendChild(script);
   }
   function notice() {
-    if (!excluded && query.get('analytics') !== 'off') return;
+    // Show the confirmation only on the visit that turns the switch on, never on later pages.
+    if (query.get('analytics') !== 'off') return;
     var aside = document.createElement('aside');
     aside.setAttribute('aria-label', 'Analytics test mode');
     aside.style.cssText = 'position:fixed;z-index:2147483646;top:0;left:0;right:0;padding:10px 16px;background:#fff6d8;color:#332800;font:14px/1.5 Arial,sans-serif;text-align:center;border-bottom:1px solid #88702b';
-    aside.textContent = 'Test mode: this browser is excluded from website analytics. ';
+    aside.textContent = 'Done: this browser is now excluded from website analytics. This note will not show again. ';
     var resume = document.createElement('a');
     var url = new URL(location.href); url.searchParams.set('analytics', 'on');
     resume.href = url.href; resume.textContent = 'Resume normal analytics';
