@@ -261,6 +261,8 @@
   .tellme .stepdown-lead{margin-top:8px;font-size:14.5px;color:var(--lavender-dim)}
   .tellme .stepdown-msg{margin-top:10px;font-size:13.5px;color:#9a3b2b}
   .tellme .stepdown-msg a{color:var(--gold-ink)}
+  .tellme .type-link{margin-top:14px;background:none;border:0;padding:4px 0;font:inherit;font-size:14px;color:var(--gold-ink);text-decoration:underline;text-decoration-color:rgba(201,161,74,.6);text-underline-offset:4px;cursor:pointer}
+  .tellme textarea.field{resize:vertical;min-height:120px;line-height:1.5;font-family:inherit}
   .tellme .fineprint{margin-top:14px;font-size:12px;color:var(--lavender-dim)}
 
 </style>
@@ -344,7 +346,7 @@
 
     <div class="tellme" id="tell-me-wrap">
       <h2>Or just tell me about your business.</h2>
-      <p class="sub">Don&rsquo;t type it all. Talk to me, then add your name. I hear every word.</p>
+      <p class="sub">Talk to me, or type it if that&rsquo;s easier. Then add your name. I read and hear every word.</p>
       <div class="tm" id="tell-me">
         <p class="tm-name">Tell Me<sup>&trade;</sup></p>
         <div class="stage on" id="sd-idle">
@@ -357,6 +359,17 @@
             </svg>
           </button>
           <p class="mic-label">Tap to start talking</p>
+          <button class="type-link" id="sd-type-open" type="button">Rather type it? Write it here</button>
+        </div>
+
+        <div class="stage" id="sd-type">
+          <textarea class="field" id="sd-text" rows="5" placeholder="Tell me about your business. What you do, who it&rsquo;s for, what&rsquo;s on your mind."></textarea>
+          <input class="field" type="text" id="sd-tname" placeholder="Your first name" autocomplete="given-name">
+          <input class="field" type="text" id="sd-tcontact" placeholder="Best phone or email to reach you" autocomplete="tel">
+          <div class="stepdown-actions">
+            <button class="btn-ghost" id="sd-talk" type="button">Talk instead</button>
+            <button class="btn-gold" id="sd-tsend" type="button">Send it to Robert</button>
+          </div>
         </div>
 
         <div class="stage" id="sd-rec">
@@ -385,7 +398,7 @@
         </div>
 
         <p class="stepdown-msg" id="sd-msg" role="status" aria-live="polite"></p>
-        <p class="fineprint">Your recording comes to me and no one else. It is never posted, shared, or used anywhere.</p>
+        <p class="fineprint">What you send comes to me and no one else. It is never posted, shared, or used anywhere.</p>
       </div>
     </div>
     <div class="cta">
@@ -561,6 +574,40 @@
         $('sd-send').disabled = false;
         $('sd-redo').disabled = false;
       });
+  });
+})();
+</script>
+<script>
+/* Typed Tell Me: same tell-your-story form as the recorder, with a message field and no audio. */
+(function(){
+  function $(i){return document.getElementById(i)}
+  function go(id){document.querySelectorAll('#tell-me .stage').forEach(function(x){x.classList.toggle('on',x.id===id)});}
+  function say(t){$('sd-msg').textContent=t;}
+  $('sd-type-open').addEventListener('click',function(){say('');go('sd-type');setTimeout(function(){$('sd-text').focus()},30)});
+  $('sd-talk').addEventListener('click',function(){say('');go('sd-idle')});
+  $('sd-tsend').addEventListener('click',function(){
+    var msg=$('sd-text').value.trim(),name=$('sd-tname').value.trim(),contact=$('sd-tcontact').value.trim();
+    if(!msg){say('Add a few words about your business.');return;}
+    if(!contact){say('Add a phone or email so I can get back to you.');return;}
+    var btn=this;btn.disabled=true;$('sd-talk').disabled=true;say('Sending...');
+    var fd=new FormData();
+    fd.append('form-name','tell-your-story');
+    fd.append('name',name);
+    fd.append('contact',contact);
+    fd.append('message',msg);
+    fd.append('duration','typed');
+    fd.append('source','ownersbehindit.com pocket, typed');
+    fd.append('page','ownersbehindit.com pocket');
+    fetch('/',{method:'POST',body:fd}).then(function(r){
+      if(!r.ok)throw new Error('bad status');
+      say('');
+      document.querySelector('#sd-done .stepdown-sent').textContent='Got it. I\u2019ll read it today.';
+      document.querySelector('#sd-done .stepdown-lead').textContent='Thanks for telling me about it. I\u2019ll read every word and get back to you myself.';
+      go('sd-done');
+    }).catch(function(){
+      say('That did not go through. Check your connection and tap Send again.');
+      btn.disabled=false;$('sd-talk').disabled=false;
+    });
   });
 })();
 </script>

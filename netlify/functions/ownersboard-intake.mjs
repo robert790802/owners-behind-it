@@ -3,7 +3,7 @@ const QA_RESULTS=['answered','handed off','matched','error'];
 export async function forwardSubmission(data,env,send=fetch){
  // Some registered voice forms omit source_form. Netlify retains their audio
  // field, so identify that accepted schema without relying on a missing field.
- const form=data.source_form || (Object.hasOwn(data,'audio')?'tell-your-story':Object.hasOwn(data,'have')&&Object.hasOwn(data,'need')?'visualizer-leads':null);
+ const form=data.source_form || (Object.hasOwn(data,'audio')||Object.hasOwn(data,'message')?'tell-your-story':Object.hasOwn(data,'have')&&Object.hasOwn(data,'need')?'visualizer-leads':null);
  if(!['tell-your-story','visualizer-leads','quick-answers'].includes(form))return;
  // Quick answers carry no names or contact details, and only the four results the helper logs.
  if(form==='quick-answers'&&!QA_RESULTS.includes(data.result))return;
@@ -11,9 +11,9 @@ export async function forwardSubmission(data,env,send=fetch){
  if(!/^[0-9a-f-]{36}$/i.test(data.submission_id||'')||!data.submitted_at)throw new Error('Submission receipt fields are missing');
  // Platform events can include nullable fields, upload objects and extra metadata.
  // Forward only the registered form fields, with files represented by their URL.
- const fields=form==='quick-answers'?['question','result','page','bot-field']:['name','first_name','email','contact','duration','source','page','audio','have','need','bot-field'];
+ const fields=form==='quick-answers'?['question','result','page','bot-field']:['name','first_name','email','contact','message','duration','source','page','audio','have','need','bot-field'];
  const clean={};
- for(const key of fields){let value=data[key];if(value==null)value='';if(key==='audio'&&typeof value==='object')value=value.url||'';if(typeof value!=='string')throw new Error('Unexpected form field type: '+key);clean[key]=value;}
+ for(const key of fields){let value=data[key];if(value==null)value='';if(key==='audio'&&typeof value==='object')value=value.url||'';if(typeof value!=='string')throw new Error('Unexpected form field type: '+key);if(key==='message'&&!value)continue;clean[key]=value;}
  // Only the fixed OwnersBoard endpoint receives the server-held secret.
  const result=await send('https://ownersboard-robert.netlify.app/.netlify/functions/website-webhook',{
   method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+env.WEBSITE_WEBHOOK_SECRET},
