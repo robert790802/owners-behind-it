@@ -131,12 +131,12 @@ window.buildFlipPDF=function(jsPDFCtor, d, sigDataUrl){
   var rh=70; doc.roundedRect(M,y,R-M,rh,10,10,'FD');
   doc.setFont('times','normal'); doc.setFontSize(15);
   doc.setTextColor(CREAM[0],CREAM[1],CREAM[2]);
-  doc.text('The '+d.rulePct+'% rule', M+16, y+24);
+  doc.text('Max offer', M+16, y+24);
   doc.setFont('helvetica','normal'); doc.setFontSize(8.5);
   doc.setTextColor(rcol[0],rcol[1],rcol[2]);
   doc.text(d.maoLine, M+16, y+42);
   doc.setTextColor(SLATE[0],SLATE[1],SLATE[2]); doc.setFontSize(7.5);
-  doc.text('Max allowable offer = ARV x '+d.rulePct+'% minus rehab. Stay under it to protect your margin.', M+16, y+58);
+  doc.text('Real max offer: the most you can pay and still hit your '+d.minPct+'% profit target, after every cost. The '+d.rulePct+'% rule (ARV x '+d.rulePct+'% minus rehab) is only a quick screen.', M+16, y+58);
   y+=rh+24;
 
   doc.setFont('times','normal'); doc.setFontSize(15);
@@ -427,6 +427,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
   .field label{display:block;font-size:11px;letter-spacing:.4px;text-transform:uppercase;color:var(--slate);margin-bottom:5px}
   .field input[type=number],.field input[type=text],.field select{width:100%;background:var(--navy);border:1px solid var(--accent);border-radius:8px;color:var(--cream);font-family:'Plus Jakarta Sans';font-size:14px;padding:9px 11px}
   .field input:focus,.field select:focus{outline:none;border-color:var(--gold)}
+  .field input.bad{border-color:#e06c5a}
   .two{display:grid;grid-template-columns:1fr 1fr;gap:11px}
   .group-title{font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);margin:18px 0 11px;padding-bottom:6px;border-bottom:1px solid var(--accent)}
   .group-title:first-of-type{margin-top:4px}
@@ -799,7 +800,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
         <div class="field"><label>Agent commission to sell (%)</label><input type="number" id="agent" value="0" step="0.1"></div>
         <div class="field"><label>Sale closing / concessions (%)</label><input type="number" id="sellclose" value="0" step="0.1"></div>
       </div>
-      <div class="field"><label>Your minimum net profit (% of sale price)</label><input type="number" id="minpct" value="0" step="0.5"></div>
+      <div class="field"><label>Your minimum net profit (% of sale price)</label><input type="number" id="minpct" value="10" step="0.5"></div>
       <div class="field"><label>Projected net profit ($) <button type="button" id="proj-use" style="margin-left:6px;font-size:10px;padding:2px 9px;border:1px solid var(--gold);background:transparent;color:var(--gold2);border-radius:6px;cursor:pointer;letter-spacing:.3px">lock current</button></label><input type="number" id="projprofit" value="0" step="100"><div style="font-size:10px;color:var(--slate);margin-top:5px;line-height:1.45">Optional. Lock your before-flip estimate here, then update the deal to actuals when it closes, the Project Summary PDF shows projected vs. actual.</div></div>
 
       <details class="comps-toggle">
@@ -880,7 +881,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
 
       <div class="mao" id="mao-box">
         <div class="mao-head">
-          <h3>The 70% rule, are you buying right?</h3>
+          <h3>Max offer: the quick rule and your real number</h3>
           <div class="rule-set">Rule % <input type="number" id="rulepct" value="0" step="1"></div>
         </div>
         <div class="mao-bar">
@@ -889,6 +890,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
         </div>
         <div class="mao-foot"><span>$0</span><span id="mao-arv">ARV $320,000</span></div>
         <p class="mao-verdict" id="mao-verdict"></p>
+        <p class="mao-verdict" id="mao-target"></p>
       </div>
 
       <div class="cashbox" id="buybox">
@@ -972,7 +974,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
           <path id="lev-line-prof" fill="none" stroke="#f5efe1" stroke-width="2.5" stroke-dasharray="6 5"/>
           <path id="lev-line-roi" fill="none" stroke="#d4b15c" stroke-width="2.5"/>
           <line id="lev-inf-line" x1="704" y1="30" x2="704" y2="262" stroke="#c9a14a" stroke-width="1" stroke-dasharray="3 4" opacity=".5"/>
-          <text id="lev-inf-lab" x="698" y="24" text-anchor="end" fill="#968ea2" font-family="Plus Jakarta Sans" font-size="10.5">$0 in deal &#183; &#8734; return</text>
+          <text id="lev-inf-lab" x="698" y="24" text-anchor="end" fill="#968ea2" font-family="Plus Jakarta Sans" font-size="10.5">$0 in deal &#183; N/A</text>
           <line id="lev-ind" x1="0" y1="30" x2="0" y2="262" stroke="#968ea2" stroke-width="1" opacity=".4"/>
           <circle id="lev-dot-prof" r="5" fill="#f5efe1"/>
           <circle id="lev-dot-roi" r="5" fill="#d4b15c"/>
@@ -992,7 +994,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
         <div class="stat gold"><div class="k">Profit margin</div><div class="v" id="r-margin">18.6%</div><div class="s">profit ÷ ARV</div></div>
         <div class="stat"><div class="k">Cost of money</div><div class="v" id="r-money">$0</div><div class="s">paid to lenders</div></div>
         <div class="stat"><div class="k">Cash in deal</div><div class="v" id="r-cash">$0</div><div class="s">your money at risk</div></div>
-        <div class="stat"><div class="k">Return on cash</div><div class="v" id="r-roi">∞</div><div class="s">profit ÷ cash in</div></div>
+        <div class="stat"><div class="k">Return on cash</div><div class="v" id="r-roi">N/A</div><div class="s">profit ÷ cash in</div></div>
         <div class="stat"><div class="k">All-in cost</div><div class="v" id="r-allin">$0</div><div class="s">total to flip it</div></div>
       </div>
 
@@ -1092,7 +1094,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
 (function(){
   var $=function(id){return document.getElementById(id);};
   var money=function(n){return (n<0?'-$':'$')+Math.round(Math.abs(n)).toLocaleString();};
-  var pctTxt=function(n){ if(!isFinite(n)) return '\u221e'; return (Math.round(n*10)/10).toLocaleString()+'%'; };
+  var pctTxt=function(n){ if(!isFinite(n)) return 'N/A'; return (Math.round(n*10)/10).toLocaleString()+'%'; };
   function num(id){ return parseFloat($(id).value)||0; }
   var REHAB_ITEMS=['rh_kitchen','rh_bath','rh_floor','rh_paint','rh_hvac','rh_elec','rh_plumb','rh_roof','rh_wind','rh_curb','rh_permit','rh_misc'];
   var REHAB_X=['rh_x_roof','rh_x_hvac','rh_x_found','rh_x_other'];
@@ -1158,7 +1160,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
     var agentPct=num('agent'), sellPct=num('sellclose');
     var useHML=$('tog-hml').classList.contains('on');
     var usePML=$('tog-pml').classList.contains('on');
-    var ltc=num('ltc'), pts=num('points'), rate=num('rate');
+    var ltcRaw=num('ltc'), ltc=Math.min(100,Math.max(0,ltcRaw)), pts=num('points'), rate=num('rate'); $('ltc').classList.toggle('bad',ltcRaw<0||ltcRaw>100);
     var loan=(P+rehabTotal)*ltc/100;
     var brokerFee=dollarOf('broker', loan);
     var lenderFees=num('lenderfees');
@@ -1201,19 +1203,20 @@ window.buildLenderPDF=function(jsPDFCtor,d){
     var gapMode=opts.gapMode!=null?opts.gapMode:(d.gapMode||'yr');
     var loanBase=opts.purchaseOnly?d.P:(d.P+d.rehabTotal);
 
-    var loanAmt=0, down=(d.P+d.rehabTotal), points=0, brokerFee=0, lenderFees=0, drawFees=0, hmlInt=0;
+    var loanAmt=0, down=(d.P+d.rehabTotal), points=0, brokerFee=0, lenderFees=0, drawFees=0, hmlInt=0, prinPaid=0;
     if(useHML){
       loanAmt=loanBase*ltc/100;
       down=(d.P+d.rehabTotal)-loanAmt;
       points=loanAmt*pts/100;
       brokerFee=broker; lenderFees=lender; drawFees=draws;
-      hmlInt=(opts.amortizing?0.97:1)*loanAmt*(rate/100/12)*months;
+      if(opts.amortizing){ var ar=rate/100/12, apm=ar>0?loanAmt*ar/(1-Math.pow(1+ar,-360)):loanAmt/360, abal=loanAmt; hmlInt=0; prinPaid=0; for(var am=0;am<months;am++){ var ai=abal*ar; hmlInt+=ai; prinPaid+=apm-ai; abal-=apm-ai; } }
+      else hmlInt=loanAmt*(rate/100/12)*months;
     }
     var holding=d.monthlyHold*months;
     var selling=arv*(d.agentPct+d.sellPct)/100;
     var acqCosts=d.closeBuy+d.buyAgent+d.wholesale; // acq fee is paid to you, not a cost
 
-    var cashNeeded=down+acqCosts+points+brokerFee+lenderFees+drawFees+holding+hmlInt;
+    var cashNeeded=down+acqCosts+points+brokerFee+lenderFees+drawFees+holding+hmlInt+prinPaid;
 
     var gap=0, gm=(opts.gap!=null?opts.gap:'current');
     if(gm==='none') gap=0;
@@ -1233,7 +1236,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
     var hmlPay=useHML?loanAmt*(rate/100/12):0;
     var pmlPay=gap*(gapRate/100/12);
     var cashToClose=down+acqCosts+points+brokerFee+lenderFees+drawFees-d.acqFee;
-    var roi=yourCash>0?profit/yourCash*100:(profit>0?Infinity:0);
+    var roi=yourCash>0?profit/yourCash*100:NaN;
     var annual=(months>0)?(isFinite(roi)?roi*(12/months):roi):0;
     var margin=arv>0?profit/arv*100:0;
     return {arv:arv,loanAmt:loanAmt,down:down,acqCosts:acqCosts,points:points,brokerFee:brokerFee,
@@ -1244,8 +1247,10 @@ window.buildLenderPDF=function(jsPDFCtor,d){
       rate:rate,gapRate:gapRate};
   }
 
+  function withPrice(d,P){ var o={}; for(var k in d) o[k]=d[k]; o.P=P; o.closeBuy=dollarOf('closebuy',P); o.buyAgent=dollarOf('buyagent',P); var ln=(o.hmPurchaseOnly?P:(P+o.rehabTotal))*o.ltc/100; o.brokerFee=dollarOf('broker',ln); return o; }
+  function targetMax(d,months){ var need=function(P){ var r=compute(withPrice(d,P),months); return r.profit-r.arv*d.minPct/100; }; var lo=0, hi=Math.max(d.arv,1); if(need(lo)<0) return null; if(need(hi)>=0) return hi; for(var i=0;i<50;i++){ var mid=(lo+hi)/2; if(need(mid)>=0) lo=mid; else hi=mid; } return Math.floor(lo); }
   function verdictOf(margin, profit, minPct){
-    var mp=(minPct>0?minPct:10);
+    var mp=minPct;
     if(profit<=0) return {key:'PASS',cls:'v-pass'};
     if(margin>=mp) return {key:'GO',cls:'v-go'};
     if(margin>=mp*0.5) return {key:'TIGHT',cls:'v-tight'};
@@ -1291,11 +1296,13 @@ window.buildLenderPDF=function(jsPDFCtor,d){
     var pass=d.P<=mao, diff=Math.abs(d.P-mao);
     $('mao-box').className='mao '+(pass?'pass':'over');
     if(pass){
-      $('mao-verdict').innerHTML='Max allowable offer is <b>'+money(mao)+'</b>. You&rsquo;re buying at '+money(d.P)+', <b style="color:#7fc79b">'+money(diff)+' under</b> the '+d.rulePct+'% line. That cushion is where flip profit lives.';
+      $('mao-verdict').innerHTML='The '+d.rulePct+'% rule (a quick screen) says <b>'+money(mao)+'</b>. You&rsquo;re buying at '+money(d.P)+', <b style="color:#7fc79b">'+money(diff)+' under</b> that line.';
     } else {
-      $('mao-verdict').innerHTML='Max allowable offer is <b>'+money(mao)+'</b>. You&rsquo;re buying at '+money(d.P)+', <b style="color:#d4b15c">'+money(diff)+' over</b> the '+d.rulePct+'% line. Negotiate harder or trim rehab to protect your margin.';
+      $('mao-verdict').innerHTML='The '+d.rulePct+'% rule (a quick screen) says <b>'+money(mao)+'</b>. You&rsquo;re buying at '+money(d.P)+', <b style="color:#d4b15c">'+money(diff)+' over</b> that line.';
     }
 
+    var tm=targetMax(d,months), tgtTxt=d.minPct>0?('net your '+d.minPct+'% minimum ('+money(r.arv*d.minPct/100)+')'):'break even';
+    $('mao-target').innerHTML=(tm==null)?'No purchase price clears your target at this ARV, rehab and hold.':('<b>Your real max offer: '+money(tm)+'.</b> That is the most you can pay and still '+tgtTxt+', counting closing, holding, financing and selling costs for a '+months+'-month hold. '+(d.P<=tm?'<b style="color:#7fc79b">'+money(tm-d.P)+' of room</b> at your price.':'<b style="color:#d4b15c">'+money(d.P-tm)+' over</b> at your price.'));
     $('c-purchase').textContent=money(d.P);
     $('c-close').textContent=money(d.closeBuy);
     $('c-agent').textContent=money(d.buyAgent);
@@ -1415,7 +1422,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
     var maxGap=Math.max(1000, compute(d,months,{gap:'none'}).cashNeeded);
     var slider=$('gapslider'); slider.max=Math.ceil(maxGap);
     $('lev-gap-max').textContent=money(maxGap);
-    $('lev-inf-lab').textContent=money(maxGap)+' gap \u00b7 \u221E return';
+    $('lev-inf-lab').textContent=money(maxGap)+' gap \u00b7 $0 in deal';
     var N=64,i,g,CAP=500,roi=[],prof=[],pMin=1e12,pMax=-1e12;
     for(i=0;i<=N;i++){ g=maxGap*i/N; var m=compute(d,months,{usePML:true,gap:g}); roi.push(m.yourCash>0?m.profit/m.yourCash*100:CAP); prof.push(m.profit); if(m.profit<pMin)pMin=m.profit; if(m.profit>pMax)pMax=m.profit; }
     if(pMax===pMin)pMax=pMin+1;
@@ -1565,7 +1572,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
     var r=compute(d,months);
     var v=verdictOf(r.margin, r.profit, d.minPct);
     var mao=d.arv*d.rulePct/100 - d.rehabTotal;
-    var pass=d.P<=mao, diff=Math.abs(d.P-mao);
+    var pass=d.P<=mao, diff=Math.abs(d.P-mao), tmP=targetMax(d,months);
     var fundTxt=(!d.useHML&&!d.usePML)?'all cash':((d.useHML&&d.usePML)?(r.yourCash<1?'no money down (HML + gap)':'hard money + gap'):(d.useHML?'hard money':'private/gap money'));
     var data=scenarioData(d,months).map(function(s){
       return [ (s.p===0?'On target':(s.p<0?Math.abs(s.p)+'% under':'+'+s.p+'% hot')), money(s.arv), money(s.profit), pctTxt(s.margin) ];
@@ -1576,9 +1583,9 @@ window.buildLenderPDF=function(jsPDFCtor,d){
       verdict:v.key,
       summary:months+'-mo flip \u2022 buy '+money(d.P)+' \u2022 rehab '+money(d.rehabTotal)+' \u2022 ARV '+money(d.arv)+' \u2022 '+fundTxt+(r.hmlPay>0?' \u2022 HML '+money(r.hmlPay)+'/mo':'')+(d.acqFee>0?' \u2022 '+money(d.acqFee)+' to your pocket':''),
       profit:money(r.profit), margin:pctTxt(r.margin), money:money(r.moneyCost),
-      cash:money(r.yourCash), roi:(isFinite(r.roi)?pctTxt(r.roi):'Infinite'), allin:money(r.allIn),
-      rulePct:d.rulePct, maoPass:pass,
-      maoLine:'MAO '+money(mao)+'  \u2022  you buy at '+money(d.P)+'  \u2022  '+money(diff)+(pass?' under':' over'),
+      cash:money(r.yourCash), roi:pctTxt(r.roi), allin:money(r.allIn),
+      rulePct:d.rulePct, maoPass:(tmP!=null&&d.P<=tmP),
+      maoLine:(tmP==null?'No price clears your target':'Real max offer '+money(tmP)+'  \u2022  you buy at '+money(d.P)+'  \u2022  '+money(Math.abs(d.P-tmP))+(d.P<=tmP?' under':' over'))+'  \u2022  '+d.rulePct+'% rule quick screen '+money(mao),
       scenrows:data
     };
   }
@@ -1615,7 +1622,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
   }
   function gatherForHMLPDF(){
     var b=lenderBase(),d=b.d,r=b.r,cc=b.cc,months=b.months,np=b.netProceeds,sellRate=b.sellRate;
-    var loan=r.loanAmt, payoff=loan+r.hmlInt;
+    var loan=r.loanAmt, payoff=loan+(r.atSale?r.hmlInt:0);
     var ltv=d.arv>0?loan/d.arv*100:0, ltc=r.allIn>0?loan/r.allIn*100:0;
     var cushion=d.arv-loan, coverage=payoff>0?np/payoff:0;
     var be=(1-sellRate)>0?payoff/(1-sellRate):0, beU=d.arv>0?(d.arv-be)/d.arv*100:0;
@@ -1628,14 +1635,14 @@ window.buildLenderPDF=function(jsPDFCtor,d){
     o.requested=money(loan);
     o.stackline='1st lien position';
     o.termline=months+'-month term  /  exit by resale';
-    o.repayline='Principal + interest due at sale';
+    o.repayline=r.atSale?'Principal + interest due at sale':'Interest paid monthly  /  principal due at sale';
     o.stats=[
       ['Loan-to-ARV',pctTxt(ltv),'your loan vs finished value'],
       ['Equity cushion',money(cushion),'value above your loan'],
       ['Sale covers payoff',(Math.round(coverage*100)/100)+'x','times over at ARV'],
       ['Loan-to-cost',pctTxt(ltc),'your loan vs total project'],
       ['Breakeven price',money(be),'about '+pctTxt(Math.max(0,beU))+' under ARV'],
-      ['Owed to you at sale',money(payoff),'principal + interest']
+      ['Owed to you at sale',money(payoff),r.atSale?'principal + interest':'principal (interest already paid monthly)']
     ];
     o.stackLines=[
       '1st lien \u2014 Hard money: '+money(loan)+' at '+pctTxt(d.rate)+'  \u2022  '+money(r.hmlPay)+'/mo  \u2022  principal due at sale.',
@@ -1644,13 +1651,13 @@ window.buildLenderPDF=function(jsPDFCtor,d){
     o.owedLabel='You are owed';
     o.arv=money(d.arv); o.sellingNeg='-'+money(r.selling); o.payoff=money(payoff); o.surplus=money(np-payoff);
     o.scen=scen; o.maoPass=pass;
-    o.maoLine=(d.rulePct>0)?('Bought at '+money(d.P)+' vs a '+d.rulePct+'%-rule max of '+money(mao)+' \u2014 '+(pass?'inside the line that protects your loan.':'above the standard '+d.rulePct+'% guideline.')):'';
+    o.maoLine=(d.rulePct>0)?('Bought at '+money(d.P)+' vs a '+d.rulePct+'% rule quick-screen number of '+money(mao)+' \u2014 '+(pass?'inside the line that protects your loan.':'above the standard '+d.rulePct+'% guideline.')):'';
     return o;
   }
   function gatherForGapPDF(){
     var b=lenderBase(),d=b.d,r=b.r,cc=b.cc,months=b.months,np=b.netProceeds,sellRate=b.sellRate;
     var gap=r.gap, gapPayoff=gap+r.gapInt+(r.pmlFee||0);
-    var totalDebt=r.loanAmt+gap, totalPayoff=r.loanAmt+r.hmlInt+gapPayoff;
+    var totalDebt=r.loanAmt+gap, totalPayoff=r.loanAmt+(r.atSale?r.hmlInt:0)+gapPayoff;
     var ltvAll=d.arv>0?totalDebt/d.arv*100:0;
     var cushion=d.arv-totalDebt, coverage=totalPayoff>0?np/totalPayoff:0;
     var be=(1-sellRate)>0?totalPayoff/(1-sellRate):0, beU=d.arv>0?(d.arv-be)/d.arv*100:0;
@@ -1680,7 +1687,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
     o.owedLabel='You are owed';
     o.arv=money(d.arv); o.sellingNeg='-'+money(r.selling); o.payoff=money(gapPayoff); o.surplus=money(np-totalPayoff);
     o.scen=scen; o.maoPass=pass;
-    o.maoLine=(d.rulePct>0)?('Bought at '+money(d.P)+' vs a '+d.rulePct+'%-rule max of '+money(mao)+' \u2014 '+(pass?'inside the line that protects every dollar in the stack.':'above the standard '+d.rulePct+'% guideline.')):'';
+    o.maoLine=(d.rulePct>0)?('Bought at '+money(d.P)+' vs a '+d.rulePct+'% rule quick-screen number of '+money(mao)+' \u2014 '+(pass?'inside the line that protects every dollar in the stack.':'above the standard '+d.rulePct+'% guideline.')):'';
     return o;
   }
   function downloadHMLPDF(){
@@ -1746,7 +1753,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
       date:new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}),
       addr:($('addr').value||'').trim()||'Fix & Flip Project', specs:specs,
       profitNum:r.profit, profit:money(r.profit), margin:pctTxt(r.margin),
-      roi:(isFinite(r.roi)?pctTxt(r.roi):'Infinite'), allin:money(r.allIn), months:months,
+      roi:pctTxt(r.roi), allin:money(r.allIn), months:months,
       projProfitN:num('projprofit'), projProfit:money(num('projprofit')), deltaN:r.profit-num('projprofit'), delta:money(Math.abs(r.profit-num('projprofit'))),
       purchase:money(P), closeBuy:money(closeBuy), buyAgent:money(buyAgent), buyAgentN:buyAgent,
       wholesale:money(wholesale), wholesaleN:wholesale, rehab:money(d.rehabTotal), psf:psf, holding:money(r.holding),
