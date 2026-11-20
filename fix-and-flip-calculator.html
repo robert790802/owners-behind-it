@@ -1584,7 +1584,7 @@ window.buildLenderPDF=function(jsPDFCtor,d){
       summary:months+'-mo flip \u2022 buy '+money(d.P)+' \u2022 rehab '+money(d.rehabTotal)+' \u2022 ARV '+money(d.arv)+' \u2022 '+fundTxt+(r.hmlPay>0?' \u2022 HML '+money(r.hmlPay)+'/mo':'')+(d.acqFee>0?' \u2022 '+money(d.acqFee)+' to your pocket':''),
       profit:money(r.profit), margin:pctTxt(r.margin), money:money(r.moneyCost),
       cash:money(r.yourCash), roi:pctTxt(r.roi), allin:money(r.allIn),
-      rulePct:d.rulePct, maoPass:(tmP!=null&&d.P<=tmP),
+      minPct:d.minPct, rulePct:d.rulePct, maoPass:(tmP!=null&&d.P<=tmP),
       maoLine:(tmP==null?'No price clears your target':'Real max offer '+money(tmP)+'  \u2022  you buy at '+money(d.P)+'  \u2022  '+money(Math.abs(d.P-tmP))+(d.P<=tmP?' under':' over'))+'  \u2022  '+d.rulePct+'% rule quick screen '+money(mao),
       scenrows:data
     };
