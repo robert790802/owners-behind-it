@@ -1532,12 +1532,14 @@
       <div>
         <span class="eyebrow light">Owner-led businesses &middot; Palm Coast &middot; St. Augustine &middot; North Florida</span>
         <h1><span>You hired help.</span> So why does every inquiry and quote still <em>wait on you?</em></h1>
-        <p class="hero-positioning">I sit down with the person behind the business and find where the work gets stuck. Then I build the tools that carry it for you: inquiries answered, follow-ups sent, reviews asked for, and a website that shows who you are.</p>
-        <div class="hero-actions hero-actions-left">
+        <p class="hero-positioning">I sit down with you, find where the work gets stuck, and build the tools that carry it.</p>
+      <div class="hero-actions hero-actions-left hero-actions-row hero-actions-in">
           <a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>
-          <a class="hero-step" href="#tell-me">Prefer to start with a message? Tell me your story.</a>
-          <a class="hero-step" href="/check-your-website">Or run the free website check.</a>
-          <button class="qa-hero-link" type="button" data-qa-open>Need a quick answer? Ask here.</button>
+          <div class="hero-links">
+            <a class="hero-step" href="#tell-me">Tell me your story</a>
+            <a class="hero-step" href="/check-your-website">Free website check</a>
+            <button class="qa-hero-link" type="button" data-qa-open>Quick answer</button>
+          </div>
         </div>
       </div>
       <div class="hero-side walk" id="walk" aria-live="polite">
@@ -2032,35 +2034,41 @@ const steps=[
 if(!document.getElementById('walk'))return;
 const ans=[];let i=0;
 const $=id=>document.getElementById(id);
-const label=$('walk-label'),q=$('walk-q'),opts=$('walk-opts'),res=$('walk-result'),back=$('walk-back'),bars=[...document.querySelectorAll('.walk-track i')];
+const label=$('walk-label'),q=$('walk-q'),opts=$('walk-opts'),res=$('walk-result'),back=$('walk-back'),bars=[...document.querySelectorAll('.walk-track i')],track=document.querySelector('.walk-track');
 function show(){
   bars.forEach((b,k)=>b.classList.toggle('on',k<=i));
   if(i<steps.length){
-    res.hidden=true;q.hidden=false;opts.hidden=false;
+    res.hidden=true;q.hidden=false;opts.hidden=false;label.style.display='';track.style.display='';
     label.textContent='Follow one inquiry \u00b7 '+(i+1)+' of '+steps.length;
     q.textContent=steps[i].q;
     opts.innerHTML=steps[i].o.map((o,k)=>'<li><button type="button" data-k="'+k+'">'+o[0]+'</button></li>').join('');
-    back.hidden=i===0;back.textContent='Back';
+    back.hidden=i===0;back.textContent='Back';back.classList.remove('again');
   }else{
     q.hidden=true;opts.hidden=true;res.hidden=false;
     const waits=steps.filter((s,k)=>s.o[ans[k]][1]);
-    const paid=steps[0].o[ans[0]][2]==='paid';
-    label.textContent='Where your inquiry waits';
+    label.style.display='none';track.style.display='none';
     let h;
     if(waits.length===0){
       h='<p class="walk-count">Nothing on this path waits on you.</p><p class="walk-note">That is rare. I would love to hear how you set it up.</p>';
     }else{
-      h='<p class="walk-count">'+waits.length+' of '+steps.length+' steps still wait on you.</p><ul>'+waits.map(s=>'<li>'+s.name+'</li>').join('')+'</ul>';
-      h+='<p class="walk-note">'+(paid?'You already pay for help with the phone. ':'')+'At the sit-down we walk one real inquiry together, from the first call to the paid invoice, and build what carries these steps for you.</p>';
+      h='<ul>'+waits.map(s=>'<li>'+s.name+'</li>').join('')+'</ul>';
+      h+='<p class="walk-count walk-ask">What&rsquo;s the bottleneck in your business right now?</p><a class="walk-book" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down &rarr;</a>';
     }
-    h+='<a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>';
     res.innerHTML=h;
-    back.hidden=false;back.textContent='Start over';
+    back.hidden=false;back.textContent='Start over';back.classList.add('again');
   }
 }
-opts.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;ans[i]=+b.dataset.k;i++;show();});
+function lockHeight(){
+  const w=document.getElementById('walk');const save=[i,ans.slice()];w.style.minHeight='0px';let max=0;
+  for(let k=0;k<=steps.length;k++){i=k;if(k===steps.length){for(let j=0;j<steps.length;j++)ans[j]=j===0?2:steps[j].o.findIndex(o=>o[1]);}show();max=Math.max(max,w.offsetHeight);}
+  i=save[0];ans.length=0;save[1].forEach((v,k)=>ans[k]=v);show();w.style.minHeight=(max+48)+'px';
+}
+opts.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;b.blur();ans[i]=+b.dataset.k;i++;show();});
 back.addEventListener('click',()=>{if(i>=steps.length){ans.length=0;i=0;}else if(i>0){i--;}show();});
 show();
+lockHeight();
+let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(lockHeight,150);});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(lockHeight);
 })();
 </script>
 </body>
