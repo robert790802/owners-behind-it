@@ -1752,6 +1752,17 @@
             </svg>
           </button>
           <p class="mic-label">Tap to start talking</p>
+          <button class="type-link" id="sd-type-open" type="button">Rather type it? Write it here</button>
+        </div>
+
+        <div class="stage" id="sd-type">
+          <textarea class="field" id="sd-text" rows="5" placeholder="Tell me about your business. What you do, who it&rsquo;s for, what&rsquo;s on your mind."></textarea>
+          <input class="field" type="text" id="sd-tname" placeholder="Your first name" autocomplete="given-name">
+          <input class="field" type="text" id="sd-tcontact" placeholder="Best phone or email to reach you" autocomplete="tel">
+          <div class="stepdown-actions">
+            <button class="btn-ghost" id="sd-talk" type="button">Talk instead</button>
+            <button class="btn-gold" id="sd-tsend" type="button">Send it to Robert</button>
+          </div>
         </div>
 
         <div class="stage" id="sd-rec">
@@ -1780,7 +1791,7 @@
         </div>
 
         <p class="stepdown-msg" id="sd-msg" role="status" aria-live="polite"></p>
-        <p class="fineprint">Your recording comes to me and no one else. It is never posted, shared, or used anywhere.</p>
+        <p class="fineprint">What you send comes to me and no one else. It is never posted, shared, or used anywhere.</p>
       </div>
     </div>
   </section>
