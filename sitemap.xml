@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://ownersbehindit.com/pocket</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-11-22</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -98,6 +98,11 @@
   <url>
     <loc>https://ownersbehindit.com/check-your-website</loc>
     <lastmod>2026-10-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ownersbehindit.com/bottleneck</loc>
+    <lastmod>2026-11-22</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
