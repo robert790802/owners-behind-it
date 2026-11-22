@@ -1214,6 +1214,28 @@
     .qa-panel.on{transform:none}
     .qa-pill{bottom:.9rem;width:calc(100% - 2rem);justify-content:center}
   }
+  /* 22 Nov: follow one inquiry, in the hero-side */
+  .hero-actions-left{align-items:flex-start;flex-direction:column;gap:1rem;margin-top:2rem}
+  .hero-actions-left .hero-step,.hero-actions-left .qa-hero-link{flex-basis:auto}
+  .walk{align-self:end;min-height:27rem}
+  .walk-track{display:grid;gap:6px;grid-template-columns:repeat(5,1fr);margin:-.3rem 0 1.3rem}
+  .walk-track i{background:rgba(225,197,127,.22);height:2px}
+  .walk-track i.on{background:var(--gold-light)}
+  .hero-side .walk-q{margin-bottom:1.2rem}
+  .walk-opts{list-style:none;counter-reset:o}
+  .walk-opts li{border-top:1px solid rgba(201,161,74,.28);counter-increment:o}
+  .walk-opts li:last-child{border-bottom:1px solid rgba(201,161,74,.28)}
+  .walk-opts button{align-items:baseline;background:none;border:0;color:var(--cream);cursor:pointer;display:flex;font-family:var(--body);font-size:.95rem;gap:.9rem;line-height:1.45;min-height:48px;padding:.75rem 0;text-align:left;width:100%}
+  .walk-opts button::before{color:var(--gold-light);content:counter(o,decimal-leading-zero);flex:none;font-size:.72rem;font-weight:600;letter-spacing:.12em}
+  .walk-opts button:hover,.walk-opts button:focus-visible{color:var(--gold-light);outline:none}
+  .walk-back{background:none;border:0;border-bottom:1px solid rgba(225,197,127,.45);color:var(--gold-light);cursor:pointer;font-size:.82rem;margin-top:1rem;padding:0 0 .15rem}
+  .walk-result .walk-count{color:var(--cream);font-family:var(--question);font-size:clamp(1.45rem,2vw,1.7rem);font-weight:500;line-height:1.3;margin-bottom:1rem}
+  .walk-result ul{list-style:none;margin:0 0 1rem}
+  .walk-result li{color:rgba(245,239,225,.82);font-size:.92rem;line-height:1.5;padding:.35rem 0 .35rem 1.3rem;position:relative}
+  .walk-result li::before{background:var(--gold);content:"";height:1px;left:0;position:absolute;top:1.05rem;width:.75rem}
+  .hero-side .walk-result p.walk-note{color:rgba(245,239,225,.72);font-family:var(--body);font-size:.92rem;font-weight:400;line-height:1.6;margin:0 0 1.3rem}
+  .walk-result .button{margin-right:1rem}
+  @media(max-width:900px){.walk{min-height:0;margin-top:.5rem}}
 </style>
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png">
@@ -1979,6 +2001,50 @@ var hero=document.querySelector('.hero'),inv=document.getElementById('invite');
 function onScroll(){if(panel.classList.contains('on'))return;var hb=hero.getBoundingClientRect().bottom;var ib=inv?inv.getBoundingClientRect().top:1e9;
  pill.classList.toggle('show',hb<0&&ib>window.innerHeight)}
 window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
+
+<script>
+(function(){
+const steps=[
+ {name:"Answering the call",q:"A customer calls while you're busy with another one. Who picks up?",o:[["I call them back later",1],["Someone on my team",0],["An answering service or AI line",0,"paid"],["It goes to voicemail",1]]},
+ {name:"Calling back",q:"How soon do they hear back?",o:[["Within the hour",0],["The same day",0],["The next day or later",1],["It depends on the week",1]]},
+ {name:"Sending the quote",q:"Who sends the quote or estimate?",o:[["Only me",1],["Someone on my team",0],["It goes out on its own",0]]},
+ {name:"Following up",q:"They don't answer the quote. What happens next?",o:[["I follow up when I remember",1],["Someone follows up on a schedule",0],["A reminder goes out on its own",0],["Usually nothing",1]]},
+ {name:"Asking for the review",q:"The job is done and paid. Who asks for the review?",o:[["I do, when I think of it",1],["It goes out on its own",0],["Nobody, really",1]]}
+];
+if(!document.getElementById('walk'))return;
+const ans=[];let i=0;
+const $=id=>document.getElementById(id);
+const label=$('walk-label'),q=$('walk-q'),opts=$('walk-opts'),res=$('walk-result'),back=$('walk-back'),bars=[...document.querySelectorAll('.walk-track i')];
+function show(){
+  bars.forEach((b,k)=>b.classList.toggle('on',k<=i));
+  if(i<steps.length){
+    res.hidden=true;q.hidden=false;opts.hidden=false;
+    label.textContent='Follow one inquiry \u00b7 '+(i+1)+' of '+steps.length;
+    q.textContent=steps[i].q;
+    opts.innerHTML=steps[i].o.map((o,k)=>'<li><button type="button" data-k="'+k+'">'+o[0]+'</button></li>').join('');
+    back.hidden=i===0;back.textContent='Back';
+  }else{
+    q.hidden=true;opts.hidden=true;res.hidden=false;
+    const waits=steps.filter((s,k)=>s.o[ans[k]][1]);
+    const paid=steps[0].o[ans[0]][2]==='paid';
+    label.textContent='Where your inquiry waits';
+    let h;
+    if(waits.length===0){
+      h='<p class="walk-count">Nothing on this path waits on you.</p><p class="walk-note">That is rare. I would love to hear how you set it up.</p>';
+    }else{
+      h='<p class="walk-count">'+waits.length+' of '+steps.length+' steps still wait on you.</p><ul>'+waits.map(s=>'<li>'+s.name+'</li>').join('')+'</ul>';
+      h+='<p class="walk-note">'+(paid?'You already pay for help with the phone. ':'')+'At the sit-down we walk one real inquiry together, from the first call to the paid invoice, and build what carries these steps for you.</p>';
+    }
+    h+='<a class="button" href="https://calendly.com/robertszigeti/owners-behind-it" target="_blank" rel="noopener">Book a sit-down</a>';
+    res.innerHTML=h;
+    back.hidden=false;back.textContent='Start over';
+  }
+}
+opts.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;ans[i]=+b.dataset.k;i++;show();});
+back.addEventListener('click',()=>{if(i>=steps.length){ans.length=0;i=0;}else if(i>0){i--;}show();});
+show();
 })();
 </script>
 </body>
