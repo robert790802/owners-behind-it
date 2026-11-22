@@ -816,6 +816,9 @@
 
   .field:focus{border-color:var(--gold);outline:2px solid var(--gold)}
 
+  #tell-me .type-link{background:none;border:0;color:var(--gold-light);cursor:pointer;display:block;font:inherit;font-size:.92rem;margin:.9rem auto 0;padding:.2rem 0;text-decoration:underline;text-decoration-color:rgba(201,161,74,.6);text-underline-offset:4px}
+  #tell-me .type-link:hover{color:var(--cream)}
+  #tell-me textarea.field{min-height:8rem;resize:vertical;font-family:inherit}
   .stepdown-actions{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-top:.4rem}
 
   .btn-gold,.btn-ghost{
@@ -1800,6 +1803,41 @@
     </div>
   </div>
 </footer>
+
+<script>
+/* Typed Tell Me: same tell-your-story form as the recorder, with a message field and no audio. */
+(function(){
+  function $(i){return document.getElementById(i)}
+  function go(id){document.querySelectorAll('#tell-me .stage').forEach(function(x){x.classList.toggle('on',x.id===id)});}
+  function say(t){$('sd-msg').textContent=t;}
+  $('sd-type-open').addEventListener('click',function(){say('');go('sd-type');setTimeout(function(){$('sd-text').focus()},30)});
+  $('sd-talk').addEventListener('click',function(){say('');go('sd-idle')});
+  $('sd-tsend').addEventListener('click',function(){
+    var msg=$('sd-text').value.trim(),name=$('sd-tname').value.trim(),contact=$('sd-tcontact').value.trim();
+    if(!msg){say('Add a few words about your business.');return;}
+    if(!contact){say('Add a phone or email so I can get back to you.');return;}
+    var btn=this;btn.disabled=true;$('sd-talk').disabled=true;say('Sending...');
+    var fd=new FormData();
+    fd.append('form-name','tell-your-story');
+    fd.append('name',name);
+    fd.append('contact',contact);
+    fd.append('message',msg);
+    fd.append('duration','typed');
+    fd.append('source','ownersbehindit.com home, typed');
+    fd.append('page','ownersbehindit.com home');
+    fetch('/',{method:'POST',body:fd}).then(function(r){
+      if(!r.ok)throw new Error('bad status');
+      say('');
+      document.querySelector('#sd-done .stepdown-sent').textContent='Got it. I\u2019ll read it today.';
+      document.querySelector('#sd-done .stepdown-lead').textContent='Thanks for telling me about it. I\u2019ll read every word and get back to you myself.';
+      go('sd-done');
+    }).catch(function(){
+      say('That did not go through. Check your connection and tap Send again.');
+      btn.disabled=false;$('sd-talk').disabled=false;
+    });
+  });
+})();
+</script>
 
 <script>
 /* ------------------------------------------------------------------
