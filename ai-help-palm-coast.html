@@ -1476,9 +1476,9 @@
         <h2 id="faq-title">Before you buy an AI tool.</h2>
       </div>
       <div class="faq-tabs" role="tablist" aria-label="Question groups">
-        <button class="faq-tab is-on" type="button" role="tab" id="faq-tab-01" aria-controls="faq-panel-01" aria-selected="true"><span class="faq-num">01</span><span class="faq-tab-title">Getting started</span><span class="faq-count">4 questions</span></button>
-        <button class="faq-tab" type="button" role="tab" id="faq-tab-02" aria-controls="faq-panel-02" aria-selected="false"><span class="faq-num">02</span><span class="faq-tab-title">What AI can take off your plate</span><span class="faq-count">7 questions</span></button>
-        <button class="faq-tab" type="button" role="tab" id="faq-tab-03" aria-controls="faq-panel-03" aria-selected="false"><span class="faq-num">03</span><span class="faq-tab-title">Before you decide</span><span class="faq-count">5 questions</span></button>
+        <button class="button faq-tab is-on" type="button" role="tab" id="faq-tab-01" aria-controls="faq-panel-01" aria-selected="true">Getting started</button>
+        <button class="button faq-tab" type="button" role="tab" id="faq-tab-02" aria-controls="faq-panel-02" aria-selected="false">What AI can take off your plate</button>
+        <button class="button faq-tab" type="button" role="tab" id="faq-tab-03" aria-controls="faq-panel-03" aria-selected="false">Before you decide</button>
       </div>
       <div class="faq-panel" role="tabpanel" id="faq-panel-01" aria-labelledby="faq-tab-01">
           <details><summary>I don&rsquo;t know anything about AI. Where do I even start?</summary><p>That&rsquo;s where most owners are, and it&rsquo;s where I was too. Before I started using AI, I didn&rsquo;t even know how to ask or where to start. You don&rsquo;t need to know. Tap through the five questions at the top of this page: they show where it would help, in plain words. Then we sit down and figure out the rest together.</p></details>
@@ -1539,22 +1539,17 @@
   .ai-close p{margin:.8rem 0 1.8rem}
   .ai-close h2{text-wrap:balance;max-width:44rem}
 
-  .ai-faq .faq-group{margin-top:3rem}
-  .ai-faq .faq-group:first-of-type{margin-top:1rem}
-  .ai-faq .faq-group-title{align-items:baseline;color:var(--navy);display:flex;font-size:1.25rem;font-weight:600;gap:.9rem;margin:0 0 .6rem}
-  .ai-faq .faq-num{color:var(--gold);font-size:.8rem;font-weight:600;letter-spacing:.14em}
 
   .ai-faq .faq-head{text-align:center;margin-bottom:2.4rem}
   .ai-faq .faq-head .eyebrow{justify-content:center}
   .ai-faq .faq-head h2{margin:.6rem 0 0}
-  .ai-faq .faq-tabs{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr);margin-bottom:1.6rem}
-  .ai-faq .faq-tab{background:transparent;border:1px solid rgba(10,22,40,.14);border-top:2px solid rgba(10,22,40,.14);border-radius:2px;color:var(--navy);cursor:pointer;display:flex;flex-direction:column;font:inherit;gap:.35rem;padding:1.1rem 1.2rem 1.2rem;text-align:left;transition:border-color .2s,background .2s}
-  .ai-faq .faq-tab:hover{border-top-color:var(--gold)}
-  .ai-faq .faq-tab.is-on{background:#fff;border-top-color:var(--gold)}
-  .ai-faq .faq-tab:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-  .ai-faq .faq-tab-title{font-size:1.15rem;font-weight:600;line-height:1.3}
-  .ai-faq .faq-count{color:#6b6778;font-size:.85rem}
-  @media(max-width:760px){.ai-faq .faq-tabs{grid-template-columns:1fr;gap:.6rem}.ai-faq .faq-tab{flex-direction:row;align-items:baseline;gap:.8rem;padding:.9rem 1rem}.ai-faq .faq-count{margin-left:auto;white-space:nowrap}}
+  .ai-faq .faq-tabs{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-bottom:2rem}
+  .ai-faq .faq-tab{cursor:pointer;font-size:1rem}
+  .ai-faq .faq-tab::after{content:"\2192"}
+  .ai-faq .faq-tab.is-on{background:#b38d3f;border-color:#b38d3f}
+  .ai-faq .faq-tab.is-on::after{content:"\2193"}
+  .ai-faq .faq-tab.is-on:hover{transform:none}
+  @media(max-width:760px){.ai-faq .faq-tabs{flex-direction:column;align-items:stretch}.ai-faq .faq-tab{justify-content:space-between}}
 </style>
     <!-- /footer-questions -->
     <p class="footer-offer"><a href="/owner-session">The Owner Session</a> &nbsp;&middot;&nbsp; Ninety minutes about the business you built. $347</p>
