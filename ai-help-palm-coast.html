@@ -1471,17 +1471,22 @@
   </section>
   <section class="paper ai-faq" aria-labelledby="faq-title">
     <div class="shell"><div class="faqs">
-      <span class="eyebrow">AI questions owners ask</span>
-      <h2 id="faq-title">Before you buy an AI tool.</h2>
-      <div class="faq-group">
-        <h3 class="faq-group-title"><span class="faq-num">01</span>Getting started</h3>
+      <div class="faq-head">
+        <span class="eyebrow">AI questions owners ask</span>
+        <h2 id="faq-title">Before you buy an AI tool.</h2>
+      </div>
+      <div class="faq-tabs" role="tablist" aria-label="Question groups">
+        <button class="faq-tab is-on" type="button" role="tab" id="faq-tab-01" aria-controls="faq-panel-01" aria-selected="true"><span class="faq-num">01</span><span class="faq-tab-title">Getting started</span><span class="faq-count">4 questions</span></button>
+        <button class="faq-tab" type="button" role="tab" id="faq-tab-02" aria-controls="faq-panel-02" aria-selected="false"><span class="faq-num">02</span><span class="faq-tab-title">What AI can take off your plate</span><span class="faq-count">7 questions</span></button>
+        <button class="faq-tab" type="button" role="tab" id="faq-tab-03" aria-controls="faq-panel-03" aria-selected="false"><span class="faq-num">03</span><span class="faq-tab-title">Before you decide</span><span class="faq-count">5 questions</span></button>
+      </div>
+      <div class="faq-panel" role="tabpanel" id="faq-panel-01" aria-labelledby="faq-tab-01">
           <details><summary>I don&rsquo;t know anything about AI. Where do I even start?</summary><p>That&rsquo;s where most owners are, and it&rsquo;s where I was too. Before I started using AI, I didn&rsquo;t even know how to ask or where to start. You don&rsquo;t need to know. Tap through the five questions at the top of this page: they show where it would help, in plain words. Then we sit down and figure out the rest together.</p></details>
           <details><summary>How can I use AI in my business?</summary><p>Start with where the work waits on you, not with a tool. Tap through the five questions at the top of this page: every step that still waits on you is a place AI can take some of the work. At the sit-down we look at the rest of your business together and decide what&rsquo;s worth fixing first.</p></details>
           <details><summary>How do I set up AI for my business?</summary><p>You don&rsquo;t have to do it yourself. The most important part of bringing AI into your business is setting it up right, around how your business actually runs, not a tool dropped on top of it. That&rsquo;s why I start with a sit-down: if I don&rsquo;t know how you run your business, how would AI know? Two days later you get one page from me: what I heard, what I&rsquo;d build and what it costs. Then I set it up, show you how it works on your phone, and keep it running after launch.</p></details>
           <details><summary>Is there someone in Palm Coast who can help me use AI in my business?</summary><p>Yes. I&rsquo;m in Palm Coast, and I sit down with you in person first. We find where the work gets stuck, then I build the tools that carry it, using AI where it actually helps.</p></details>
       </div>
-      <div class="faq-group">
-        <h3 class="faq-group-title"><span class="faq-num">02</span>What AI can take off your plate</h3>
+      <div class="faq-panel" role="tabpanel" id="faq-panel-02" aria-labelledby="faq-tab-02" hidden>
           <details><summary>How can AI help my business?</summary><p>On the work you repeat every week: every inquiry caught in one place and sorted by what&rsquo;s urgent, follow-up that goes out on its own after the call, the quote and the finished job, review requests when the customer is happiest, and online booking with reminders.</p></details>
           <details><summary>How can AI help with my job estimates?</summary><p>It starts before the estimate. Your site asks a few useful questions up front, like what they need, details and photos, so you&rsquo;re not driving out for a free look. You send a clean estimate from your phone, and when an estimate sits, a reminder goes out on its own, so the customer isn&rsquo;t the one chasing.</p></details>
           <details><summary>How can I get back to my customers faster using AI?</summary><p>Every inquiry lands in one place, sorted by what&rsquo;s urgent, instead of scattered across voicemail, texts and email. The customer gets an automatic reply right away saying you got it and when you&rsquo;ll reach out, so they know they weren&rsquo;t ignored, even when you&rsquo;re on a job.</p></details>
@@ -1490,8 +1495,7 @@
           <details><summary>Can AI answer customer questions on my website?</summary><p>Yes. Your site can have a helper that answers customers&rsquo; questions any time, from your own approved answers only. When it doesn&rsquo;t know, it says so instead of guessing, and every question is saved so you see what customers ask. The one on my homepage works exactly that way. <a href="/">Try Quick answer on the homepage</a>.</p></details>
           <details><summary>Can my business actually make more money using AI?</summary><p>Yes. AI can definitely help you find where you&rsquo;re losing money. When every call, quote and invoice lands in one place, you can see what slipped: the call nobody returned, the quote that sat, the invoice still unpaid. Then it helps you stop it. The sit-down is where we find yours.</p></details>
       </div>
-      <div class="faq-group">
-        <h3 class="faq-group-title"><span class="faq-num">03</span>Before you decide</h3>
+      <div class="faq-panel" role="tabpanel" id="faq-panel-03" aria-labelledby="faq-tab-03" hidden>
           <details><summary>Can AI run my business for me?</summary><p>No, and you wouldn&rsquo;t want it to. Your customers chose you. What AI can do is carry the repeat work around you, so the calls, quotes and follow-ups stop waiting on you and you&rsquo;re free for the part only you can do.</p></details>
           <details><summary>Why not just buy an AI tool myself?</summary><p>You can. But every business is different, and there&rsquo;s no generic AI that fits them all. It has to be set up for how your business actually runs, and kept running. A tool can&rsquo;t sit down with you and learn your business. That part is human, and it&rsquo;s the part I care about most.</p></details>
           <details><summary>Do I have to learn new software?</summary><p>No. I set everything up, show you how it works on your phone, and keep it running after launch. You don&rsquo;t need to learn a new program.</p></details>
@@ -1539,6 +1543,18 @@
   .ai-faq .faq-group:first-of-type{margin-top:1rem}
   .ai-faq .faq-group-title{align-items:baseline;color:var(--navy);display:flex;font-size:1.25rem;font-weight:600;gap:.9rem;margin:0 0 .6rem}
   .ai-faq .faq-num{color:var(--gold);font-size:.8rem;font-weight:600;letter-spacing:.14em}
+
+  .ai-faq .faq-head{text-align:center;margin-bottom:2.4rem}
+  .ai-faq .faq-head .eyebrow{justify-content:center}
+  .ai-faq .faq-head h2{margin:.6rem 0 0}
+  .ai-faq .faq-tabs{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr);margin-bottom:1.6rem}
+  .ai-faq .faq-tab{background:transparent;border:1px solid rgba(10,22,40,.14);border-top:2px solid rgba(10,22,40,.14);border-radius:2px;color:var(--navy);cursor:pointer;display:flex;flex-direction:column;font:inherit;gap:.35rem;padding:1.1rem 1.2rem 1.2rem;text-align:left;transition:border-color .2s,background .2s}
+  .ai-faq .faq-tab:hover{border-top-color:var(--gold)}
+  .ai-faq .faq-tab.is-on{background:#fff;border-top-color:var(--gold)}
+  .ai-faq .faq-tab:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .ai-faq .faq-tab-title{font-size:1.15rem;font-weight:600;line-height:1.3}
+  .ai-faq .faq-count{color:#6b6778;font-size:.85rem}
+  @media(max-width:760px){.ai-faq .faq-tabs{grid-template-columns:1fr;gap:.6rem}.ai-faq .faq-tab{flex-direction:row;align-items:baseline;gap:.8rem;padding:.9rem 1rem}.ai-faq .faq-count{margin-left:auto;white-space:nowrap}}
 </style>
     <!-- /footer-questions -->
     <p class="footer-offer"><a href="/owner-session">The Owner Session</a> &nbsp;&middot;&nbsp; Ninety minutes about the business you built. $347</p>
@@ -1600,6 +1616,15 @@ show();
 lockHeight();
 let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(lockHeight,150);});
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(lockHeight);
+})();
+</script>
+<script>
+/* AI help page: question group tabs */
+(function(){
+  const tabs=[...document.querySelectorAll('.ai-faq .faq-tab')];
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){const on=x===t;x.classList.toggle('is-on',on);x.setAttribute('aria-selected',on?'true':'false');document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});
+  });});
 })();
 </script>
 </body>
