@@ -1559,6 +1559,10 @@
   .ai-faq .faq-grid details:nth-last-child(-n+2){border-bottom:1px solid rgba(10,22,40,.14)}
   .ai-faq-navy .faq-grid details:nth-last-child(-n+2){border-bottom-color:rgba(245,239,225,.16)}
   @media(max-width:760px){.ai-faq .faq-grid{grid-template-columns:1fr}.ai-faq .faq-grid details:nth-last-child(2){border-bottom:0}.ai-faq .faq-grid details:last-child{border-bottom:1px solid rgba(10,22,40,.14)}.ai-faq-navy .faq-grid details:last-child{border-bottom-color:rgba(245,239,225,.16)}}
+
+  .ai-faq .faq-grid details:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 1.5rem)}
+  .ai-faq .faq-grid details:nth-last-child(2):nth-child(even){border-bottom:0}
+  @media(max-width:760px){.ai-faq .faq-grid details:last-child:nth-child(odd){width:100%}}
 </style>
     <!-- /footer-questions -->
     <p class="footer-offer"><a href="/owner-session">The Owner Session</a> &nbsp;&middot;&nbsp; Ninety minutes about the business you built. $347</p>
