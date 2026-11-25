@@ -1,20 +1,24 @@
 # Owners Behind It
 
-> Websites for owner-led businesses in Palm Coast, St. Augustine and North Florida.
-> The work starts with a sit-down conversation with the owner. The website is built
-> from what that conversation surfaces.
+> Could your business run for a week without you? Robert T. Szigeti sits down with
+> owner-led businesses in Palm Coast, St. Augustine and North Florida, finds where the
+> work gets stuck, and builds the website, automation and AI that carry it.
 
-Owned and operated by Robert T. Szigeti under RS Global Enterprises LLC.
+Owned and operated by Robert T. Szigeti in Palm Coast, Florida.
 Contact: robert@ownersbehindit.com · 386-307-3179 · https://ownersbehindit.com
 
 ## What this business does
 
-Most owner-led businesses have proof they have stopped noticing, because it feels
-ordinary to them. That is usually the best thing about them. Robert sits down with
-the owner, finds it, and builds the place where it can be seen.
+Many owners hired help, yet every inquiry and quote still waits on them. The work
+starts with a sit-down: the owner walks Robert through how the business actually runs,
+and together they find where the work gets stuck.
 
-Every site is custom. Copy comes from the owner's own words, not from marketing
-templates. Projects begin at $3,000 and are quoted after a conversation.
+Then he builds what carries it: a website in the owner's own words, every call and
+inquiry caught in one place, follow-up and review requests that go out on their own,
+and AI set up where it actually helps, such as quotes, booking and invoices. Every
+business is different, so nothing is generic, and it is not set up on day one and left.
+The setup is kept up as the business grows or changes. Websites begin at $3,000 and
+are quoted after a conversation.
 
 ## What it costs
 
@@ -26,7 +30,8 @@ templates. Projects begin at $3,000 and are quoted after a conversation.
   deposit before work begins, balance when the site goes live.
 - Care plans, from $99 a month, quoted after a conversation. The domain, the site
   and the Google Business Profile are in the owner's name from the first day. If
-  the plan stops, the owner keeps all of it.
+  the plan stops, the owner keeps all of it. AI and automation setups are kept up
+  the same way as the business grows or changes; what that needs is set at the sit-down.
 
 ## Services
 
@@ -36,10 +41,12 @@ templates. Projects begin at $3,000 and are quoted after a conversation.
 - Small business website design
 - Website redesign for businesses that outgrew their current site
 - Google Business Profile setup and review
-- Business automation setup: new inquiries captured and sorted, follow-up, reminders and review requests
+- AI consultation: a sit-down about how the business runs, then where AI would actually help (calls, quotes, follow-up, booking, invoices)
+- AI and business automation setup: new inquiries captured and sorted, quotes, follow-up, booking reminders, invoices and review requests
 - Customer follow-up and review requests sent automatically after a call, quote or finished job
 - Scheduling and booking setup: online booking tied to the calendar, with automatic reminders
 - Custom web tools, such as a spreadsheet rebuilt to work on a phone
+- Search engine optimization as part of every build: customer questions answered in plain words, the site sent to Google and Bing, and the Google profile matching it
 
 ## Service area
 
@@ -58,6 +65,8 @@ Flagler County and St. Johns County, Florida. Service-area business, no walk-in 
 
 - [Home](https://ownersbehindit.com/): the approach, a real result, and how to book a sit-down
 - [The Owner Session](https://ownersbehindit.com/owner-session): the $347 ninety minute working session
+- [Need help with AI?](https://ownersbehindit.com/ai-help-palm-coast): owners' common AI questions answered in plain words, from where to start to estimates, booking and invoices
+- [Could your business run for a week without you?](https://ownersbehindit.com/bottleneck): five questions about one customer, from the first call to the review
 - [Ohlson Photography, before and after](https://ownersbehindit.com/ohlson-before-after): a founding client build, 23 pages with a full Spanish version
 - [Why isn't my business showing up on Google?](https://ownersbehindit.com/not-showing-up-on-google): the six reasons a real business goes missing
 - [Beyond the site](https://ownersbehindit.com/tools.html): the part that starts where the website stops, including spreadsheets rebuilt as tools that work on a phone
